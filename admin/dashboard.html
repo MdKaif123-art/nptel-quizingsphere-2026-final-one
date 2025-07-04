@@ -191,6 +191,35 @@
     .admin-additional-question-form button:hover {
       background: linear-gradient(90deg, #7209b7, #a259ff);
     }
+    /* Responsive Bulk Upload Section */
+    @media (max-width: 600px) {
+      .admin-additional-questions-section > div[style*='background:#3a0ca3'] {
+        padding: 1em 0.3em !important;
+        border-radius: 10px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+      #bulk-json {
+        font-size: 1em !important;
+        min-width: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 0.8em 0.7em !important;
+        border-radius: 7px !important;
+        resize: vertical !important;
+        min-height: 120px !important;
+        max-height: 300px !important;
+      }
+      #bulk-upload-btn {
+        font-size: 1em !important;
+        padding: 0.9em 0 !important;
+        border-radius: 7px !important;
+        width: 100% !important;
+      }
+      .admin-additional-questions-section h3 {
+        font-size: 1.1em !important;
+      }
+    }
   </style>
 </head>
 <body>

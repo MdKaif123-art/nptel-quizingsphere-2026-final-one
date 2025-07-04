@@ -29,7 +29,7 @@
       letter-spacing: 2px;
     }
     .main-box {
-      background: rgba(80, 40, 180, 0.18);
+      background: rgba(30,0,60,0.15);
       border-radius: 32px;
       box-shadow: 0 4px 32px #3a0ca355;
       padding: 2.5em 2em 2em 2em;
@@ -38,6 +38,7 @@
       width: 90vw;
       text-align: center;
       position: relative;
+      z-index: 2;
     }
     .start-btn {
       background: linear-gradient(45deg, #7209b7, #560bad);
@@ -136,9 +137,18 @@
       .questions-title { font-size: 1.3rem; }
       .question-block { padding: 1em 0.5em; }
     }
+    #tsparticles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+    }
   </style>
 </head>
 <body>
+  <div id="tsparticles"></div>
   <div class="logo">QuizingSphere</div>
   <div class="main-box">
     <div id="week-select-section">
@@ -166,7 +176,6 @@
       <a href="practice.html">Go to Week Selection</a>
     </div>
   </div>
-  <div id="tsparticles"></div>
   <script src="questions.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
   <script>
