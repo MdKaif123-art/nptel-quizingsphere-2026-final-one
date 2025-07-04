@@ -108,6 +108,27 @@ overflow-y: auto;
     .back-link:hover {
       color: #ff6ec7;
     }
+
+    @media (max-width: 600px) {
+      .logo {
+        font-size: 2rem;
+        margin-bottom: 30px;
+      }
+      select, input[type="checkbox"] {
+        font-size: 0.95rem;
+        padding: 10px;
+      }
+      .start-btn {
+        font-size: 1.1rem;
+        padding: 0.7rem 1.2rem;
+      }
+      label[for="week-select"], label {
+        font-size: 1rem;
+      }
+      body, html {
+        padding: 10px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -147,11 +168,11 @@ overflow-y: auto;
 
     // Start quiz redirect
     function startQuiz() {
-      const week = document.getElementById("week-select").value;
+      let week = document.getElementById("week-select").value;
       const randomizeQuestions = document.getElementById("randomize-questions").checked ? "yes" : "no";
       const randomizeAnswers = document.getElementById("randomize-answers").checked ? "yes" : "no";
-
       if (week) {
+        if (week === 'All Weeks') week = 'all';
         const quizURL = `quiz.html?week=${week}&randomizeQuestions=${randomizeQuestions}&randomizeAnswers=${randomizeAnswers}`;
         window.location.href = quizURL;
       } else {

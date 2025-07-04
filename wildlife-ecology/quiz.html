@@ -67,6 +67,34 @@
     .back-link { display: block; margin-top: 50px; font-size: 1rem; color: #e0aaff; text-decoration: none; }
     .back-link:hover { color: #f15bb5; }
     .logo { font-size: 3rem; font-weight: 700; color: #c77dff; margin-bottom: 50px; margin-left: 50px; }
+    @media (max-width: 600px) {
+      .quiz-container {
+        padding: 10px;
+        border-radius: 10px;
+      }
+      .logo {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        margin-left: 0;
+      }
+      h1, .question {
+        font-size: 1.1rem;
+      }
+      .answers label {
+        font-size: 0.95rem;
+        padding: 8px;
+      }
+      .navigation-btns button, #next-week-btn {
+        font-size: 0.95rem;
+        padding: 8px 12px;
+      }
+      .score {
+        font-size: 1rem;
+      }
+      body, html {
+        padding: 5px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -115,11 +143,19 @@
       const results = regex.exec(window.location.search);
       return results === null ? null : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
-    const week = getUrlParameter('week');
+    let week = getUrlParameter('week');
     const randomizeQuestions = getUrlParameter('randomizeQuestions') === 'yes';
     const randomizeAnswers = getUrlParameter('randomizeAnswers') === 'yes';
-    document.getElementById('week-title').textContent = week ? week.charAt(0).toUpperCase() + week.slice(1).replace(/\d+/, m => ' ' + m) : '';
-    let questions = allQuestions[week] ? [...allQuestions[week]] : [];
+    let questions;
+    if (week === 'all') {
+      questions = Object.keys(allQuestions)
+        .filter(w => Array.isArray(allQuestions[w]) && allQuestions[w].length > 0)
+        .reduce((arr, w) => arr.concat(allQuestions[w]), []);
+      document.getElementById('week-title').textContent = 'All Weeks';
+    } else {
+      document.getElementById('week-title').textContent = week ? week.charAt(0).toUpperCase() + week.slice(1).replace(/\d+/, m => ' ' + m) : '';
+      questions = allQuestions[week] ? [...allQuestions[week]] : [];
+    }
     function shuffleArray(arr) {
       for (let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -139,7 +175,8 @@
       }
       document.getElementById('question-text').textContent = questions[currentQuestionIndex].question;
       const answersHtml = questions[currentQuestionIndex].answers.map((ans, i) => {
-        return `<label id=\"answer-label-${i}\"><input type=\"radio\" name=\"answer\" value=\"${ans}\" ${selectedAnswers[currentQuestionIndex] === ans ? 'checked' : ''} onchange=\"selectAnswer('${ans}')\">${ans}</label>`;
+        const safeAns = ans.replace(/'/g, "\\'");
+        return `<label id="answer-label-${i}"><input type="radio" name="answer" value="${ans}" ${selectedAnswers[currentQuestionIndex] === ans ? 'checked' : ''} onchange="selectAnswer('${safeAns}')">${ans}</label>`;
       }).join('');
       document.getElementById('answer-options').innerHTML = answersHtml;
       document.getElementById('prev-btn').style.display = currentQuestionIndex === 0 ? 'none' : '';
@@ -172,14 +209,16 @@
       // Show Next or Submit button
       if (currentQuestionIndex < questions.length - 1) {
         document.getElementById('next-btn').style.display = '';
-        // Auto-advance after 3 seconds
+        if (autoNextTimer) clearTimeout(autoNextTimer);
         autoNextTimer = setTimeout(() => {
-          window.nextQuestion();
+          if (answered) {
+            answered = false;
+            window.nextQuestion();
+          }
         }, 1000);
       } else {
         document.getElementById('submit-btn').style.display = '';
       }
-      // Always show submit if last question is answered
       if (currentQuestionIndex === questions.length - 1) {
         document.getElementById('submit-btn').style.display = '';
       }
