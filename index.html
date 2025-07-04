@@ -423,6 +423,62 @@
           transform: translateY(-50%);
           z-index: 200;
         }
+        .google-me-container {
+            margin-top: 2em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 30;
+        }
+        .google-me-btn {
+            background: linear-gradient(90deg, #a259ff 0%, #f15bb5 100%);
+            color: #fff;
+            font-size: 1.15em;
+            font-weight: 700;
+            border: none;
+            border-radius: 14px;
+            padding: 0.9em 2.2em;
+            box-shadow: 0 2px 16px #a259ff55;
+            cursor: pointer;
+            margin-bottom: 0.7em;
+            transition: background 0.2s, transform 0.18s, box-shadow 0.2s;
+            outline: none;
+            z-index: 31;
+        }
+        .google-me-btn:hover, .google-me-btn:focus {
+            background: linear-gradient(90deg, #f15bb5 0%, #a259ff 100%);
+            transform: scale(1.05);
+            box-shadow: 0 4px 32px #f15bb599;
+        }
+        .google-me-details {
+            display: none;
+            background: rgba(162, 89, 255, 0.18);
+            border: 2px solid #a259ff;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1.08em;
+            font-weight: 500;
+            padding: 1.1em 1.2em;
+            margin-top: 0.2em;
+            box-shadow: 0 2px 16px #a259ff33;
+            text-align: center;
+            animation: fadeIn 0.7s;
+            z-index: 32;
+        }
+        .google-me-details a {
+            color: #fff;
+            background: #a259ff;
+            padding: 0.18em 0.8em;
+            border-radius: 8px;
+            text-decoration: underline;
+            font-weight: 700;
+            transition: background 0.2s, color 0.2s;
+            margin-left: 0.3em;
+        }
+        .google-me-details a:hover {
+            background: #f15bb5;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -467,6 +523,14 @@
             <li><a class="course-link" href="../conservation-geography/index.html">Conservation Geography</a></li>
             <li><a class="course-link" href="../wildlife-ecology/index.html">Wildlife Ecology</a></li>
         </ul>
+        <div class="google-me-container">
+            <button class="google-me-btn" onclick="document.getElementById('google-me-details').style.display = (document.getElementById('google-me-details').style.display === 'block' ? 'none' : 'block')">🔍 Google Me!</button>
+            <div class="google-me-details" id="google-me-details">
+                Curious to know more about my journey, projects, and achievements? <br/>
+                <strong>Click below to see what Google says about me!</strong><br/>
+                <a href="https://www.google.com/search?q=mohammed+kaif+k+vit+vitmisqube&sca_esv=417d38d31a7a82ae&sxsrf=AE3TifOTF0w_vXlvpcz4lnptHv3OryU2ww%3A1750745754362&ei=mkJaaNDxFYGZnesPsJ7HGA&oq=mohammed+kaif+k+vit+vitmisqube&gs_lp=EhNtb2JpbGUtZ3dzLXdpei1zZXJwIh5tb2hhbW1lZCBrYWlmIGsgdml0IHZpdG1pc3F1YmUyChAjGLADGCcYywQyChAjGLADGCcYywQyCBAAGLADGO8FMggQABiwAxjvBTILEAAYgAQYsAMYogQyCBAAGLADGO8FMgsQABiABBiwAxiiBEijhwJQAFgAcAJ4AJABAJgBvgGgAb4BqgEDMC4xuAEDyAEAmAICoAIUmAMAiAYBkAYHkgcBMqAH2AmyBwC4BwDCBwUyLTEuMcgHEw&sclient=mobile-gws-wiz-serp" target="_blank">See my Google results</a>
+            </div>
+        </div>
     </div>
      <!-- tsParticles Script -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>

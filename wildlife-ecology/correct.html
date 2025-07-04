@@ -171,21 +171,21 @@
 
   <script src="questions.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
-  <script>
+<script>
     tsParticles.load("tsparticles", {
       fullScreen: { enable: false },
       background: { color: "transparent" },
-      particles: {
+    particles: {
         number: { value: 60, density: { enable: true, area: 800 } },
-        color: { value: "#ffffff" },
+      color: { value: "#ffffff" },
         shape: { type: "circle" },
         opacity: { value: 0.5, random: true },
         size: { value: 3, random: true },
         move: { enable: true, speed: 1, direction: "none", outModes: "bounce" },
         links: { enable: true, distance: 100, color: "#ffffff", opacity: 0.2, width: 1 }
-      },
-      interactivity: {
-        events: {
+    },
+    interactivity: {
+      events: {
           onHover: { enable: true, mode: "repulse" },
           onClick: { enable: true, mode: "push" }
         },
@@ -212,11 +212,11 @@
             `<span class='correct'>Correct Answer: ${q.correctAnswer}</span>`;
           list.appendChild(block);
         });
-      } else {
+        } else {
         title.style.display = '';
         title.textContent = 'No questions found for this week.';
       }
     };
-  </script>
+</script>
 </body>
 </html>

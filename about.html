@@ -320,15 +320,20 @@
             height: 140px;
             border-radius: 50%;
             object-fit: cover;
+            object-position: center;
             border: 4px solid #a259ff;
             margin-bottom: 1.2em;
             box-shadow: 0 2px 16px #a259ff55;
+            display: block;
         }
         .profile-name {
             font-size: 2em;
             font-weight: 700;
             margin-bottom: 0.3em;
             color: #fff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         .profile-title {
             font-size: 1.1em;
@@ -350,18 +355,31 @@
             background: rgba(162, 89, 255, 0.13);
             border: 2px solid #a259ff;
             color: #fff;
-            font-size: 1.1em;
-            font-weight: 600;
-            border-radius: 12px;
-            padding: 0.7em 0;
+            font-size: 1.18em;
+            font-weight: 700;
+            border-radius: 16px;
+            padding: 1em 0;
             text-decoration: none;
-            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-            box-shadow: 0 2px 12px #a259ff22;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.18s;
+            box-shadow: 0 2px 16px #a259ff55, 0 0 0 0 #a259ff;
+            z-index: 20;
+            position: relative;
+            outline: none;
+            cursor: pointer;
+            margin-bottom: 0.5em;
         }
-        .profile-link-btn:hover {
+        .profile-link-btn:focus, .profile-link-btn:hover {
             background: #a259ff;
             color: #fff;
-            box-shadow: 0 4px 24px #a259ff55;
+            box-shadow: 0 4px 32px #a259ff99, 0 0 12px 4px #f15bb5;
+            transform: scale(1.04) translateY(-2px);
+            text-decoration: underline;
+        }
+        .profile-link-btn:active {
+            background: #f15bb5;
+            color: #fff;
+            box-shadow: 0 2px 8px #a259ff55;
+            transform: scale(0.98);
         }
         .profile-link-btn i {
             font-size: 1.2em;
@@ -412,6 +430,37 @@
             margin-top: 1.7em;
             margin-bottom: 0.5em;
         }
+        .about-highlight {
+            background: rgba(162, 89, 255, 0.18);
+            border: 2px solid #a259ff;
+            border-radius: 16px;
+            padding: 1.1em 1em;
+            margin-bottom: 1.5em;
+            color: #fff;
+            font-size: 1.13em;
+            font-weight: 600;
+            box-shadow: 0 2px 16px #a259ff33;
+            text-align: center;
+        }
+        .about-highlight a {
+            color: #fff;
+            background: #a259ff;
+            padding: 0.25em 1.1em;
+            border-radius: 10px;
+            text-decoration: underline;
+            font-weight: 700;
+            transition: background 0.2s, color 0.2s;
+            z-index: 10;
+            position: relative;
+            box-shadow: 0 2px 8px #a259ff55;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .about-highlight a:hover {
+            background: #f15bb5;
+            color: #fff;
+            text-decoration: underline;
+        }
         @media (max-width: 900px) {
             .about-container {
                 flex-direction: column;
@@ -420,6 +469,62 @@
             .about-content {
                 max-width: 100%;
             }
+        }
+        .google-me-container {
+            margin-top: 1.2em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 30;
+        }
+        .google-me-btn {
+            background: linear-gradient(90deg, #a259ff 0%, #f15bb5 100%);
+            color: #fff;
+            font-size: 1.15em;
+            font-weight: 700;
+            border: none;
+            border-radius: 14px;
+            padding: 0.9em 2.2em;
+            box-shadow: 0 2px 16px #a259ff55;
+            cursor: pointer;
+            margin-bottom: 0.7em;
+            transition: background 0.2s, transform 0.18s, box-shadow 0.2s;
+            outline: none;
+            z-index: 31;
+        }
+        .google-me-btn:hover, .google-me-btn:focus {
+            background: linear-gradient(90deg, #f15bb5 0%, #a259ff 100%);
+            transform: scale(1.05);
+            box-shadow: 0 4px 32px #f15bb599;
+        }
+        .google-me-details {
+            display: none;
+            background: rgba(162, 89, 255, 0.18);
+            border: 2px solid #a259ff;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1.08em;
+            font-weight: 500;
+            padding: 1.1em 1.2em;
+            margin-top: 0.2em;
+            box-shadow: 0 2px 16px #a259ff33;
+            text-align: center;
+            animation: fadeIn 0.7s;
+            z-index: 32;
+        }
+        .google-me-details a {
+            color: #fff;
+            background: #a259ff;
+            padding: 0.18em 0.8em;
+            border-radius: 8px;
+            text-decoration: underline;
+            font-weight: 700;
+            transition: background 0.2s, color 0.2s;
+            margin-left: 0.3em;
+        }
+        .google-me-details a:hover {
+            background: #f15bb5;
+            color: #fff;
         }
     </style>
 </head>
@@ -461,12 +566,23 @@
             <div class="profile-name">Mohammed Kaif K</div>
             <div class="profile-title">Creator & Developer</div>
             <div class="profile-links">
-                <a class="profile-link-btn" href="#" target="_blank"><i class="fa fa-linkedin"></i> LinkedIn</a>
-                <a class="profile-link-btn" href="#" target="_blank"><i class="fa fa-github"></i> GitHub</a>
-                <a class="profile-link-btn" href="#" target="_blank"><i class="fa fa-globe"></i> Portfolio</a>
+                <a class="profile-link-btn" href="https://www.linkedin.com/in/k-mohammed-kaif-62510728b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fa fa-linkedin"></i> LinkedIn</a>
+                <a class="profile-link-btn" href="https://github.com/MdKaif123-art/" target="_blank"><i class="fa fa-github"></i> GitHub</a>
+                <a class="profile-link-btn" href="https://mohammedkaifk-portfolio.netlify.app" target="_blank"><i class="fa fa-globe"></i> Portfolio</a>
+            </div>
+            <div class="google-me-container">
+                <button class="google-me-btn" onclick="document.getElementById('google-me-details').style.display = (document.getElementById('google-me-details').style.display === 'block' ? 'none' : 'block')">🔍 Google Me!</button>
+                <div class="google-me-details" id="google-me-details">
+                    Curious to know more about my journey, projects, and achievements? <br/>
+                    <strong>Click below to see what Google says about me!</strong><br/>
+                    <a href="https://www.google.com/search?q=mohammed+kaif+k+vit+vitmisqube&sca_esv=417d38d31a7a82ae&sxsrf=AE3TifOTF0w_vXlvpcz4lnptHv3OryU2ww%3A1750745754362&ei=mkJaaNDxFYGZnesPsJ7HGA&oq=mohammed+kaif+k+vit+vitmisqube&gs_lp=EhNtb2JpbGUtZ3dzLXdpei1zZXJwIh5tb2hhbW1lZCBrYWlmIGsgdml0IHZpdG1pc3F1YmUyChAjGLADGCcYywQyChAjGLADGCcYywQyCBAAGLADGO8FMggQABiwAxjvBTILEAAYgAQYsAMYogQyCBAAGLADGO8FMgsQABiABBiwAxiiBEijhwJQAFgAcAJ4AJABAJgBvgGgAb4BqgEDMC4xuAEDyAEAmAICoAIUmAMAiAYBkAYHkgcBMqAH2AmyBwC4BwDCBwUyLTEuMcgHEw&sclient=mobile-gws-wiz-serp" target="_blank">See my Google results</a>
+                </div>
             </div>
         </div>
         <div class="about-content">
+            <div class="about-highlight">
+                I have created a lot of projects, one of which is <a href="https://vitmisqube.netlify.app" target="_blank">vitmisqube</a>. Last time, I also helped many students score above 90 in the NPTEL Forecast Management course.
+            </div>
             <h2>My Vision</h2>
             <p>QuizingSphere was born from my passion for education and technology. As a student at VIT University, I recognized the need for an engaging platform that makes learning more interactive and effective. This platform represents my commitment to helping fellow students master various subjects through carefully crafted quizzes.</p>
             <div class="about-feature">

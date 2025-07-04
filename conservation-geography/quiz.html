@@ -178,8 +178,12 @@
         // Auto-advance after 3 seconds
         autoNextTimer = setTimeout(() => {
           window.nextQuestion();
-        }, 1000/2);
+        }, 1000);
       } else {
+        document.getElementById('submit-btn').style.display = '';
+      }
+      // Always show submit if last question is answered
+      if (currentQuestionIndex === questions.length - 1) {
         document.getElementById('submit-btn').style.display = '';
       }
     };

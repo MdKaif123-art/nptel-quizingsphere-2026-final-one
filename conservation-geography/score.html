@@ -312,9 +312,8 @@
       if (match) {
         const currentNum = parseInt(match[1]);
         let nextWeek = null;
-        // Find the next week up to week12 that exists in allQuestions
         for (let i = currentNum + 1; i <= 12; i++) {
-          if (typeof allQuestions !== 'undefined' && allQuestions['week' + i]) {
+          if (typeof allQuestions !== 'undefined' && allQuestions['week' + i] && allQuestions['week' + i].length > 0) {
             nextWeek = 'week' + i;
             break;
           }

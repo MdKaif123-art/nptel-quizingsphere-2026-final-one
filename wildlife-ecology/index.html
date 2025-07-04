@@ -510,6 +510,22 @@
   </style>
   <!-- Font Awesome for bell icon -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Firebase App (compat) -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBWhXrXPNYFn9_z8Laww-0w5kkoHGLNQSU",
+      authDomain: "quizingsphere1.firebaseapp.com",
+      projectId: "quizingsphere1",
+      storageBucket: "quizingsphere1.firebasestorage.app",
+      messagingSenderId: "168499632394",
+      appId: "1:168499632394:web:a29e3617fc1c44cc0e42f3",
+      measurementId: "G-ZP20NK72SF"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
 </head>
 <body>
   <nav class="navbar">
@@ -527,10 +543,11 @@
       <span></span>
     </button>
   </nav>
-  <div style="width:100%; display:flex; justify-content:flex-end; position:relative; z-index:1001;">
+  <div style="width:100%; display:flex; flex-direction:column; align-items:flex-end; position:relative; z-index:1001;">
     <a href="notifications.html" id="notif-bell-link" class="notif-bell-btn" aria-label="Show Notifications" style="text-decoration:none;">
       <i class="fa fa-bell"></i>
     </a>
+    <div id="latest-notif-box" style="background:rgba(162,89,255,0.18);padding:4px 12px;border-radius:10px;font-size:0.97em;color:#e0aaff;margin-top:4px;margin-right:8px;min-width:120px;text-align:right;">Loading...</div>
   </div>
   <div class="sidebar-overlay" id="sidebar-overlay" onclick="closeSidebar()"></div>
   <div class="sidebar" id="sidebar">
@@ -656,6 +673,40 @@
       `;
       list.appendChild(item);
     });
+  }
+  </script>
+  <script>
+  const box = document.getElementById('latest-notif-box');
+  if (box) box.textContent = 'Loading...';
+
+  if (window.firebase && firebase.firestore && box) {
+    firebase.firestore()
+      .collection('notifications')
+      .doc('wildlife-ecology')
+      .collection('notifications')
+      .orderBy('date', 'desc')
+      .limit(1)
+      .get()
+      .then(snapshot => {
+        if (!snapshot.empty) {
+          const notif = snapshot.docs[0].data();
+          let date;
+          if (notif.date) {
+            date = new Date(notif.date);
+          } else {
+            date = new Date();
+          }
+          box.textContent = 'Latest: ' + date.toLocaleString();
+        } else {
+          box.textContent = 'No notifications yet';
+        }
+      })
+      .catch((err) => {
+        console.error('Firestore error:', err);
+        box.textContent = 'Error loading';
+      });
+  } else if (box) {
+    box.textContent = 'Firebase not loaded';
   }
   </script>
 </body>
