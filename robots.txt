@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://quizing-sphere.netlify.app/sitemap.xml 
