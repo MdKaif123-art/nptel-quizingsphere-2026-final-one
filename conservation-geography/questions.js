@@ -48,7 +48,7 @@ const allQuestions = {
       {
         question: "The movement of lions across the Gir landscape is an example of",
         answers: ["diffusion", "secular dispersal", "jump dispersal", "drifting"],
-        correctAnswer: "secular dispersal"
+        correctAnswer: "diffusion"
       }
     ],
     week2: [
@@ -156,7 +156,56 @@ const allQuestions = {
       }
     ],
     week4: [
-      // Note: Assignment 4 is not present in the document, so this week is empty
+      {
+        question: "Which of these is the densest layer?",
+        answers: ["Troposphere", "Stratosphere", "Mesosphere", "Thermosphere"],
+        correctAnswer: "Troposphere"
+      },
+      {
+        question: "The government came up with a regulation that incandescent bulbs be replaced by LED bulbs, so that electricity consumption and release of carbon dioxide from power plants is reduced. In the context of climate change, such an action would be called",
+        answers: ["(a) adaptation", "(b) mitigation", "(c) deceleration", "(d) maladaptation"],
+        correctAnswer: "(b) mitigation"
+      },
+      {
+        question: "Which of these is not a climatic forcing for Earth?",
+        answers: ["changes in plate tectonics", "changes in Earth's orbit", "changes in Sun's orbit", "changes in Sun's strength"],
+        correctAnswer: "changes in Sun's orbit"
+      },
+      {
+        question: "Which of these contains the most water vapour and aerosols?",
+        answers: ["Troposphere", "Stratosphere", "Mesosphere", "Thermosphere"],
+        correctAnswer: "Troposphere"
+      },
+      {
+        question: "Which of these is true about Coriolis force on the Earth?",
+        answers: ["It is maximum at poles and zero at Equator.", "It is zero at poles and maximum at Equator.", "In the Northern hemisphere, it deflects winds towards left.", "In the Southern hemisphere, it deflects winds towards right."],
+        correctAnswer: "In the Northern hemisphere, it deflects winds towards left."
+      },
+      {
+        question: "From the surface of the Earth to upwards, which of these is the correct sequence of atmospheric layers?",
+        answers: ["troposphere, stratosphere, mesosphere, thermosphere, exosphere", "troposphere, mesosphere, stratosphere, thermosphere, exosphere", "troposphere, thermosphere, mesosphere, stratosphere, exosphere", "troposphere, exosphere, thermosphere, mesosphere, stratosphere"],
+        correctAnswer: "troposphere, stratosphere, mesosphere, thermosphere, exosphere"
+      },
+      {
+        question: "\"The ability of a system to adjust to climate change (including climate variability and extremes) to moderate potential damages, to take advantage of opportunities, or to cope with the consequences\" is a definition for",
+        answers: ["(a) adaptive response", "(b) adaptive capacity", "(c) mitigative response", "(d) mitigative capacity"],
+        correctAnswer: "(b) adaptive capacity"
+      },
+      {
+        question: "Flights of jet planes typically occur in",
+        answers: ["Troposphere", "Stratosphere", "Mesosphere", "Thermosphere"],
+        correctAnswer: "Stratosphere"
+      },
+      {
+        question: "Noctilucent clouds are present in which layer?",
+        answers: ["Troposphere", "Stratosphere", "Mesosphere", "Thermosphere"],
+        correctAnswer: "Mesosphere"
+      },
+      {
+        question: "Ionosphere is part of which layer?",
+        answers: ["Troposphere", "Stratosphere", "Mesosphere", "Thermosphere"],
+        correctAnswer: "Thermosphere"
+      }
     ],
     week5: [
       {
@@ -187,7 +236,7 @@ const allQuestions = {
       {
         question: "Which of these is a major feature of the ocean floor?",
         answers: ["oceanic deep / trench", "mid-oceanic ridge", "seamount", "atoll"],
-        correctAnswer: "mid-oceanic ridge"
+        correctAnswer: "oceanic deep / trench"
       },
       {
         question: "Equal temperature curves are called",
@@ -197,7 +246,7 @@ const allQuestions = {
       {
         question: "Which of these is not a primary force initiating and governing movement of ocean currents?",
         answers: ["phase separation", "gravity", "Coriolis force", "arrangement of coasts"],
-        correctAnswer: "phase separation"
+        correctAnswer: "arrangement of coasts"
       },
       {
         question: "Relatively steep-sided, narrow, deep basins is a description of",
@@ -576,7 +625,7 @@ const allQuestions = {
       {
         question: "Which of these uses imputed willingness to pay?",
         answers: ["market price method", "replacement cost method", "travel cost method", "contingent valuation method"],
-        correctAnswer: "contingent valuation method"
+        correctAnswer: "replacement cost method"
       },
       {
         question: "The time of flight for LiDAR is 0.00001 sec. Find the distance of the object from the instrument.",
