@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Additional Questions | Conservation Geography</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      background: #3a0ca3;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 700px;
+      margin: 3em auto 0 auto;
+      background: rgba(30, 20, 60, 0.97);
+      border-radius: 18px;
+      box-shadow: 0 4px 32px #a259ff55;
+      padding: 2.5em 2em 2em 2em;
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
+      align-items: center;
+    }
+    h2 {
+      color: #a259ff;
+      font-size: 2em;
+      font-weight: 700;
+      margin-bottom: 1.5em;
+      text-align: center;
+    }
+    .question-card {
+      background: #5f3dc4;
+      border-radius: 12px;
+      padding: 1.2em;
+      margin-bottom: 2em;
+      box-shadow: 0 2px 12px #a259ff22;
+      width: 100%;
+    }
+    .question-title {
+      font-size: 1.2em;
+      font-weight: 700;
+      margin-bottom: 0.5em;
+    }
+    .question-answer {
+      color: #00e6c3;
+      font-weight: 700;
+      margin-bottom: 0.5em;
+    }
+    .question-description {
+      color: #fff;
+      margin-bottom: 0.5em;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 1.2em 0.5em;
+      }
+      h2 {
+        font-size: 1.3em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" style="position:absolute;top:24px;left:24px;z-index:1002;background:#a259ff;color:#fff;padding:0.7em 1.5em;border-radius:30px;font-weight:700;text-decoration:none;box-shadow:0 2px 12px #a259ff33;transition:background 0.2s;">&larr; Back</a>
+  <div class="container">
+    <h2>Additional Questions and Answers</h2>
+    <div id="additional-questions-list"></div>
+  </div>
+  <script type="module">
+    import { db, collection, getDocs, query, orderBy } from '../admin/firebase.js';
+    const list = document.getElementById('additional-questions-list');
+    async function loadAdditionalQuestions() {
+      list.innerHTML = '<em>Loading...</em>';
+      const q = query(collection(db, 'notifications', 'conservation-geography', 'admin-additional-questions'), orderBy('date', 'desc'));
+      const snap = await getDocs(q);
+      list.innerHTML = '';
+      let i = 1;
+      snap.forEach(docSnap => {
+        const data = docSnap.data();
+        const item = document.createElement('div');
+        item.className = 'question-card';
+        item.innerHTML = `
+          <div class='question-title'>${i++}. ${data.question}</div>
+          ${data.answer ? `<div class='question-answer'>Answer: ${data.answer}</div>` : ''}
+          ${data.description ? `<div class='question-description'>Description: ${data.description}</div>` : ''}
+        `;
+        list.appendChild(item);
+      });
+    }
+    loadAdditionalQuestions();
+  </script>
+</body>
+</html> 

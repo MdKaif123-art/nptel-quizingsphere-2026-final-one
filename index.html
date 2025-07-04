@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Index</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+    
+        html, body {
+          height: 100%;
+          font-family: 'Poppins', sans-serif;
+          background: radial-gradient(circle at top left, #3a0ca3, #0f0f0f);
+          color: white;
+          overflow-x: hidden;
+          position: relative;
+        }
+    
+        #tsparticles {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          z-index: 0;
+        }
+    
+        .blob {
+          position: absolute;
+          border-radius: 50%;
+          filter: blur(80px);
+          opacity: 0.4;
+          animation: moveBlob 20s ease-in-out infinite alternate;
+          mix-blend-mode: screen;
+          z-index: 1;
+        }
+    
+        .blob1 {
+          width: 300px;
+          height: 300px;
+          background: #f15bb5;
+          top: 5%;
+          left: 10%;
+        }
+    
+        .blob2 {
+          width: 400px;
+          height: 400px;
+          background: #9b5de5;
+          top: 60%;
+          left: 70%;
+          animation-delay: 5s;
+        }
+    
+        .blob3 {
+          width: 250px;
+          height: 250px;
+          background: #00f5d4;
+          bottom: 10%;
+          left: 30%;
+          animation-delay: 10s;
+        }
+    
+        @keyframes moveBlob {
+          0% { transform: translate(0, 0) scale(1); }
+          50% { transform: translate(-50px, 50px) scale(1.2); }
+          100% { transform: translate(20px, -30px) scale(1); }
+        }
+    
+        .stars {
+          position: absolute;
+          width: 2px;
+          height: 2px;
+          background: white;
+          border-radius: 50%;
+          animation: twinkle 4s infinite;
+          z-index: 1;
+        }
+    
+        .stars:nth-child(odd) {
+          animation-delay: 1s;
+        }
+    
+        @keyframes twinkle {
+          0%, 100% { opacity: 0.1; transform: translateY(0); }
+          50% { opacity: 0.8; transform: translateY(-5px); }
+        }
+    
+        .logo {
+          text-align: center;
+          font-size: 2.2rem;
+          font-weight: 700;
+          padding-top: 30px;
+          color: #c77dff;
+          text-shadow: 0 0 20px #7209b7;
+          animation: glow 3s ease-in-out infinite alternate;
+          z-index: 2;
+          position: relative;
+        }
+    
+        @keyframes glow {
+          from { text-shadow: 0 0 10px #7209b7; }
+          to { text-shadow: 0 0 30px #f34cb0; }
+        }
+    
+        .container {
+          text-align: center;
+          padding: 50px 20px;
+          z-index: 2;
+          position: relative;
+        }
+    
+        h1 {
+          font-size: 3rem;
+          animation: slideUp 1.5s ease-out;
+          color: #e0aaff;
+        }
+    
+        p {
+          max-width: 700px;
+          margin: 20px auto;
+          font-size: 1.1rem;
+          color: #f3c4fb;
+          animation: fadeIn 2s ease-in;
+        }
+    
+        .course-list {
+          list-style: none;
+          padding: 0;
+          margin-top: 2em;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          gap: 2.5em;
+        }
+    
+        .course-list li {
+          margin: 0;
+        }
+    
+        .course-link {
+          display: block;
+          padding: 1.5em 2.5em;
+          background: linear-gradient(100deg, #a259ff 0%, #7209b7 100%);
+          border-radius: 18px;
+          text-decoration: none;
+          color: #fff;
+          font-size: 1.5em;
+          font-weight: 800;
+          letter-spacing: 1px;
+          box-shadow: 0 4px 32px #a259ff44, 0 1.5px 0 #fff2 inset;
+          position: relative;
+          overflow: hidden;
+          transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+          cursor: pointer;
+        }
+    
+        .course-link::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: -75%;
+          width: 50%;
+          height: 100%;
+          background: linear-gradient(120deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.05) 100%);
+          transform: skewX(-25deg);
+          transition: left 0.5s;
+          pointer-events: none;
+        }
+    
+        .course-link:hover::after {
+          left: 120%;
+        }
+    
+        .course-link:hover {
+          background: linear-gradient(100deg, #7209b7 0%, #a259ff 100%);
+          color: #fff;
+          transform: scale(1.06) rotate(-1deg);
+          box-shadow: 0 8px 40px #a259ff77, 0 1.5px 0 #fff2 inset;
+        }
+    
+        .course-intro {
+          font-size: 1.25em;
+          color: #e0aaff;
+          margin-bottom: 1.5em;
+          font-weight: 600;
+          text-align: center;
+          letter-spacing: 0.5px;
+          text-shadow: 0 2px 12px #3a0ca355;
+          animation: fadeIn 1.5s;
+        }
+    
+        .navbar {
+          color: #fff;
+          padding: 0.7em 2em;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          z-index: 100;
+          position: relative;
+          box-shadow: 0 2px 16px #3a0ca344;
+        }
+    
+        .navbar-left {
+          display: flex;
+          align-items: center;
+        }
+    
+        .navbar-brand {
+          font-size: 2rem;
+          font-weight: 700;
+          color: #a259ff;
+          letter-spacing: 1px;
+          margin-right: 2em;
+          text-shadow: 0 0 10px #7209b7;
+          white-space: nowrap;
+          transition: color 0.2s;
+        }
+    
+        .navbar-links {
+          display: flex;
+          gap: 1.2em;
+        }
+    
+        .navbar-links a {
+          color: #fff;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 1.08rem;
+          padding: 0.3em 0.7em;
+          border-radius: 18px;
+          transition: background 0.2s, color 0.2s;
+        }
+    
+        .navbar-links a:hover, .navbar-links a.active {
+          background: #a259ff;
+          color: #fff;
+        }
+    
+        .navbar-toggle {
+          display: none;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 38px;
+          height: 38px;
+          background: none;
+          border: none;
+          cursor: pointer;
+          margin-left: 0.5em;
+          z-index: 200;
+        }
+    
+        .navbar-toggle span {
+          display: block;
+          width: 26px;
+          height: 3px;
+          margin: 4px 0;
+          background: #a259ff;
+          border-radius: 2px;
+          transition: 0.3s;
+        }
+    
+        .sidebar {
+          position: fixed;
+          top: 0;
+          right: -260px;
+          width: 220px;
+          height: 100vh;
+          background: #3a0ca3;
+          box-shadow: -2px 0 16px #3a0ca344;
+          z-index: 999;
+          display: flex;
+          flex-direction: column;
+          padding: 2.5em 1.2em 1em 1.2em;
+          transition: right 0.3s;
+        }
+    
+        .sidebar.open {
+          right: 0;
+        }
+    
+        .sidebar a {
+          color: #fff;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 1.1rem;
+          margin-bottom: 1.2em;
+          border-radius: 18px;
+          padding: 0.5em 0.8em;
+          transition: background 0.2s, color 0.2s;
+        }
+    
+        .sidebar a:hover, .sidebar a.active {
+          background: #a259ff;
+          color: #fff;
+        }
+    
+        .sidebar .sidebar-close {
+          position: absolute;
+          top: 1em;
+          left: 1em;
+          font-size: 1.7rem;
+          color: #a259ff;
+          background: none;
+          border: none;
+          cursor: pointer;
+        }
+    
+        .footer {
+            width: 100%;
+            color: #fff;
+            text-align: center;
+            padding: 1.2em 0 1em 0;
+            left: 0;
+            z-index: 10;
+            font-size: 1rem;
+            box-shadow: 0 -2px 20px #7209b733;
+            background: transparent;
+            position: static;
+            margin-top: 2em;
+        }
+    
+        .footer-content span {
+          color: #a259ff;
+          letter-spacing: 0.5px;
+        }
+    
+        @keyframes slideUp {
+          from { opacity: 0; transform: translateY(60px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+    
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+    
+        /* Mobile responsiveness */
+        @media (max-width: 900px) {
+          .navbar-brand {
+            margin-right: 1em;
+          }
+        }
+    
+        @media (max-width: 768px) {
+          .navbar {
+            padding: 0.7em 0.7em;
+          }
+          .navbar-links {
+            display: none;
+          }
+          .navbar-toggle {
+            display: flex;
+          }
+          .navbar-brand {
+            margin-right: 0.5em;
+            font-size: 1.1rem;
+          }
+          .footer {
+            font-size: 0.95rem;
+            padding: 0.8em 0 0.7em 0;
+          }
+        }
+    
+        @media (max-width: 480px) {
+          .navbar {
+            padding: 0.7em 0.3em;
+          }
+          .footer {
+            font-size: 0.9rem;
+            padding: 0.7em 0 0.6em 0;
+          }
+        }
+    
+        @media (max-width: 700px) {
+          .course-list {
+            flex-direction: column;
+            gap: 0;
+            align-items: center;
+          }
+          .course-list li {
+            margin: 1.2em 0;
+          }
+        }
+    
+        @media (min-width: 769px) {
+          .navbar-toggle {
+            display: none !important;
+          }
+        }
+    
+        /* Sidebar overlay and hamburger placement */
+        .sidebar-overlay {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(30, 20, 60, 0.45);
+          z-index: 998;
+          transition: opacity 0.3s;
+        }
+        .sidebar.open + .sidebar-overlay,
+        .sidebar-overlay.open {
+          display: block;
+        }
+        .navbar {
+          position: relative;
+        }
+        .navbar-toggle {
+          position: absolute;
+          right: 1.2em;
+          top: 50%;
+          transform: translateY(-50%);
+          z-index: 200;
+        }
+    </style>
+</head>
+<body>
+    <div id="tsparticles"></div>
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+    <div class="stars" style="top: 20%; left: 20%;"></div>
+    <div class="stars" style="top: 60%; left: 50%;"></div>
+    <div class="stars" style="top: 10%; left: 80%;"></div>
+    <div class="stars" style="top: 40%; left: 70%;"></div>
+    <div class="stars" style="top: 80%; left: 30%;"></div>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <div class="navbar-brand">Quizingsphere</div>
+        </div>
+        <div class="navbar-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <button class="navbar-toggle" aria-label="Open menu" onclick="openSidebar()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+    <div class="sidebar-overlay" id="sidebar-overlay" onclick="closeSidebar()"></div>
+    <div class="sidebar" id="sidebar">
+        <button class="sidebar-close" aria-label="Close menu" onclick="closeSidebar()">&times;</button>
+        <a href="index.html" onclick="closeSidebar()">Home</a>
+        <a href="about.html" onclick="closeSidebar()">About</a>
+        <a href="contact.html" onclick="closeSidebar()">Contact</a>
+    </div>
+    <div class="container">
+        <h1>Welcome to the Course Portal</h1>
+        <p class="intro-summary" style="max-width: 700px; margin: 0 auto 18px auto; color: #e0aaff; font-size: 1.08em; font-weight: 600; text-align: center;">
+       
+        </p>
+        <p class="course-intro">   Hi, I'm Mohammed Kaif K, a passionate web developer and creator from VIT. I built QuizingSphere to help students learn interactively and effectively. With expertise in full-stack development, I create comprehensive quiz collections for NPTEL, programming, and management, making learning more engaging and accessible through technology.<br><br>Choose your course and start your learning adventure! Each course is designed to help you master the subject with interactive practice and engaging content.</p>
+        <ul class="course-list">
+            <li><a class="course-link" href="../conservation-geography/index.html">Conservation Geography</a></li>
+            <li><a class="course-link" href="../wildlife-ecology/index.html">Wildlife Ecology</a></li>
+        </ul>
+    </div>
+     <!-- tsParticles Script -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+  <script>
+    tsParticles.load("tsparticles", {
+      fullScreen: { enable: false },
+      background: { color: "transparent" },
+      particles: {
+        number: { value: 60, density: { enable: true, area: 800 } },
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5, random: true },
+        size: { value: 3, random: true },
+        move: { enable: true, speed: 1, direction: "none", outModes: "bounce" },
+        links: { enable: true, distance: 100, color: "#ffffff", opacity: 0.2, width: 1 }
+      },
+      interactivity: {
+        events: {
+          onHover: { enable: true, mode: "repulse" },
+          onClick: { enable: true, mode: "push" }
+        },
+        modes: {
+          repulse: { distance: 100 },
+          push: { quantity: 4 }
+        }
+      }
+    });
+  </script>
+  <script>
+    // Sidebar open/close logic
+    function openSidebar() {
+      document.getElementById('sidebar').classList.add('open');
+      document.getElementById('sidebar-overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeSidebar() {
+      document.getElementById('sidebar').classList.remove('open');
+      document.getElementById('sidebar-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  </script>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <span>Made with ❤️ by Mohammed Kaif K for NPTEL Practice | &copy; 2024 Quizingsphere</span>
+    </div>
+  </footer>
+</body>
+</html> 

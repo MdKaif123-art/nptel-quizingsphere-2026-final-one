@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NPTEL Practice | Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      min-height: 100vh;
+      height: 100%;
+      background: radial-gradient(circle at top left, #3a0ca3, #0f0f0f);
+      color: white;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+      overflow-y: scroll;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE 10+ */
+    }
+    body::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
+    body {
+      display: block;
+    }
+
+    #tsparticles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.4;
+      animation: moveBlob 20s ease-in-out infinite alternate;
+      mix-blend-mode: screen;
+      z-index: 1;
+    }
+
+    .blob1 {
+      width: 300px;
+      height: 300px;
+      background: #f15bb5;
+      top: 5%;
+      left: 10%;
+    }
+
+    .blob2 {
+      width: 400px;
+      height: 400px;
+      background: #9b5de5;
+      top: 60%;
+      left: 70%;
+      animation-delay: 5s;
+    }
+
+    .blob3 {
+      width: 250px;
+      height: 250px;
+      background: #00f5d4;
+      bottom: 10%;
+      left: 30%;
+      animation-delay: 10s;
+    }
+
+    @keyframes moveBlob {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-50px, 50px) scale(1.2); }
+      100% { transform: translate(20px, -30px) scale(1); }
+    }
+
+    .stars {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 4s infinite;
+      z-index: 1;
+    }
+
+    .stars:nth-child(odd) {
+      animation-delay: 1s;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.1; transform: translateY(0); }
+      50% { opacity: 0.8; transform: translateY(-5px); }
+    }
+
+    .container {
+      text-align: center;
+      padding: 50px 20px;
+      z-index: 2;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 3rem;
+      animation: slideUp 1.5s ease-out;
+      color: #e0aaff;
+    }
+
+    p {
+      max-width: 700px;
+      margin: 20px auto;
+      font-size: 1.1rem;
+      color: #f3c4fb;
+      animation: fadeIn 2s ease-in;
+    }
+
+    .btn-wrapper {
+      margin-top: 40px;
+      animation: fadeIn 2.5s ease-in;
+      z-index: 1003 !important;
+      position: relative;
+      pointer-events: auto !important;
+    }
+
+    .start-btn {
+      padding: 1rem 3rem;
+      font-size: 1.3rem;
+      font-weight: 700;
+      background: linear-gradient(45deg, #7209b7, #560bad);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      box-shadow: 0 0 25px #9d4edd;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: 0.3s ease;
+      z-index: 1004 !important;
+      pointer-events: auto !important;
+      text-decoration: none !important;
+    }
+
+    .start-btn::after {
+      display: none !important;
+    }
+
+    .start-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 40px #f15bb5;
+    }
+
+    .bottom-links {
+      text-align: center;
+      margin-top: 60px;
+      animation: slideUp 1.5s ease-out;
+    }
+
+    .bottom-links a {
+      display: inline-block;
+      margin: 10px 15px;
+      padding: 10px 20px;
+      border-radius: 25px;
+      color: #fff;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.1);
+      transition: 0.3s ease;
+      font-weight: 600;
+    }
+
+    .bottom-links a:hover {
+      background: #f15bb5;
+      color: #0f0f0f;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(60px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      p { font-size: 1rem; padding: 0 10px; }
+      .start-btn { padding: 0.8rem 2rem; font-size: 1.1rem; }
+      .bottom-links { margin-top: 40px; }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 1.5rem; }
+      p { font-size: 0.95rem; }
+      .start-btn { padding: 0.7rem 1.8rem; font-size: 1rem; }
+      .blob1, .blob2, .blob3 { filter: blur(60px); }
+      .container { padding: 40px 15px; }
+      .bottom-links a { font-size: 0.9rem; padding: 8px 16px; }
+    }
+
+    /* Navbar styles */
+    .navbar {
+      color: #fff;
+      padding: 0.7em 2em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 100;
+      position: relative;
+      box-shadow: 0 2px 16px #3a0ca344;
+    }
+    .navbar-left {
+      display: flex;
+      align-items: center;
+    }
+    .navbar-brand {
+      font-size: 1.6em;
+      font-weight: 700;
+      color: #a259ff;
+      letter-spacing: 1px;
+      margin-left: 1.2em;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      align-items: center;
+    }
+    .navbar-links {
+      display: flex;
+      gap: 1.2em;
+    }
+    .navbar-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.08rem;
+      padding: 0.3em 0.7em;
+      border-radius: 18px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .navbar-links a:hover, .navbar-links a.active {
+      background: #a259ff;
+      color: #fff;
+    }
+    .navbar-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 38px;
+      height: 38px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-left: 0.5em;
+      z-index: 200;
+    }
+    .navbar-toggle span {
+      display: block;
+      width: 26px;
+      height: 3px;
+      margin: 4px 0;
+      background: #a259ff;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+    /* Sidebar styles for mobile */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -260px;
+      width: 220px;
+      height: 100vh;
+      background: #3a0ca3;
+      opacity: 1 !important;
+      backdrop-filter: none !important;
+      box-shadow: -2px 0 16px #3a0ca344;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      padding: 2.5em 1.2em 1em 1.2em;
+      transition: right 0.3s;
+    }
+    .sidebar.open {
+      right: 0;
+    }
+    .sidebar a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 1.2em;
+      border-radius: 18px;
+      padding: 0.5em 0.8em;
+      transition: background 0.2s, color 0.2s;
+      z-index: 10001;
+      position: relative;
+      pointer-events: auto !important;
+      display: block;
+    }
+    .sidebar a:hover, .sidebar a.active {
+      background: #a259ff;
+      color: #fff;
+    }
+    .sidebar .sidebar-close {
+      position: absolute;
+      top: 1em;
+      left: 1em;
+      font-size: 1.7rem;
+      color: #a259ff;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    /* Footer styles */
+    .footer {
+      width: 100%;
+      color: #fff;
+      text-align: center;
+      padding: 1.2em 0 1em 0;
+      z-index: 10;
+      font-size: 1rem;
+      box-shadow: none;
+      background: transparent !important;
+      position: static;
+      margin-top: 2em;
+    }
+    .footer-content span {
+      color: #a259ff;
+      letter-spacing: 0.5px;
+    }
+    @media (max-width: 900px) {
+      .navbar-brand {
+        margin-right: 1em;
+      }
+    }
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 0.7em 0.7em;
+      }
+      .navbar-links {
+        display: none;
+      }
+      .navbar-toggle {
+        display: flex;
+      }
+      .navbar-brand {
+        margin-right: 0.5em;
+        font-size: 1.1rem;
+      }
+      .footer {
+        font-size: 0.95rem;
+        padding: 0.8em 0 0.7em 0;
+      }
+    }
+    @media (max-width: 480px) {
+      .navbar {
+        padding: 0.7em 0.3em;
+      }
+      .footer {
+        font-size: 0.9rem;
+        padding: 0.7em 0 0.6em 0;
+      }
+    }
+    .main-flex, .container, .left-content {
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+    }
+    .notifications-section {
+      width: 340px;
+      max-width: 90vw;
+      min-width: 220px;
+      background: rgba(30,20,60,0.13);
+      border-radius: 14px;
+      padding: 1.2em 1em 1em 1em;
+      box-shadow: 0 2px 12px #a259ff22;
+      max-height: none;
+      overflow-y: auto;
+      margin-top: 2.5em;
+      display: none;
+    }
+    #notifications-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2em;
+      overflow-y: auto;
+    }
+    .notification-card {
+      background: #4b2996;
+      border-radius: 10px;
+      padding: 1em 1.2em;
+      display: flex;
+      flex-direction: column;
+      /* Lighter shadow for better performance */
+      box-shadow: 0 1px 6px #a259ff22;
+    }
+    @media (max-width: 900px) {
+      .main-flex {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .notifications-section {
+        width: 100%;
+        max-width: 100vw;
+        max-height: none;
+        margin-top: 1.5em;
+      }
+    }
+    .show-notif-btn {
+      margin-top: 2em;
+      background: linear-gradient(90deg, #a259ff, #7209b7);
+      color: #fff;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      padding: 0.9em 2em;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background 0.2s;
+      box-shadow: 0 1px 6px #a259ff22;
+    }
+    .show-notif-btn:hover {
+      background: linear-gradient(90deg, #7209b7, #a259ff);
+    }
+    .notif-bell {
+      position: absolute;
+      top: 70px;
+      right: 40px;
+      z-index: 20;
+      font-size: 2.1em;
+      color: #a259ff;
+      background: rgba(30,20,60,0.13);
+      border-radius: 50%;
+      padding: 0.25em 0.32em 0.18em 0.32em;
+      cursor: pointer;
+      box-shadow: 0 2px 12px #a259ff22;
+      transition: background 0.2s, color 0.2s;
+    }
+    .notif-bell:hover {
+      background: #a259ff;
+      color: #fff;
+    }
+    @media (max-width: 700px) {
+      .notif-bell {
+        right: 16px;
+        top: 60px;
+        font-size: 1.5em;
+      }
+    }
+    .main-content, .container, .content, .course-section, .about-section, .score-section {
+      text-align: center !important;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 900px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    /* Remove any fixed heights or overflow that could cause lag */
+    html, body {
+      height: auto !important;
+      overflow-y: auto !important;
+    }
+    /* Remove laggy box-shadows or heavy effects if present */
+    .box-shadow, .heavy-shadow, .notif-container, .notification-card {
+      box-shadow: none !important;
+    }
+    .notif-bell-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      outline: none;
+      margin-right: 2em;
+      margin-top: 0.5em;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      z-index: 1001;
+      position: relative;
+    }
+    .notif-bell-btn i {
+      font-size: 1.8em;
+      color: #a259ff;
+      border-radius: 50%;
+      transition: color 0.2s, box-shadow 0.2s;
+      box-shadow: none;
+      background: none;
+      padding: 0;
+    }
+    .notif-bell-btn:hover i {
+      color: #7209b7;
+      text-shadow: 0 0 8px #a259ff55;
+    }
+    @media (max-width: 600px) {
+      .navbar-brand { font-size: 1.1em; margin-left: 0.5em; }
+      .notif-bell-btn { margin-right: 0.5em; }
+    }
+  </style>
+  <!-- Font Awesome for bell icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-left">
+      <div class="navbar-brand">Quizingsphere</div>
+    </div>
+    <div class="navbar-links">
+      <a href="/index.html">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+    <button class="navbar-toggle" aria-label="Open menu" onclick="openSidebar()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+  <div style="width:100%; display:flex; justify-content:flex-end; position:relative; z-index:1001;">
+    <a href="notifications.html" id="notif-bell-link" class="notif-bell-btn" aria-label="Show Notifications" style="text-decoration:none;">
+      <i class="fa fa-bell"></i>
+    </a>
+  </div>
+  <div class="sidebar-overlay" id="sidebar-overlay" onclick="closeSidebar()"></div>
+  <div class="sidebar" id="sidebar">
+    <button class="sidebar-close" aria-label="Close menu" onclick="closeSidebar()">&times;</button>
+    <a href="/index.html" onclick="closeSidebar()">Home</a>
+    <a href="/about.html" onclick="closeSidebar()">About</a>
+    <a href="/contact.html" onclick="closeSidebar()">Contact</a>
+  </div>
+
+  <!-- Particle Background -->
+  <div id="tsparticles"></div>
+
+  <!-- Blobs -->
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+
+  <!-- Stars -->
+  <div class="stars" style="top: 20%; left: 20%;"></div>
+  <div class="stars" style="top: 60%; left: 50%;"></div>
+  <div class="stars" style="top: 10%; left: 80%;"></div>
+  <div class="stars" style="top: 40%; left: 70%;"></div>
+  <div class="stars" style="top: 80%; left: 30%;"></div>
+
+  <!-- Main Content -->
+  <div class="main-flex">
+    <div class="left-content">
+      <h1>Welcome to Wildlife Ecology Course</h1>
+      <p>This platform is made for students to practice NPTEL assignment questions with ease and elegance. With a beautiful UI and interactive experience, you'll enjoy preparing for your exams.</p>
+      <div class="btn-wrapper">
+        <button class="start-btn" onclick="window.location.href='correct.html'">Start Learning</button>
+      </div>
+      <div class="btn-wrapper">
+        <a class="start-btn start-btn-practicing" href="practice.html">Start Practicing</a>
+      </div>
+      <div class="btn-wrapper">
+        <a class="start-btn start-btn-additional" href="AdditionalQuestions.html">Additional Questions</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <span>Made with ❤️ by Mohammed Kaif K for NPTEL Practice | &copy; 2024 Quizingsphere</span>
+    </div>
+  </footer>
+
+  <!-- tsParticles Script -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+  <script>
+    tsParticles.load("tsparticles", {
+      fullScreen: { enable: false },
+      background: { color: "transparent" },
+      particles: {
+        number: { value: 60, density: { enable: true, area: 800 } },
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5, random: true },
+        size: { value: 3, random: true },
+        move: { enable: true, speed: 1, direction: "none", outModes: "bounce" },
+        links: { enable: true, distance: 100, color: "#ffffff", opacity: 0.2, width: 1 }
+      },
+      interactivity: {
+        events: {
+          onHover: { enable: true, mode: "repulse" },
+          onClick: { enable: true, mode: "push" }
+        },
+        modes: {
+          repulse: { distance: 100 },
+          push: { quantity: 4 }
+        }
+      }
+    });
+  </script>
+
+  <!-- Sidebar open/close logic -->
+  <script>
+    function openSidebar() {
+      document.getElementById('sidebar').classList.add('open');
+      document.getElementById('sidebar-overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeSidebar() {
+      document.getElementById('sidebar').classList.remove('open');
+      document.getElementById('sidebar-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  </script>
+
+  <!-- Add modal for additional questions -->
+  <div id="additional-questions-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(30,20,60,0.93); z-index:2000; overflow-y:auto;">
+    <div style="max-width:700px; margin:3em auto; background:#4b2996; border-radius:18px; padding:2em 1.5em; color:#fff; position:relative;">
+      <button onclick="document.getElementById('additional-questions-modal').style.display='none'" style="position:absolute; top:1em; right:1em; background:none; border:none; color:#fff; font-size:2em; cursor:pointer;">&times;</button>
+      <h2 style="text-align:center; color:#fff; margin-bottom:1.5em;">Additional Questions and Answers</h2>
+      <div id="additional-questions-list"></div>
+    </div>
+  </div>
+  <script type="module">
+  import { db, collection, getDocs, query, orderBy } from '../admin/firebase.js';
+  const showBtn = document.getElementById('show-additional-questions');
+  if (showBtn) {
+    showBtn.onclick = function(e) {
+      e.preventDefault();
+      showAdditionalQuestions();
+    };
+  }
+  async function showAdditionalQuestions() {
+    document.getElementById('additional-questions-modal').style.display = 'block';
+    const list = document.getElementById('additional-questions-list');
+    list.innerHTML = '<em>Loading...</em>';
+    const q = query(collection(db, 'notifications', 'wildlife-ecology', 'admin-additional-questions'), orderBy('date', 'desc'));
+    const snap = await getDocs(q);
+    list.innerHTML = '';
+    let i = 1;
+    snap.forEach(docSnap => {
+      const data = docSnap.data();
+      const item = document.createElement('div');
+      item.style = 'margin-bottom:2em; background:#5f3dc4; border-radius:12px; padding:1.2em; box-shadow:0 2px 12px #a259ff22;';
+      item.innerHTML = `
+        <div style='font-size:1.2em; font-weight:700; margin-bottom:0.5em;'>${i++}. ${data.question}</div>
+        ${data.answer ? `<div style='color:#00e6c3; font-weight:700; margin-bottom:0.5em;'>Answer: ${data.answer}</div>` : ''}
+        ${data.description ? `<div style='color:#fff; margin-bottom:0.5em;'>Description: ${data.description}</div>` : ''}
+      `;
+      list.appendChild(item);
+    });
+  }
+  </script>
+</body>
+</html>

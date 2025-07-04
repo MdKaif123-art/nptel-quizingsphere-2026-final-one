@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Quizingsphere</title>
+  <style>
+    body {
+      background: #3a0ca3;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      min-height: 100vh;
+    }
+    .dashboard-container {
+      max-width: 700px;
+      margin: 2.5em auto 0 auto;
+      background: rgba(30, 20, 60, 0.97);
+      border-radius: 18px;
+      box-shadow: 0 4px 32px #a259ff55;
+      padding: 2.5em 2em 2em 2em;
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
+    }
+    .dashboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5em;
+    }
+    .dashboard-header h2 {
+      color: #a259ff;
+      font-size: 2em;
+      font-weight: 700;
+      margin: 0;
+    }
+    .logout-btn {
+      background: #a259ff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.6em 1.2em;
+      font-size: 1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .logout-btn:hover {
+      background: #7209b7;
+    }
+    .course-select {
+      width: 100%;
+      padding: 0.7em 1em;
+      border-radius: 8px;
+      border: none;
+      font-size: 1.1em;
+      margin-bottom: 1.2em;
+      background: #f3eaff;
+      color: #3a0ca3;
+      font-weight: 600;
+    }
+    .notification-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      margin-bottom: 1.5em;
+    }
+    .notification-form input, .notification-form textarea {
+      padding: 0.8em 1em;
+      border-radius: 8px;
+      border: none;
+      font-size: 1em;
+      background: #f3eaff;
+      color: #3a0ca3;
+    }
+    .notification-form button {
+      background: linear-gradient(90deg, #a259ff, #7209b7);
+      color: #fff;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      padding: 0.9em 0;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .notification-form button:hover {
+      background: linear-gradient(90deg, #7209b7, #a259ff);
+    }
+    .notification-list {
+      margin-top: 1.5em;
+    }
+    .notification-item {
+      background: #4b2996;
+      border-radius: 10px;
+      padding: 1em 1.2em;
+      margin-bottom: 1.2em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+      position: relative;
+    }
+    .notification-title {
+      font-size: 1.15em;
+      font-weight: 700;
+      color: #fff;
+    }
+    .notification-message {
+      color: #e0aaff;
+      font-size: 1em;
+    }
+    .notification-date {
+      color: #bdb2ff;
+      font-size: 0.95em;
+      margin-bottom: 0.2em;
+    }
+    .notification-actions {
+      position: absolute;
+      top: 1em;
+      right: 1em;
+      display: flex;
+      gap: 0.7em;
+    }
+    .notification-actions button {
+      background: #a259ff;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 0.3em 0.8em;
+      font-size: 0.98em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .notification-actions button:hover {
+      background: #7209b7;
+    }
+    .error, .success {
+      text-align: center;
+      margin-top: 0.5em;
+      font-size: 1em;
+    }
+    .error { color: #ffb3b3; }
+    .success { color: #aaffc3; }
+    @media (max-width: 600px) {
+      .dashboard-container {
+        padding: 1.2em 0.5em;
+      }
+      .dashboard-header h2 {
+        font-size: 1.3em;
+      }
+    }
+    .admin-additional-question-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      margin-bottom: 1.5em;
+      background: #3a0ca3;
+      border-radius: 14px;
+      padding: 1.5em 1em;
+      box-shadow: 0 2px 16px #a259ff33;
+    }
+    .admin-additional-question-form input,
+    .admin-additional-question-form textarea {
+      padding: 1em 1.2em;
+      border-radius: 8px;
+      border: none;
+      font-size: 1.1em;
+      background: #f3eaff;
+      color: #3a0ca3;
+      box-shadow: 0 1px 6px #a259ff11;
+      transition: box-shadow 0.2s;
+    }
+    .admin-additional-question-form input:focus,
+    .admin-additional-question-form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px #a259ff55;
+    }
+    .admin-additional-question-form button {
+      background: linear-gradient(90deg, #a259ff, #7209b7);
+      color: #fff;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      padding: 1em 0;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .admin-additional-question-form button:hover {
+      background: linear-gradient(90deg, #7209b7, #a259ff);
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-container">
+    <div class="dashboard-header">
+      <h2>Admin Dashboard</h2>
+      <button class="logout-btn" id="logout-btn">Logout</button>
+    </div>
+    <select class="course-select" id="course-select">
+      <option value="conservation-geography">Conservation Geography</option>
+      <option value="wildlife-ecology">Wildlife Ecology</option>
+    </select>
+    <form class="notification-form" id="notification-form">
+      <textarea id="notif-message" placeholder="Notification Message" rows="3" required></textarea>
+      <button type="submit">Post Notification</button>
+      <div class="error" id="notif-error"></div>
+      <div class="success" id="notif-success"></div>
+    </form>
+    <div class="notification-list" id="notification-list"></div>
+    <div class="additional-questions-section" id="additional-questions-section">
+      <h2 style="color:#a259ff; text-align:center; margin:2em 0 1em 0;">Additional Questions</h2>
+      <div id="additional-questions-list"></div>
+    </div>
+    <!-- Admin Additional Questions Section -->
+    <div class="admin-additional-questions-section" id="admin-additional-questions-section">
+      <h2 style="color:#a259ff; text-align:center; margin:2em 0 1em 0;">Admin Additional Questions</h2>
+      <form class="admin-additional-question-form" id="admin-additional-question-form">
+        <input type="text" id="admin-question" placeholder="Question" required style="margin-bottom:0.5em;" />
+        <input type="text" id="admin-answer" placeholder="Answer (optional)" style="margin-bottom:0.5em;" />
+        <input type="text" id="admin-description" placeholder="Description (optional)" style="margin-bottom:0.5em;" />
+        <button type="submit">Post Question</button>
+        <div class="error" id="admin-additional-error"></div>
+        <div class="success" id="admin-additional-success"></div>
+      </form>
+      <div id="admin-additional-questions-list"></div>
+      <div style="margin-top:2em; background:#3a0ca3; border-radius:14px; padding:1.5em 1em; box-shadow:0 2px 16px #a259ff33;">
+        <h3 style="color:#a259ff; text-align:center;">Bulk Upload Additional Questions (JSON)</h3>
+        <textarea id="bulk-json" rows="6" placeholder='Paste JSON array here, e.g. [{"question":"Q1?","answer":"A1","description":"Desc1"}, ...]' style="width:100%;padding:1em 1.2em;border-radius:8px;border:none;font-size:1.1em;background:#f3eaff;color:#3a0ca3;box-shadow:0 1px 6px #a259ff11;margin-bottom:1em;"></textarea>
+        <button id="bulk-upload-btn" style="background:linear-gradient(90deg,#a259ff,#7209b7);color:#fff;font-weight:700;border:none;border-radius:8px;padding:1em 0;font-size:1.1em;cursor:pointer;width:100%;margin-bottom:0.5em;">Bulk Upload</button>
+        <div class="error" id="bulk-upload-error"></div>
+        <div class="success" id="bulk-upload-success"></div>
+      </div>
+    </div>
+  </div>
+  <script type="module">
+    import { db, auth, collection, addDoc, getDocs, updateDoc, deleteDoc, doc, query, orderBy, onAuthStateChanged, signOut } from './firebase.js';
+    let currentCourse = 'conservation-geography';
+    const notifList = document.getElementById('notification-list');
+    const notifForm = document.getElementById('notification-form');
+    const notifMessage = document.getElementById('notif-message');
+    const notifError = document.getElementById('notif-error');
+    const notifSuccess = document.getElementById('notif-success');
+    const courseSelect = document.getElementById('course-select');
+    const logoutBtn = document.getElementById('logout-btn');
+    const submitBtn = notifForm.querySelector('button[type=submit]');
+    let editingId = null;
+
+    // Auth check
+    onAuthStateChanged(auth, user => {
+      if (!user) window.location.href = 'login.html';
+    });
+    logoutBtn.onclick = () => signOut(auth);
+
+    // Course selection
+    courseSelect.addEventListener('change', e => {
+      currentCourse = e.target.value;
+      resetForm();
+      loadNotifications();
+      loadAdditionalQuestions(currentCourse);
+      loadAdminAdditionalQuestions(currentCourse);
+    });
+
+    // Add/Edit notification (single handler)
+    notifForm.onsubmit = async function(e) {
+      e.preventDefault();
+      notifError.textContent = '';
+      notifSuccess.textContent = '';
+      try {
+        if (editingId) {
+          await updateDoc(doc(db, 'notifications', currentCourse, 'notifications', editingId), {
+            message: notifMessage.value,
+            date: new Date().toISOString()
+          });
+          notifSuccess.textContent = 'Notification updated!';
+        } else {
+          await addDoc(collection(db, 'notifications', currentCourse, 'notifications'), {
+            message: notifMessage.value,
+            date: new Date().toISOString()
+          });
+          notifSuccess.textContent = 'Notification posted!';
+        }
+        resetForm();
+        loadNotifications();
+        setTimeout(() => notifSuccess.textContent = '', 2000);
+      } catch (err) {
+        notifError.textContent = err.message;
+      }
+    };
+
+    function resetForm() {
+      notifForm.reset();
+      editingId = null;
+      submitBtn.textContent = 'Post Notification';
+    }
+
+    // Load notifications
+    async function loadNotifications() {
+      notifList.innerHTML = '<em>Loading...</em>';
+      const q = query(collection(db, 'notifications', currentCourse, 'notifications'), orderBy('date', 'desc'));
+      const snap = await getDocs(q);
+      notifList.innerHTML = '';
+      const seen = new Set();
+      snap.forEach(docSnap => {
+        if (seen.has(docSnap.id)) return; // Prevent duplicate
+        seen.add(docSnap.id);
+        const data = docSnap.data();
+        const item = document.createElement('div');
+        item.className = 'notification-item';
+        item.innerHTML = `
+          <div class="notification-message">${data.message}</div>
+          <div class="notification-date">${new Date(data.date).toLocaleString()}</div>
+          <div class="notification-actions">
+            <button onclick="window.editNotification('${docSnap.id}', '${data.message.replace(/'/g, '\'')}', '${data.date}')">Edit</button>
+            <button onclick="window.deleteNotification('${docSnap.id}')">Delete</button>
+          </div>
+        `;
+        notifList.appendChild(item);
+      });
+    }
+
+    window.editNotification = (id, message, date) => {
+      notifMessage.value = message;
+      editingId = id;
+      submitBtn.textContent = 'Update Notification';
+    };
+
+    window.deleteNotification = async id => {
+      if (!confirm('Delete this notification?')) return;
+      await deleteDoc(doc(db, 'notifications', currentCourse, 'notifications', id));
+      loadNotifications();
+      resetForm();
+    };
+
+    // Load additional questions
+    const additionalQuestionsList = document.getElementById('additional-questions-list');
+    async function loadAdditionalQuestions(course) {
+      additionalQuestionsList.innerHTML = '<em>Loading additional questions...</em>';
+      const q = query(collection(db, 'notifications', course, 'additional-questions'), orderBy('date', 'desc'));
+      const snap = await getDocs(q);
+      additionalQuestionsList.innerHTML = '';
+      snap.forEach(docSnap => {
+        const data = docSnap.data();
+        const item = document.createElement('div');
+        item.style = 'background:#4b2996; border-radius:10px; padding:0.7em 1em; margin-bottom:0.7em; color:#fff;';
+        item.innerHTML = `
+          <div><b>Name:</b> ${data.name || '(none)'}</div>
+          <div><b>Number:</b> ${data.number || '(none)'}</div>
+          <div><b>Question:</b> ${data.question}</div>
+          <div style='color:#bdb2ff; font-size:0.95em;'><b>Date:</b> ${new Date(data.date).toLocaleString()}</div>
+          <button onclick="deleteAdditionalQuestion('${course}','${docSnap.id}')" style='margin-top:0.5em;background:#a259ff;color:#fff;border:none;border-radius:6px;padding:0.4em 1em;cursor:pointer;'>Delete</button>
+        `;
+        additionalQuestionsList.appendChild(item);
+      });
+    }
+
+    window.deleteAdditionalQuestion = async (course, id) => {
+      if (confirm('Delete this question?')) {
+        await deleteDoc(doc(db, 'notifications', course, 'additional-questions', id));
+        loadAdditionalQuestions(course);
+      }
+    };
+
+    // Load admin additional questions
+    const adminList = document.getElementById('admin-additional-questions-list');
+    const adminForm = document.getElementById('admin-additional-question-form');
+    const adminQuestion = document.getElementById('admin-question');
+    const adminAnswer = document.getElementById('admin-answer');
+    const adminDescription = document.getElementById('admin-description');
+    const adminError = document.getElementById('admin-additional-error');
+    const adminSuccess = document.getElementById('admin-additional-success');
+    let adminEditingId = null;
+
+    adminForm.onsubmit = async function(e) {
+      e.preventDefault();
+      adminError.textContent = '';
+      adminSuccess.textContent = '';
+      try {
+        if (adminEditingId) {
+          await updateDoc(doc(db, 'notifications', currentCourse, 'admin-additional-questions', adminEditingId), {
+            question: adminQuestion.value,
+            answer: adminAnswer.value,
+            description: adminDescription.value,
+            date: new Date().toISOString()
+          });
+          adminSuccess.textContent = 'Question updated!';
+        } else {
+          await addDoc(collection(db, 'notifications', currentCourse, 'admin-additional-questions'), {
+            question: adminQuestion.value,
+            answer: adminAnswer.value,
+            description: adminDescription.value,
+            date: new Date().toISOString()
+          });
+          adminSuccess.textContent = 'Question posted!';
+        }
+        adminForm.reset();
+        adminEditingId = null;
+        adminForm.querySelector('button[type=submit]').textContent = 'Post Question';
+        loadAdminAdditionalQuestions(currentCourse);
+        setTimeout(() => adminSuccess.textContent = '', 2000);
+      } catch (err) {
+        adminError.textContent = err.message;
+      }
+    };
+
+    async function loadAdminAdditionalQuestions(course) {
+      adminList.innerHTML = '<em>Loading...</em>';
+      const q = query(collection(db, 'notifications', course, 'admin-additional-questions'), orderBy('date', 'desc'));
+      const snap = await getDocs(q);
+      adminList.innerHTML = '';
+      snap.forEach(docSnap => {
+        const data = docSnap.data();
+        const item = document.createElement('div');
+        item.style = 'background:#4b2996; border-radius:10px; padding:0.7em 1em; margin-bottom:0.7em; color:#fff; position:relative;';
+        item.innerHTML = `
+          <div style='font-size:1.1em; font-weight:700;'>${data.question}</div>
+          ${data.answer ? `<div style='color:#00e6c3; font-weight:700;'>Answer: ${data.answer}</div>` : ''}
+          ${data.description ? `<div style='color:#fff;'>Description: ${data.description}</div>` : ''}
+          <div style='color:#bdb2ff; font-size:0.95em;'><b>Date:</b> ${new Date(data.date).toLocaleString()}</div>
+          <div style='position:absolute; top:1em; right:1em; display:flex; gap:0.7em;'>
+            <button onclick="window.editAdminAdditionalQuestion('${docSnap.id}', '${data.question.replace(/'/g, '\'')}', '${(data.answer||'').replace(/'/g, '\'')}', '${(data.description||'').replace(/'/g, '\'')}')">Edit</button>
+            <button onclick="window.deleteAdminAdditionalQuestion('${docSnap.id}')">Delete</button>
+          </div>
+        `;
+        adminList.appendChild(item);
+      });
+    }
+
+    window.editAdminAdditionalQuestion = (id, question, answer, description) => {
+      adminQuestion.value = question;
+      adminAnswer.value = answer;
+      adminDescription.value = description;
+      adminEditingId = id;
+      adminForm.querySelector('button[type=submit]').textContent = 'Update Question';
+    };
+
+    window.deleteAdminAdditionalQuestion = async id => {
+      if (!confirm('Delete this question?')) return;
+      await deleteDoc(doc(db, 'notifications', currentCourse, 'admin-additional-questions', id));
+      loadAdminAdditionalQuestions(currentCourse);
+      adminForm.reset();
+      adminEditingId = null;
+      adminForm.querySelector('button[type=submit]').textContent = 'Post Question';
+    };
+
+    // Bulk upload logic
+    const bulkJson = document.getElementById('bulk-json');
+    const bulkBtn = document.getElementById('bulk-upload-btn');
+    const bulkError = document.getElementById('bulk-upload-error');
+    const bulkSuccess = document.getElementById('bulk-upload-success');
+    bulkBtn.onclick = async function() {
+      bulkError.textContent = '';
+      bulkSuccess.textContent = '';
+      let arr;
+      try {
+        arr = JSON.parse(bulkJson.value);
+        if (!Array.isArray(arr)) throw new Error('JSON must be an array');
+        if (!arr.length) throw new Error('Array is empty');
+      } catch (e) {
+        bulkError.textContent = 'Invalid JSON: ' + e.message;
+        return;
+      }
+      let count = 0, failed = 0;
+      for (const q of arr) {
+        if (!q.question) { failed++; continue; }
+        try {
+          await addDoc(collection(db, 'notifications', currentCourse, 'admin-additional-questions'), {
+            question: q.question,
+            answer: q.answer || '',
+            description: q.description || '',
+            date: new Date().toISOString()
+          });
+          count++;
+        } catch (e) { failed++; }
+      }
+      if (count) {
+        bulkSuccess.textContent = `Uploaded ${count} question(s).`;
+        loadAdminAdditionalQuestions(currentCourse);
+        bulkJson.value = '';
+      }
+      if (failed) bulkError.textContent = `${failed} question(s) failed.`;
+      setTimeout(() => { bulkSuccess.textContent = ''; bulkError.textContent = ''; }, 4000);
+    };
+
+    // Initial load
+    loadNotifications();
+    loadAdditionalQuestions(currentCourse);
+    loadAdminAdditionalQuestions(currentCourse);
+  </script>
+</body>
+</html> 

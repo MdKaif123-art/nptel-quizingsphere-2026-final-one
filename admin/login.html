@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login | Quizingsphere</title>
+  <style>
+    body {
+      background: #3a0ca3;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-container {
+      background: rgba(30, 20, 60, 0.95);
+      padding: 2.5em 2em 2em 2em;
+      border-radius: 18px;
+      box-shadow: 0 4px 32px #a259ff55;
+      min-width: 320px;
+      max-width: 350px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h2 {
+      margin-bottom: 1.2em;
+      color: #a259ff;
+      font-size: 2em;
+      font-weight: 700;
+    }
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2em;
+    }
+    input[type="email"], input[type="password"] {
+      padding: 0.8em 1em;
+      border-radius: 8px;
+      border: none;
+      font-size: 1em;
+      margin-bottom: 0.5em;
+      background: #f3eaff;
+      color: #3a0ca3;
+    }
+    button[type="submit"] {
+      background: linear-gradient(90deg, #a259ff, #7209b7);
+      color: #fff;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      padding: 0.9em 0;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button[type="submit"]:hover {
+      background: linear-gradient(90deg, #7209b7, #a259ff);
+    }
+    .error {
+      color: #ffb3b3;
+      margin-top: 0.5em;
+      font-size: 0.98em;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Admin Login</h2>
+    <form id="login-form">
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+      <div class="error" id="error-msg"></div>
+    </form>
+  </div>
+  <script type="module">
+    import { auth, signInWithEmailAndPassword } from './firebase.js';
+    const form = document.getElementById('login-form');
+    const errorMsg = document.getElementById('error-msg');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorMsg.textContent = '';
+      const email = form.email.value;
+      const password = form.password.value;
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        window.location.href = 'dashboard.html';
+      } catch (err) {
+        errorMsg.textContent = err.message.replace('Firebase:', '').replace('auth/', '').replace(/-/g, ' ');
+      }
+    });
+  </script>
+</body>
+</html> 

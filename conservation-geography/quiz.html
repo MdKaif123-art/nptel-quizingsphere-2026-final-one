@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz - Conservation Geography</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #3a0ca3, black);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      flex-direction: column;
+      padding: 20px;
+    }
+    .quiz-container {
+      width: 100%;
+      max-width: 800px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+      position: relative;
+      z-index: 2;
+    }
+    h1 { margin-bottom: 20px; }
+    .question { font-size: 1.4rem; margin-bottom: 20px; }
+    .answers label {
+      display: block;
+      font-size: 1.1rem;
+      background: rgba(255, 255, 255, 0.2);
+      margin: 8px 0;
+      padding: 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .answers input[type="radio"] { display: none; }
+    .answers label:hover { background: rgba(255, 255, 255, 0.4); }
+    label.correct { background-color: #4CAF50 !important; color: white; }
+    label.wrong { background-color: #f44336 !important; color: white; }
+    label.disabled { pointer-events: none; opacity: 0.7; }
+    .navigation-btns {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    .navigation-btns button {
+      padding: 10px 20px;
+      background: white;
+      color: black;
+      border: none;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .navigation-btns button:hover { background-color: #ddd; }
+    .score { margin-top: 30px; font-size: 1.3rem; font-weight: bold; color: #00ffcc; }
+    #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
+    .back-link { display: block; margin-top: 50px; font-size: 1rem; color: #e0aaff; text-decoration: none; }
+    .back-link:hover { color: #f15bb5; }
+    .logo { font-size: 3rem; font-weight: 700; color: #c77dff; margin-bottom: 50px; margin-left: 50px; }
+  </style>
+</head>
+<body>
+  <div class="logo">QuizingSphere</div>
+  <div id="particles-js"></div>
+  <h1>Conservation Geography Quiz</h1>
+  <h1 id="week-title"></h1><br>
+  <div class="quiz-container">
+    <div class="question" id="question-text"></div>
+    <div class="answers" id="answer-options"></div>
+    <div class="navigation-btns">
+      <button id="prev-btn" onclick="previousQuestion()">Previous</button>
+      <button id="next-btn" onclick="nextQuestion()" style="display: none;">Next</button>
+      <button id="submit-btn" onclick="submitQuiz()" style="display: none;">Submit</button>
+    </div>
+    <div class="score" id="score-container"></div>
+    <div id="shuffle-info" style="margin-top:10px;"></div>
+    <button id="next-week-btn" style="display:none;margin-top:20px;">Next Week</button>
+    <a href="practice.html" class="back-link">Back to week selection</a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="questions.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 80 },
+        size: { value: 2 },
+        color: { value: "#ffffff" },
+        line_linked: {
+          enable: true,
+          distance: 130,
+          color: "#ffffff",
+          opacity: 0.3,
+          width: 1
+        },
+        move: { enable: true, speed: 1.5 }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: { onhover: { enable: true, mode: "grab" } }
+      }
+    });
+    // Helper to get URL param
+    function getUrlParameter(name) {
+      name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+      const regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+      const results = regex.exec(window.location.search);
+      return results === null ? null : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+    // Get week and shuffling options from URL
+    const week = getUrlParameter('week');
+    const randomizeQuestions = getUrlParameter('randomizeQuestions') === 'yes';
+    const randomizeAnswers = getUrlParameter('randomizeAnswers') === 'yes';
+    document.getElementById('week-title').textContent = week ? week.charAt(0).toUpperCase() + week.slice(1).replace(/\d+/, m => ' ' + m) : '';
+    let questions = allQuestions[week] ? [...allQuestions[week]] : [];
+    // Shuffle helper
+    function shuffleArray(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+    }
+    if (randomizeQuestions) shuffleArray(questions);
+    if (randomizeAnswers) questions = questions.map(q => ({...q, answers: [...q.answers].sort(() => Math.random() - 0.5)}));
+    let currentQuestionIndex = 0;
+    const selectedAnswers = new Array(questions.length).fill(null);
+    function renderQuestion() {
+      if (!questions.length) {
+        document.getElementById('question-text').textContent = 'No questions found for this week.';
+        document.getElementById('answer-options').innerHTML = '';
+        document.querySelector('.navigation-btns').style.display = 'none';
+        return;
+      }
+      document.getElementById('question-text').textContent = questions[currentQuestionIndex].question;
+      const answersHtml = questions[currentQuestionIndex].answers.map((ans, i) => {
+        return `<label id="answer-label-${i}"><input type="radio" name="answer" value="${ans}" ${selectedAnswers[currentQuestionIndex] === ans ? 'checked' : ''} onchange="selectAnswer('${ans}')">${ans}</label>`;
+      }).join('');
+      document.getElementById('answer-options').innerHTML = answersHtml;
+      document.getElementById('prev-btn').style.display = currentQuestionIndex === 0 ? 'none' : '';
+      document.getElementById('next-btn').style.display = 'none';
+      document.getElementById('submit-btn').style.display = 'none';
+      document.getElementById('score-container').textContent = '';
+      document.getElementById('shuffle-info').textContent = '';
+      document.getElementById('next-week-btn').style.display = 'none';
+    }
+    let answered = false;
+    let autoNextTimer = null;
+    window.selectAnswer = function(ans) {
+      if (answered) return;
+      answered = true;
+      selectedAnswers[currentQuestionIndex] = ans;
+      // Show feedback
+      const correct = questions[currentQuestionIndex].correctAnswer;
+      const labels = document.querySelectorAll('.answers label');
+      labels.forEach((label, i) => {
+        const input = label.querySelector('input');
+        input.disabled = true;
+        if (questions[currentQuestionIndex].answers[i] === correct) {
+          label.classList.add('correct');
+        }
+        if (input.value === ans && ans !== correct) {
+          label.classList.add('wrong');
+        }
+        label.classList.add('disabled');
+      });
+      // Show Next or Submit button
+      if (currentQuestionIndex < questions.length - 1) {
+        document.getElementById('next-btn').style.display = '';
+        // Auto-advance after 3 seconds
+        autoNextTimer = setTimeout(() => {
+          window.nextQuestion();
+        }, 1000/2);
+      } else {
+        document.getElementById('submit-btn').style.display = '';
+      }
+    };
+    window.previousQuestion = function() {
+      if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        answered = false;
+        if (autoNextTimer) { clearTimeout(autoNextTimer); autoNextTimer = null; }
+        renderQuestion();
+      }
+    };
+    window.nextQuestion = function() {
+      if (currentQuestionIndex < questions.length - 1) {
+        currentQuestionIndex++;
+        answered = false;
+        if (autoNextTimer) { clearTimeout(autoNextTimer); autoNextTimer = null; }
+        renderQuestion();
+      }
+    };
+    window.submitQuiz = function() {
+      let score = 0;
+      for (let i = 0; i < questions.length; i++) {
+        if (selectedAnswers[i] === questions[i].correctAnswer) score++;
+      }
+      // Redirect to score page with all info
+      const params = new URLSearchParams({
+        score: score,
+        total: questions.length,
+        week: week,
+        randomizeQuestions: randomizeQuestions ? 'yes' : 'no',
+        randomizeAnswers: randomizeAnswers ? 'yes' : 'no'
+      });
+      window.location.href = `score.html?${params.toString()}`;
+    };
+    renderQuestion();
+  </script>
+</body>
+</html> 

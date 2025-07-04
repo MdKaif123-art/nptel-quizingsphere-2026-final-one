@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notifications | Conservation Geography</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      background: #3a0ca3;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      min-height: 100vh;
+    }
+    .notif-container {
+      max-width: 600px;
+      margin: 2.5em auto 0 auto;
+      background: rgba(30, 20, 60, 0.97);
+      border-radius: 18px;
+      box-shadow: 0 4px 32px #a259ff55;
+      padding: 2.5em 2em 2em 2em;
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
+    }
+    .notif-header {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      margin-bottom: 1.5em;
+      justify-content: center;
+    }
+    .notif-header h2 {
+      color: #a259ff;
+      font-size: 2em;
+      font-weight: 700;
+      margin: 0;
+    }
+    .notification-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2em;
+      max-height: 320px;
+      overflow-y: auto;
+    }
+    .notification-card {
+      background: #4b2996;
+      border-radius: 10px;
+      padding: 1em 1.2em;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 1px 6px #a259ff22;
+    }
+    .notification-title {
+      font-size: 1.1em;
+      font-weight: 700;
+      color: #fff;
+    }
+    .notification-message {
+      color: #e0aaff;
+      font-size: 1em;
+      margin: 0.3em 0 0.5em 0;
+    }
+    .notification-date {
+      color: #bdb2ff;
+      font-size: 0.95em;
+    }
+    .question-form {
+      margin-top: 2em;
+      background: #4b2996;
+      border-radius: 12px;
+      padding: 1.2em 1em 1em 1em;
+      box-shadow: 0 1px 6px #a259ff22;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+    .question-form input, .question-form textarea {
+      padding: 0.8em 1em;
+      border-radius: 8px;
+      border: none;
+      font-size: 1em;
+      background: #f3eaff;
+      color: #3a0ca3;
+    }
+    .question-form button {
+      background: linear-gradient(90deg, #a259ff, #7209b7);
+      color: #fff;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      padding: 0.9em 0;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .question-form button:hover {
+      background: linear-gradient(90deg, #7209b7, #a259ff);
+    }
+    .success {
+      color: #aaffc3;
+      text-align: center;
+      font-size: 1em;
+      margin-top: 0.5em;
+    }
+    @media (max-width: 600px) {
+      .notif-container {
+        padding: 1.2em 0.5em;
+      }
+      .notif-header h2 {
+        font-size: 1.3em;
+      }
+    }
+    .navbar {
+      color: #fff;
+      padding: 0.7em 2em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 100;
+      position: relative;
+      box-shadow: 0 2px 16px #3a0ca344;
+      background: transparent;
+    }
+    .navbar-left { display: flex; align-items: center; }
+    .navbar-brand {
+      font-size: 1.6em;
+      font-weight: 700;
+      color: #a259ff;
+      letter-spacing: 1px;
+      margin-left: 1.2em;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      align-items: center;
+    }
+    .navbar-links { display: flex; gap: 1.2em; }
+    .navbar-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.08rem;
+      padding: 0.3em 0.7em;
+      border-radius: 18px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .navbar-links a:hover, .navbar-links a.active {
+      background: #a259ff;
+      color: #fff;
+    }
+    .navbar-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 38px;
+      height: 38px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-left: 0.5em;
+      z-index: 200;
+    }
+    .navbar-toggle span {
+      display: block;
+      width: 26px;
+      height: 3px;
+      margin: 4px 0;
+      background: #a259ff;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -260px;
+      width: 220px;
+      height: 100vh;
+      background: #3a0ca3;
+      box-shadow: -2px 0 16px #3a0ca344;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      padding: 2.5em 1.2em 1em 1.2em;
+      transition: right 0.3s;
+    }
+    .sidebar.open { right: 0; }
+    .sidebar a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 1.2em;
+      border-radius: 18px;
+      padding: 0.5em 0.8em;
+      transition: background 0.2s, color 0.2s;
+    }
+    .sidebar a:hover, .sidebar a.active {
+      background: #a259ff;
+      color: #fff;
+    }
+    .sidebar .sidebar-close {
+      position: absolute;
+      top: 1em;
+      left: 1em;
+      font-size: 1.7rem;
+      color: #a259ff;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.2);
+      z-index: 998;
+    }
+    .sidebar.open ~ .sidebar-overlay { display: block; }
+    .footer {
+      width: 100%;
+      color: #fff;
+      text-align: center;
+      padding: 1.2em 0 1em 0;
+      left: 0;
+      z-index: 10;
+      font-size: 1rem;
+      box-shadow: 0 -2px 20px #7209b733;
+      background: transparent;
+      position: static;
+      margin-top: 2em;
+    }
+    .footer-content span {
+      color: #a259ff;
+      letter-spacing: 0.5px;
+    }
+    @media (max-width: 900px) {
+      .navbar-brand { margin-right: 1em; }
+    }
+    @media (max-width: 768px) {
+      .navbar { padding: 0.7em 0.7em; }
+      .navbar-links { display: none; }
+      .navbar-toggle { display: flex; }
+      .navbar-brand { margin-right: 0.5em; font-size: 1.1rem; }
+      .footer { font-size: 0.95rem; padding: 0.8em 0 0.7em 0; }
+    }
+    @media (max-width: 480px) {
+      .navbar { padding: 0.7em 0.3em; }
+      .footer { font-size: 0.9rem; padding: 0.7em 0 0.6em 0; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-left">
+      <div class="navbar-brand">Quizingsphere</div>
+    </div>
+    <div class="navbar-links">
+      <a href="/index.html">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+    <button class="navbar-toggle" aria-label="Open menu" onclick="openSidebar()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay" onclick="closeSidebar()"></div>
+  <div class="sidebar" id="sidebar">
+    <button class="sidebar-close" aria-label="Close menu" onclick="closeSidebar()">&times;</button>
+    <a href="/index.html" onclick="closeSidebar()">Home</a>
+    <a href="/about.html" onclick="closeSidebar()">About</a>
+    <a href="/contact.html" onclick="closeSidebar()">Contact</a>
+  </div>
+  <div class="notif-container">
+    <div class="notif-header">
+      <h2><i class="fa fa-bell"></i> Course Notifications</h2>
+    </div>
+    <div class="notification-list" id="notification-list"></div>
+    <form class="question-form" id="question-form">
+      <h3 style="color:#a259ff;margin-bottom:0.5em;">Post Your Additional Question</h3>
+      <input type="text" id="q-name" placeholder="Your Name (optional)" />
+      <input type="text" id="q-number" placeholder="Your Mobile Number (optional)" />
+      <textarea id="q-msg" placeholder="Your Question (required)" rows="3" required></textarea>
+      <button type="submit">Post Question</button>
+      <div class="success" id="q-success"></div>
+    </form>
+  </div>
+  <footer class="footer">
+    <div class="footer-content">
+      <span>Made with ❤️ by Mohammed Kaif K for NPTEL Practice | &copy; 2024 Quizingsphere</span>
+    </div>
+  </footer>
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js';
+    import { getFirestore, collection, getDocs, addDoc, query, orderBy } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js';
+    const firebaseConfig = {
+      apiKey: "AIzaSyBWhXrXPNYFn9_z8Laww-0w5kkoHGLNQSU",
+      authDomain: "quizingsphere1.firebaseapp.com",
+      projectId: "quizingsphere1",
+      storageBucket: "quizingsphere1.firebasestorage.app",
+      messagingSenderId: "168499632394",
+      appId: "1:168499632394:web:a29e3617fc1c44cc0e42f3",
+      measurementId: "G-ZP20NK72SF"
+    };
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const notifList = document.getElementById('notification-list');
+    async function loadNotifications() {
+      notifList.innerHTML = '<em>Loading notifications...</em>';
+      const q = query(collection(db, 'notifications', 'conservation-geography', 'notifications'), orderBy('date', 'desc'));
+      const snap = await getDocs(q);
+      notifList.innerHTML = '';
+      let count = 0;
+      snap.forEach(docSnap => {
+        if (count >= 10) return;
+        count++;
+        const data = docSnap.data();
+        const item = document.createElement('div');
+        item.className = 'notification-card';
+        item.innerHTML = `
+          <div class="notification-message">${data.message}</div>
+          <div class="notification-date">${new Date(data.date).toLocaleString()}</div>
+        `;
+        notifList.appendChild(item);
+      });
+    }
+    loadNotifications();
+    // Additional Question Form
+    const qForm = document.getElementById('question-form');
+    const qName = document.getElementById('q-name');
+    const qNumber = document.getElementById('q-number');
+    const qMsg = document.getElementById('q-msg');
+    const qSuccess = document.getElementById('q-success');
+    qForm.onsubmit = async function(e) {
+      e.preventDefault();
+      qSuccess.textContent = '';
+      if (!qMsg.value.trim()) {
+        qSuccess.textContent = 'Question is required!';
+        return;
+      }
+      await addDoc(collection(db, 'notifications', 'conservation-geography', 'additional-questions'), {
+        name: qName.value.trim() || '',
+        number: qNumber.value.trim() || '',
+        question: qMsg.value.trim(),
+        date: new Date().toISOString()
+      });
+      qForm.reset();
+      qSuccess.textContent = 'Thank you for uploading! Admin will verify and you can see your question in the Additional Questions section.';
+      setTimeout(() => qSuccess.textContent = '', 4000);
+    };
+  </script>
+  <script>
+    function openSidebar() {
+      document.getElementById('sidebar').classList.add('open');
+      document.getElementById('sidebar-overlay').style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeSidebar() {
+      document.getElementById('sidebar').classList.remove('open');
+      document.getElementById('sidebar-overlay').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  </script>
+</body>
+</html> 
