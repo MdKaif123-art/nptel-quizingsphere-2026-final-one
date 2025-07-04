@@ -206,9 +206,14 @@
       });
       // Show Next or Submit button
       if (currentQuestionIndex < questions.length - 1) {
-        document.getElementById('submit-btn').style.display = '';
-      }
-      if (currentQuestionIndex === questions.length - 1) {
+        if (autoNextTimer) { clearTimeout(autoNextTimer); autoNextTimer = null; }
+        autoNextTimer = setTimeout(() => {
+          if (answered) {
+            answered = false;
+            window.nextQuestion();
+          }
+        }, 1000);
+      } else {
         document.getElementById('submit-btn').style.display = '';
       }
     };
