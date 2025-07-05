@@ -331,10 +331,16 @@
             font-size: 1rem;
             box-shadow: 0 -2px 20px #7209b733;
             background: transparent;
-            position: static;
-            margin-top: 2em;
+            position: fixed;
+            bottom: 0;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s;
         }
-    
+        .footer.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
         .footer-content span {
           color: #a259ff;
           letter-spacing: 0.5px;
@@ -587,10 +593,24 @@
     }
   </script>
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer" id="main-footer">
     <div class="footer-content">
       <span>Made with ❤️ by Mohammed Kaif K for NPTEL Practice | &copy; 2024 Quizingsphere</span>
     </div>
   </footer>
+  <script>
+    // Show footer only when scrolled to bottom
+    function checkFooterVisibility() {
+      const footer = document.getElementById('main-footer');
+      if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 2)) {
+        footer.classList.add('visible');
+      } else {
+        footer.classList.remove('visible');
+      }
+    }
+    window.addEventListener('scroll', checkFooterVisibility);
+    window.addEventListener('resize', checkFooterVisibility);
+    document.addEventListener('DOMContentLoaded', checkFooterVisibility);
+  </script>
 </body>
 </html> 
