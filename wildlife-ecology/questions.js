@@ -156,8 +156,56 @@ const allQuestions = {
     }
   ],
   week4: [
-    // Note: Assignment 4 is not present in the document, but I'll include a placeholder
-    // based on the pattern that Assignment 5 corresponds to week5
+      {
+        question: "Consider the food chain: Grass → Grasshopper → Frog → Snake →Hawk. As we move up the food chain,",
+        answers: ["available energy decreases", "available energy increases", "available energy remains same", "available energy is zero everywhere"],
+        correctAnswer: "available energy decreases"
+      },
+      {
+        question: "Consider the food chain: Grass → Grasshopper → Frog → Snake →Hawk. In this food chain,",
+        answers: ["hawk is producer", "hawk is consumer and carnivore", "hawk is consumer and herbivore", "hawk is decomposer"],
+        correctAnswer: "hawk is consumer and carnivore"
+      },
+      {
+        question: "Trees → Birds → Parasites → Hyperparasites represents",
+        answers: ["upright pyramid of numbers", "inverted pyramid of numbers", "spindle pyramid of numbers", "dumb-bell pyramid of numbers"],
+        correctAnswer: "inverted pyramid of numbers"
+      },
+      {
+        question: "Consider the food chain: Grass → Grasshopper → Frog → Snake →Hawk. In this food chain,",
+        answers: ["frog is producer", "frog is consumer and carnivore", "frog is consumer and herbivore", "frog is decomposer"],
+        correctAnswer: "frog is consumer and carnivore"
+      },
+      {
+        question: "At the compensation point,",
+        answers: ["photosynthesis = respiration", "photosynthesis < respiration", "photosynthesis > respiration", "photosynthesis = 0"],
+        correctAnswer: "photosynthesis = respiration"
+      },
+      {
+        question: "Tree → Frugivorous birds → Hawk represents",
+        answers: ["upright pyramid of numbers", "inverted pyramid of numbers", "spindle pyramid of numbers", "dumb-bell pyramid of numbers"],
+        correctAnswer: "spindle pyramid of numbers"
+      },
+      {
+        question: "Glacial lakes are typical examples of",
+        answers: ["eutrophic lakes", "hypereutrophic lakes", "oligotrophic lakes", "mesotrophic lakes"],
+        correctAnswer: "oligotrophic lakes"
+      },
+      {
+        question: "Consider the food chain: Grass → Grasshopper → Frog → Snake →Hawk. In this food chain,",
+        answers: ["more number of hawks than grasshoppers can be supported", "more number of grasshoppers than hawks can be supported", "equal number of hawks and grasshoppers can be supported", "none of these"],
+        correctAnswer: "more number of grasshoppers than hawks can be supported"
+      },
+      {
+        question: "If we all became vegetarians, we'll be able to support our large populations. This can be explained through",
+        answers: ["10% rule", "1% rule", "trophic cascade", "biodiversity"],
+        correctAnswer: "10% rule"
+      },
+      {
+        question: "Net primary productivity is given by",
+        answers: ["APAR x LUE", "APAR + LUE", "APAR - LUE", "APAR / LUE"],
+        correctAnswer: "APAR x LUE"
+      }
   ],
   week5: [
     {
@@ -212,7 +260,56 @@ const allQuestions = {
     }
   ],
   week6: [
-    // Note: Assignment 6 is not present in the document
+      {
+        question: "A climax caused by wildfires is an example of",
+        answers: ["climatic climax", "edaphic climax", "disclimax", "catastrophic climax"],
+        correctAnswer: "catastrophic climax"
+      },
+      {
+        question: "When compared to generalist species, specialist species have",
+        answers: ["narrower niches", "broader niches", "same-size niches", "none of these"],
+        correctAnswer: "narrower niches"
+      },
+      {
+        question: "Which of these depicts correctly the lithosere primary succession?",
+        answers: ["Rock → Crustose lichen → Foliose lichen → Moss →Herbaceous stage → Shrub → Woodland → Climax", "Rock → Foliose lichen → Crustose lichen → Moss →Herbaceous stage → Shrub → Woodland → Climax", "Moss → Crustose lichen → Foliose lichen → Rock →Herbaceous stage → Shrub → Woodland → Climax", "Rock → Crustose lichen → Foliose lichen → Shrub →Herbaceous stage → Moss → Woodland → Climax"],
+        correctAnswer: "Rock → Crustose lichen → Foliose lichen → Moss →Herbaceous stage → Shrub → Woodland → Climax"
+      },
+      {
+        question: "Importance value can be written as",
+        answers: ["Relative density + Relative frequency X Relative dominance", "Relative density X Relative frequency + Relative dominance", "Relative density + Relative frequency + Relative dominance", "Relative density X Relative frequency X Relative dominance"],
+        correctAnswer: "Relative density + Relative frequency + Relative dominance"
+      },
+      {
+        question: "Lithosere is an example of",
+        answers: ["hydrosere", "xerosere", "psammosere", "halosere"],
+        correctAnswer: "xerosere"
+      },
+      {
+        question: "Importance value varies from",
+        answers: ["0 to 10", "0 to 50", "0 to 100", "0 to 300"],
+        correctAnswer: "0 to 300"
+      },
+      {
+        question: "A species found most frequently in a particular community, but also present occasionally in others is called",
+        answers: ["accidental species", "indifferent species", "selective species", "exclusive species"],
+        correctAnswer: "selective species"
+      },
+      {
+        question: "The climax near Tindri village is being controlled by disturbance by cattle. This is an example of",
+        answers: ["climatic climax", "edaphic climax", "disclimax", "catastrophic climax"],
+        correctAnswer: "disclimax"
+      },
+      {
+        question: "Which of these is correctly defined?",
+        answers: ["Fundamental niche > Realised niche", "Fundamental niche = Realised niche", "Fundamental niche < Realised niche", "a or b"],
+        correctAnswer: "Fundamental niche > Realised niche"
+      },
+      {
+        question: "Which of these is not a characteristic of pioneer species",
+        answers: ["ability to grow on bare rocks", "ability to tolerate extreme temperatures", "large size", "short life span"],
+        correctAnswer: "large size"
+      }
   ],
   week7: [
     {
