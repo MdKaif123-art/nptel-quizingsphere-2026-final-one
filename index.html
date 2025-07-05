@@ -23,11 +23,19 @@
     
         html, body {
           height: 100%;
+          min-height: 100vh;
           font-family: 'Poppins', sans-serif;
           background: radial-gradient(circle at top left, #3a0ca3, #0f0f0f);
           color: white;
           overflow-x: hidden;
+          overflow-y: auto;
           position: relative;
+          /* Hide vertical scrollbar for all browsers */
+          scrollbar-width: none; /* Firefox */
+          -ms-overflow-style: none; /* IE 10+ */
+        }
+        html::-webkit-scrollbar, body::-webkit-scrollbar {
+          display: none !important;
         }
     
         #tsparticles {
@@ -125,9 +133,14 @@
         }
     
         h1 {
-          font-size: 3rem;
+          font-size: clamp(1.5rem, 5vw, 3rem);
           animation: slideUp 1.5s ease-out;
           color: #e0aaff;
+          word-break: break-word;
+          line-height: 1.1;
+          max-width: 100vw;
+          margin-left: auto;
+          margin-right: auto;
         }
     
         p {
@@ -322,6 +335,7 @@
         }
     
         .footer {
+          bottom: 0%;
             width: 100%;
             color: #fff;
             text-align: center;
@@ -331,7 +345,7 @@
             font-size: 1rem;
             box-shadow: 0 -2px 20px #7209b733;
             background: transparent;
-            position: fixed;
+            position: relative;
             bottom: 0;
             opacity: 0;
             pointer-events: none;
@@ -492,6 +506,38 @@
             background: #f15bb5;
             color: #fff;
         }
+        .download-app-btn {
+          display: inline-block;
+          margin: 2.5em auto 0 auto;
+          padding: 1.1em 2.7em;
+          font-size: 1.25em;
+          font-weight: 700;
+          background: linear-gradient(100deg, #a259ff 0%, #7209b7 100%);
+          color: #fff;
+          border: none;
+          border-radius: 18px;
+          box-shadow: 0 4px 32px #a259ff55, 0 1.5px 0 #fff2 inset;
+          cursor: pointer;
+          transition: background 0.22s, transform 0.18s, box-shadow 0.22s;
+          text-decoration: none;
+          letter-spacing: 0.5px;
+          position: relative;
+          overflow: hidden;
+          outline: none;
+          animation: popIn 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+        }
+        .download-app-btn:hover, .download-app-btn:focus {
+          background: linear-gradient(100deg, #7209b7 0%, #a259ff 100%);
+          color: #fff;
+          transform: scale(1.06) translateY(-2px);
+          box-shadow: 0 8px 40px #a259ff99, 0 1.5px 0 #fff2 inset;
+          filter: brightness(1.08);
+        }
+        @keyframes popIn {
+          0% { transform: scale(0.7); opacity: 0; }
+          80% { transform: scale(1.08); opacity: 1; }
+          100% { transform: scale(1); opacity: 1; }
+        }
     </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2492139556059778" crossorigin="anonymous"></script>
     <script type="application/ld+json">
@@ -543,6 +589,9 @@
             <li><a class="course-link" href="../conservation-geography/index.html">Conservation Geography</a></li>
             <li><a class="course-link" href="../wildlife-ecology/index.html">Wildlife Ecology</a></li>
         </ul>
+        <a href="https://drive.google.com/file/d/12Bq_86yxV9VlTCooSR0QMTvFAJg-fViF/view?usp=sharing" target="_blank" class="download-app-btn">
+          Download App
+        </a>
         <div class="google-me-container">
             <button class="google-me-btn" onclick="document.getElementById('google-me-details').style.display = (document.getElementById('google-me-details').style.display === 'block' ? 'none' : 'block')">🔍 Google Me!</button>
             <div class="google-me-details" id="google-me-details">
