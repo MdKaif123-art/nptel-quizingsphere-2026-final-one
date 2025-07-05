@@ -208,7 +208,7 @@
         document.querySelector('.navigation-btns').style.display = 'none';
         return;
       }
-      document.getElementById('question-text').textContent = questions[currentQuestionIndex].question;
+      document.getElementById('question-text').textContent = (currentQuestionIndex + 1) + '. ' + questions[currentQuestionIndex].question;
       const answersHtml = questions[currentQuestionIndex].answers.map((ans, i) => {
         // Escape single quotes for JS string
         const safeAns = ans.replace(/'/g, "\\'");
