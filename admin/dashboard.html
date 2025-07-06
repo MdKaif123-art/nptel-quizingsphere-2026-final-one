@@ -239,6 +239,11 @@
       <div class="success" id="notif-success"></div>
     </form>
     <div class="notification-list" id="notification-list"></div>
+    <!-- Contact Messages Section -->
+    <div class="contact-messages-section" id="contact-messages-section">
+      <h2 style="color:#a259ff; text-align:center; margin:2em 0 1em 0;">Contact Us Messages</h2>
+      <div id="contact-messages-list"></div>
+    </div>
     <div class="additional-questions-section" id="additional-questions-section">
       <h2 style="color:#a259ff; text-align:center; margin:2em 0 1em 0;">Additional Questions</h2>
       <div id="additional-questions-list"></div>
@@ -288,6 +293,7 @@
       currentCourse = e.target.value;
       resetForm();
       loadNotifications();
+      loadContactMessages();
       loadAdditionalQuestions(currentCourse);
       loadAdminAdditionalQuestions(currentCourse);
     });
@@ -361,6 +367,44 @@
       await deleteDoc(doc(db, 'notifications', currentCourse, 'notifications', id));
       loadNotifications();
       resetForm();
+    };
+
+    // Load contact messages
+    const contactMessagesList = document.getElementById('contact-messages-list');
+    async function loadContactMessages() {
+      contactMessagesList.innerHTML = '<em>Loading contact messages...</em>';
+      const q = query(collection(db, 'contact-messages'), orderBy('date', 'desc'));
+      const snap = await getDocs(q);
+      contactMessagesList.innerHTML = '';
+      if (snap.empty) {
+        contactMessagesList.innerHTML = '<div style="color:#bdb2ff;text-align:center;">No messages yet.</div>';
+        return;
+      }
+      snap.forEach(docSnap => {
+        const data = docSnap.data();
+        const item = document.createElement('div');
+        item.style = 'background:#4b2996; border-radius:10px; padding:0.9em 1.2em; margin-bottom:1em; color:#fff; position:relative;';
+        item.innerHTML = `
+          <div><b>Name:</b> ${data.name || '(anonymous)'}</div>
+          <div><b>Mobile:</b> ${data.mobile || '(none)'}</div>
+          <div><b>Message:</b> ${data.message}</div>
+          <div style='color:#bdb2ff; font-size:0.95em;'><b>Date:</b> ${new Date(data.date).toLocaleString()}</div>
+          <div style='position:absolute; top:1em; right:1em;'>
+            <button onclick="window.deleteContactMessage('${docSnap.id}')" style='background:#a259ff;color:#fff;border:none;border-radius:6px;padding:0.4em 1em;cursor:pointer;font-size:0.9em;'>Delete</button>
+          </div>
+        `;
+        contactMessagesList.appendChild(item);
+      });
+    }
+
+    window.deleteContactMessage = async id => {
+      if (!confirm('Delete this contact message?')) return;
+      try {
+        await deleteDoc(doc(db, 'contact-messages', id));
+        loadContactMessages();
+      } catch (err) {
+        console.error('Error deleting contact message:', err);
+      }
     };
 
     // Load additional questions
@@ -515,6 +559,7 @@
 
     // Initial load
     loadNotifications();
+    loadContactMessages();
     loadAdditionalQuestions(currentCourse);
     loadAdminAdditionalQuestions(currentCourse);
   </script>
