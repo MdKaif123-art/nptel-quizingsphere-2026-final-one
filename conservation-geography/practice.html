@@ -179,6 +179,7 @@
       const randomizeQuestions = document.getElementById("randomize-questions").checked ? "yes" : "no";
       const randomizeAnswers = document.getElementById("randomize-answers").checked ? "yes" : "no";
       if (week) {
+        if (typeof trackEvent === 'function') trackEvent('Quiz', 'Start', 'Conservation Geography');
         if (week === 'All Weeks') week = 'all';
         const quizURL = `quiz.html?week=${week}&randomizeQuestions=${randomizeQuestions}&randomizeAnswers=${randomizeAnswers}`;
         window.location.href = quizURL;
@@ -261,6 +262,15 @@
         }
       }
     });
+
+    function trackEvent(category, action, label) {
+      if (typeof gtag === "function") {
+        gtag('event', action, {
+          'event_category': category,
+          'event_label': label
+        });
+      }
+    }
   </script>
 </body>
 </html>

@@ -14,6 +14,14 @@
     <meta name="google-site-verification" content="Ej8cv_R-7h3lWnUjwCG4TRR2gONG7xfWOl53HSJyqOE" />
     <meta name="keywords" content="Mohammed Kaif K, quizingsphere, nptel practice website, nptelquiz, nptel conservation geography, nptel wildlife ecology, nptel quiz, nptel assignments, conservation geography quiz, wildlife ecology quiz, nptel mcq, nptel test, nptel online, nptel india, nptel student, nptel exam, nptel course, nptel practice, nptel question bank, nptel answer key, nptel 2025, quizingsphere nptel, quizingsphere mohammed kaif, quizingsphere wildlife, quizingsphere conservation, nptel quizingsphere, kaif nptel, kaif quizingsphere, nptel quizingsphere mohammed kaif" />
     <meta name="google-adsense-account" content="ca-pub-2492139556059778">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PZ8CRJQNWS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PZ8CRJQNWS');
+    </script>
     <style>
         *, *::before, *::after {
           margin: 0;
@@ -586,14 +594,14 @@
         <h1>Welcome to Quizingsphere</h1>
         <p class="course-intro">Practice NPTEL assignment questions for Conservation Geography, Wildlife Ecology, and more. Enjoy interactive quizzes, instant feedback, and a beautiful, responsive UI designed for students.</p>
         <ul class="course-list">
-            <li><a class="course-link" href="../conservation-geography/index.html">Conservation Geography</a></li>
-            <li><a class="course-link" href="../wildlife-ecology/index.html">Wildlife Ecology</a></li>
+            <li><a class="course-link" href="../conservation-geography/index.html" onclick="trackEvent('Course', 'Click', 'Conservation Geography')">Conservation Geography</a></li>
+            <li><a class="course-link" href="../wildlife-ecology/index.html" onclick="trackEvent('Course', 'Click', 'Wildlife Ecology')">Wildlife Ecology</a></li>
         </ul>
-        <a href="https://drive.google.com/file/d/12Bq_86yxV9VlTCooSR0QMTvFAJg-fViF/view?usp=sharing" target="_blank" class="download-app-btn">
+        <a href="https://drive.google.com/file/d/12Bq_86yxV9VlTCooSR0QMTvFAJg-fViF/view?usp=sharing" target="_blank" class="download-app-btn" onclick="trackEvent('App', 'Download', 'APK Download')">
           Download App
         </a>
         <div class="google-me-container">
-            <button class="google-me-btn" onclick="document.getElementById('google-me-details').style.display = (document.getElementById('google-me-details').style.display === 'block' ? 'none' : 'block')">🔍 Google Me!</button>
+            <button class="google-me-btn" onclick="document.getElementById('google-me-details').style.display = (document.getElementById('google-me-details').style.display === 'block' ? 'none' : 'block')" onclick="trackEvent('Profile', 'Click', 'Google Me')">🔍 Google Me!</button>
             <div class="google-me-details" id="google-me-details">
                 Curious to know more about my journey, projects, and achievements? <br/>
                 <strong>Click below to see what Google says about me!</strong><br/>
@@ -660,6 +668,16 @@
     window.addEventListener('scroll', checkFooterVisibility);
     window.addEventListener('resize', checkFooterVisibility);
     document.addEventListener('DOMContentLoaded', checkFooterVisibility);
+  </script>
+  <script>
+  function trackEvent(category, action, label) {
+    if (typeof gtag === "function") {
+      gtag('event', action, {
+        'event_category': category,
+        'event_label': label
+      });
+    }
+  }
   </script>
 </body>
 </html> 

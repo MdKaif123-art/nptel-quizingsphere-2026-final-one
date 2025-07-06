@@ -12,6 +12,14 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PZ8CRJQNWS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PZ8CRJQNWS');
+    </script>
     <style>
         *, *::before, *::after {
             margin: 0;
@@ -573,22 +581,22 @@
             <div class="profile-name">Mohammed Kaif K</div>
             <div class="profile-title">Creator & Developer</div>
             <div class="profile-links">
-                <a class="profile-link-btn" href="https://www.linkedin.com/in/k-mohammed-kaif-62510728b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fa fa-linkedin"></i> LinkedIn</a>
-                <a class="profile-link-btn" href="https://github.com/MdKaif123-art/" target="_blank"><i class="fa fa-github"></i> GitHub</a>
-                <a class="profile-link-btn" href="https://mohammedkaifk-portfolio.netlify.app" target="_blank"><i class="fa fa-globe"></i> Portfolio</a>
+                <a class="profile-link-btn" href="https://www.linkedin.com/in/k-mohammed-kaif-62510728b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" onclick="trackEvent('Profile', 'Click', 'LinkedIn')"><i class="fa fa-linkedin"></i> LinkedIn</a>
+                <a class="profile-link-btn" href="https://github.com/MdKaif123-art/" target="_blank" onclick="trackEvent('Profile', 'Click', 'GitHub')"><i class="fa fa-github"></i> GitHub</a>
+                <a class="profile-link-btn" href="https://mohammedkaifk-portfolio.netlify.app" target="_blank" onclick="trackEvent('Profile', 'Click', 'Portfolio')"><i class="fa fa-globe"></i> Portfolio</a>
             </div>
             <div class="google-me-container">
-                <button class="google-me-btn" onclick="document.getElementById('google-me-details').style.display = (document.getElementById('google-me-details').style.display === 'block' ? 'none' : 'block')">🔍 Google Me!</button>
+                <button class="google-me-btn" onclick="document.getElementById('google-me-details').style.display = (document.getElementById('google-me-details').style.display === 'block' ? 'none' : 'block')" onclick="trackEvent('Profile', 'Click', 'Google Me')">🔍 Google Me!</button>
                 <div class="google-me-details" id="google-me-details">
                     Curious to know more about my journey, projects, and achievements? <br/>
                     <strong>Click below to see what Google says about me!</strong><br/>
-                    <a href="https://www.google.com/search?q=mohammed+kaif+k+vit+vitmisqube&sca_esv=417d38d31a7a82ae&sxsrf=AE3TifOTF0w_vXlvpcz4lnptHv3OryU2ww%3A1750745754362&ei=mkJaaNDxFYGZnesPsJ7HGA&oq=mohammed+kaif+k+vit+vitmisqube&gs_lp=EhNtb2JpbGUtZ3dzLXdpei1zZXJwIh5tb2hhbW1lZCBrYWlmIGsgdml0IHZpdG1pc3F1YmUyChAjGLADGCcYywQyChAjGLADGCcYywQyCBAAGLADGO8FMggQABiwAxjvBTILEAAYgAQYsAMYogQyCBAAGLADGO8FMgsQABiABBiwAxiiBEijhwJQAFgAcAJ4AJABAJgBvgGgAb4BqgEDMC4xuAEDyAEAmAICoAIUmAMAiAYBkAYHkgcBMqAH2AmyBwC4BwDCBwUyLTEuMcgHEw&sclient=mobile-gws-wiz-serp" target="_blank">See my Google results</a>
+                    <a href="https://www.google.com/search?q=mohammed+kaif+k+vit+vitmisqube&sca_esv=417d38d31a7a82ae&sxsrf=AE3TifOTF0w_vXlvpcz4lnptHv3OryU2ww%3A1750745754362&ei=mkJaaNDxFYGZnesPsJ7HGA&oq=mohammed+kaif+k+vit+vitmisqube&gs_lp=EhNtb2JpbGUtZ3dzLXdpei1zZXJwIh5tb2hhbW1lZCBrYWlmIGsgdml0IHZpdG1pc3F1YmUyChAjGLADGCcYywQyChAjGLADGCcYywQyCBAAGLADGO8FMggQABiwAxjvBTILEAAYgAQYsAMYogQyCBAAGLADGO8FMgsQABiABBiwAxiiBEijhwJQAFgAcAJ4AJABAJgBvgGgAb4BqgEDMC4xuAEDyAEAmAICoAIUmAMAiAYBkAYHkgcBMqAH2AmyBwC4BwDCBwUyLTEuMcgHEw&sclient=mobile-gws-wiz-serp" target="_blank" onclick="trackEvent('Profile', 'Click', 'Google Results')">See my Google results</a>
                 </div>
             </div>
         </div>
         <div class="about-content">
             <div class="about-highlight">
-                I have created a lot of projects, one of which is <a href="https://vitmisqube.netlify.app" target="_blank">vitmisqube</a>. Last time, I also helped many students score above 90 in the NPTEL Forecast Management course.
+                I have created a lot of projects, one of which is <a href="https://vitmisqube.netlify.app" target="_blank" onclick="trackEvent('Profile', 'Click', 'vitmisqube')">vitmisqube</a>. Last time, I also helped many students score above 90 in the NPTEL Forecast Management course.
             </div>
             <h2>My Vision</h2>
             <p>QuizingSphere was born from my passion for education and technology. As a student at VIT University, I recognized the need for an engaging platform that makes learning more interactive and effective. This platform represents my commitment to helping fellow students master various subjects through carefully crafted quizzes.</p>
@@ -651,5 +659,15 @@
     </script>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+    function trackEvent(category, action, label) {
+      if (typeof gtag === "function") {
+        gtag('event', action, {
+          'event_category': category,
+          'event_label': label
+        });
+      }
+    }
+    </script>
 </body>
 </html> 
