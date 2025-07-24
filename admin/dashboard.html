@@ -109,6 +109,7 @@
     .notification-message {
       color: #e0aaff;
       font-size: 1em;
+      white-space: pre-wrap;
     }
     .notification-date {
       color: #bdb2ff;
@@ -344,14 +345,22 @@
         const data = docSnap.data();
         const item = document.createElement('div');
         item.className = 'notification-item';
-        item.innerHTML = `
-          <div class="notification-message">${data.message}</div>
-          <div class="notification-date">${new Date(data.date).toLocaleString()}</div>
-          <div class="notification-actions">
-            <button onclick="window.editNotification('${docSnap.id}', '${data.message.replace(/'/g, '\'')}', '${data.date}')">Edit</button>
-            <button onclick="window.deleteNotification('${docSnap.id}')">Delete</button>
-          </div>
+        // Use textContent to preserve formatting
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'notification-message';
+        msgDiv.textContent = data.message;
+        item.appendChild(msgDiv);
+        const dateDiv = document.createElement('div');
+        dateDiv.className = 'notification-date';
+        dateDiv.textContent = new Date(data.date).toLocaleString();
+        item.appendChild(dateDiv);
+        const actionsDiv = document.createElement('div');
+        actionsDiv.className = 'notification-actions';
+        actionsDiv.innerHTML = `
+          <button onclick="window.editNotification('${docSnap.id}', '${data.message.replace(/'/g, '\'')}', '${data.date}')">Edit</button>
+          <button onclick="window.deleteNotification('${docSnap.id}')">Delete</button>
         `;
+        item.appendChild(actionsDiv);
         notifList.appendChild(item);
       });
     }

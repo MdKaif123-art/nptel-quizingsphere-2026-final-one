@@ -1,56 +1,56 @@
 const allQuestions = {
-    week1: [
-      {
-        question: "Scarcity of food is a",
-        answers: ["chemical factor", "demographic factor", "push factor", "pull factor"],
-        correctAnswer: "push factor"
-      },
-      {
-        question: "The Geographical discipline of Climatology is most closely related to:",
-        answers: ["Geology", "Meteorology", "Hydrology", "Pedology"],
-        correctAnswer: "Meteorology"
-      },
-      {
-        question: "The Trinity explosion of 1945 is taken as the beginning of the",
-        answers: ["Holocene", "Cenocene", "Anthropocene", "Eocene"],
-        correctAnswer: "Anthropocene"
-      },
-      {
-        question: "In the word root for conservation, con stands for",
-        answers: ["together", "to keep", "house", "manage"],
-        correctAnswer: "together"
-      },
-      {
-        question: "In the word root for conservation, servare stands for",
-        answers: ["together", "to keep", "house", "manage"],
-        correctAnswer: "to keep"
-      },
-      {
-        question: "Good climate is a",
-        answers: ["chemical factor", "demographic factor", "push factor", "pull factor"],
-        correctAnswer: "pull factor"
-      },
-      {
-        question: "The rate of any biological process is limited by that factor in least amount relative to requirement, so there is a single limiting factor. This is the statement for",
-        answers: ["Liebig's law of the minimum", "Liebig's law of the maximum", "Shelford's law of tolerance", "Shelford's law of intolerance"],
-        correctAnswer: "Liebig's law of the minimum"
-      },
-      {
-        question: "The discipline of Demography is most closely related to:",
-        answers: ["Phytogeography", "Zoogeography", "Population Geography", "Economic Geography"],
-        correctAnswer: "Population Geography"
-      },
-      {
-        question: "Allowing some places and some creatures to exist without significant human interference is the definition of:",
-        answers: ["conservation", "preservation", "environmentalism", "ecology"],
-        correctAnswer: "preservation"
-      },
-      {
-        question: "The movement of lions across the Gir landscape is an example of",
-        answers: ["diffusion", "secular dispersal", "jump dispersal", "drifting"],
-        correctAnswer: "diffusion"
-      }
-    ],
+  week1: [
+    {
+      question: "\"Science of relationships between organisms and their environments\" is the definition of",
+      answers: ["conservation", "preservation", "environmentalism", "ecology"],
+      correctAnswer: "ecology"
+    },
+    {
+      question: "The Trinity explosion of 1945 is taken as the beginning of the",
+      answers: ["Holocene", "Cenocene", "Anthropocene", "Eocene"],
+      correctAnswer: "Anthropocene"
+    },
+    {
+      question: "Sustainable harvest of resources falls under the category of",
+      answers: ["conservation", "preservation", "environmentalism", "none of the above"],
+      correctAnswer: "conservation"
+    },
+    {
+      question: "The quantum of human impacts can be written as",
+      answers: ["I = P + A + T", "I = P × A + T", "I = P × A × T", "I = P + A × T"],
+      correctAnswer: "I = P × A × T"
+    },
+    {
+      question: "The discipline of Demography is most closely related to:",
+      answers: ["Phytogeography", "Zoogeography", "Population Geography", "Economic Geography"],
+      correctAnswer: "Population Geography"
+    },
+    {
+      question: "\"The rate of any biological process is limited by that factor in least amount relative to requirement, so there is a single limiting factor.\" This is the statement for",
+      answers: ["Liebig's law of the minimum", "Liebig's law of the maximum", "Shelford's law of tolerance", "Shelford's law of intolerance"],
+      correctAnswer: "Liebig's law of the minimum"
+    },
+    {
+      question: "\"The geographical distribution of a species will be controlled by that environmental factor for which the organism has the narrowest range of tolerance.\" This is the statement for",
+      answers: ["Liebig's law of the minimum", "Liebig's law of the maximum", "Shelford's law of tolerance", "Shelford's law of intolerance"],
+      correctAnswer: "Shelford's law of tolerance"
+    },
+    {
+      question: "The regional approach to Geography was developed by:",
+      answers: ["Alexander von Humboldt", "Karl Ritter", "Rene Descartes", "Eratosthenes"],
+      correctAnswer: "Karl Ritter"
+    },
+    {
+      question: "Good climate is a",
+      answers: ["chemical factor", "demographic factor", "push factor", "pull factor"],
+      correctAnswer: "pull factor"
+    },
+    {
+      question: "Scarcity of food is a",
+      answers: ["chemical factor", "demographic factor", "push factor", "pull factor"],
+      correctAnswer: "push factor"
+    }
+  ],
     week2: [
       {
         question: "Which of these is true about P waves?",

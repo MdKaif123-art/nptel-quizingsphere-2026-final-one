@@ -61,6 +61,7 @@
       color: #e0aaff;
       font-size: 1em;
       margin: 0.3em 0 0.5em 0;
+      white-space: pre-wrap;
     }
     .notification-date {
       color: #bdb2ff;
@@ -328,10 +329,15 @@
         const data = docSnap.data();
         const item = document.createElement('div');
         item.className = 'notification-card';
-        item.innerHTML = `
-          <div class="notification-message">${data.message}</div>
-          <div class="notification-date">${new Date(data.date).toLocaleString()}</div>
-        `;
+        // Use textContent to preserve formatting
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'notification-message';
+        msgDiv.textContent = data.message;
+        item.appendChild(msgDiv);
+        const dateDiv = document.createElement('div');
+        dateDiv.className = 'notification-date';
+        dateDiv.textContent = new Date(data.date).toLocaleString();
+        item.appendChild(dateDiv);
         notifList.appendChild(item);
       });
     }
