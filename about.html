@@ -494,6 +494,8 @@
             z-index: 30;
         }
         .google-me-btn {
+            display: inline-block;
+            text-decoration: none;
             background: linear-gradient(90deg, #a259ff 0%, #f15bb5 100%);
             color: #fff;
             font-size: 1.15em;
@@ -588,12 +590,7 @@
                 <a class="profile-link-btn" href="https://mohammedkaifk-portfolio.netlify.app" target="_blank" onclick="trackEvent('Profile', 'Click', 'Portfolio')"><i class="fa fa-globe"></i> Portfolio</a>
             </div>
             <div class="google-me-container">
-                <button class="google-me-btn" onclick="document.getElementById('google-me-details').style.display = (document.getElementById('google-me-details').style.display === 'block' ? 'none' : 'block')" onclick="trackEvent('Profile', 'Click', 'Google Me')">🔍 Google Me!</button>
-                <div class="google-me-details" id="google-me-details">
-                    Curious to know more about my journey, projects, and achievements? <br/>
-                    <strong>Click below to see what Google says about me!</strong><br/>
-                    <a href="https://www.google.com/search?q=mohammed+kaif+k+vit+vitmisqube&sca_esv=417d38d31a7a82ae&sxsrf=AE3TifOTF0w_vXlvpcz4lnptHv3OryU2ww%3A1750745754362&ei=mkJaaNDxFYGZnesPsJ7HGA&oq=mohammed+kaif+k+vit+vitmisqube&gs_lp=EhNtb2JpbGUtZ3dzLXdpei1zZXJwIh5tb2hhbW1lZCBrYWlmIGsgdml0IHZpdG1pc3F1YmUyChAjGLADGCcYywQyChAjGLADGCcYywQyCBAAGLADGO8FMggQABiwAxjvBTILEAAYgAQYsAMYogQyCBAAGLADGO8FMgsQABiABBiwAxiiBEijhwJQAFgAcAJ4AJABAJgBvgGgAb4BqgEDMC4xuAEDyAEAmAICoAIUmAMAiAYBkAYHkgcBMqAH2AmyBwC4BwDCBwUyLTEuMcgHEw&sclient=mobile-gws-wiz-serp" target="_blank" onclick="trackEvent('Profile', 'Click', 'Google Results')">See my Google results</a>
-                </div>
+                <a class="google-me-btn" href="https://www.google.com/search?q=mohammed+kaif+k+vit+vitmisqube&sca_esv=417d38d31a7a82ae&sxsrf=AE3TifOTF0w_vXlvpcz4lnptHv3OryU2ww%3A1750745754362&ei=mkJaaNDxFYGZnesPsJ7HGA&oq=mohammed+kaif+k+vit+vitmisqube&gs_lp=EhNtb2JpbGUtZ3dzLXdpei1zZXJwIh5tb2hhbW1lZCBrYWlmIGsgdml0IHZpdG1pc3F1YmUyChAjGLADGCcYywQyChAjGLADGCcYywQyCBAAGLADGO8FMggQABiwAxjvBTILEAAYgAQYsAMYogQyCBAAGLADGO8FMgsQABiABBiwAxiiBEijhwJQAFgAcAJ4AJABAJgBvgGgAb4BqgEDMC4xuAEDyAEAmAICoAIUmAMAiAYBkAYHkgcBMqAH2AmyBwC4BwDCBwUyLTEuMcgHEw&sclient=mobile-gws-wiz-serp" target="_blank" onclick="trackEvent('Profile', 'Click', 'Google Me')">🔍 Google Me!</a>
             </div>
         </div>
         <div class="about-content">
