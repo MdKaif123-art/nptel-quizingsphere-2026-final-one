@@ -191,16 +191,6 @@ const allQuestions = {
         "The ability to understand another person's perspective"
       ],
       "correctAnswer": "The belief that others are constantly watching, noticing, and evaluating oneself"
-    },
-    {
-      "question": "According to Erikson, what is the central conflict during adolescence?",
-      "answers": [
-        "Trust vs. Mistrust",
-        "Initiative vs. Guilt",
-        "Identity vs. Role Confusion",
-        "Autonomy vs. Shame and Doubt"
-      ],
-      "correctAnswer": "Identity vs. Role Confusion"
     }
   ],
   "week2": [
@@ -1123,108 +1113,6 @@ const allQuestions = {
   ],
   "week11": [
     {
-      "question": "What is stress primarily defined as?",
-      "answers": [
-        "A physical illness",
-        "A psychological response to perceived threats",
-        "A state of relaxation",
-        "A type of exercise"
-      ],
-      "correctAnswer": "A psychological response to perceived threats"
-    },
-    {
-      "question": "How does mindfulness help in stress management?",
-      "answers": [
-        "It distracts from problems",
-        "It promotes present-moment awareness",
-        "It increases anxiety levels",
-        "It requires no practice"
-      ],
-      "correctAnswer": "It promotes present-moment awareness"
-    },
-    {
-      "question": "Which of the following best describes the relationship between stress and emotional well-being?",
-      "answers": [
-        "Stress has no impact on emotional health",
-        "High stress levels typically enhance emotional well-being",
-        "Stress can lead to negative emotional states",
-        "Emotional well-being is unrelated to stress"
-      ],
-      "correctAnswer": "Stress can lead to negative emotional states"
-    },
-    {
-      "question": "What is the purpose of relaxation techniques?",
-      "answers": [
-        "To increase stress hormones",
-        "To promote relaxation and reduce tension",
-        "To maintain high energy levels",
-        "To enhance academic performance only"
-      ],
-      "correctAnswer": "To promote relaxation and reduce tension"
-    },
-    {
-      "question": "What type of exercise is MOST effective for stress relief?",
-      "answers": [
-        "High Intensity Interval Training",
-        "Any form of physical activity",
-        "Stretching only",
-        "Sedentary rest"
-      ],
-      "correctAnswer": "Any form of physical activity"
-    },
-    {
-      "question": "What is progressive muscle relaxation?",
-      "answers": [
-        "A type of exercise",
-        "A method to reduce muscle tension",
-        "A style of yoga",
-        "A cooking technique"
-      ],
-      "correctAnswer": "A method to reduce muscle tension"
-    },
-    {
-      "question": "What type of exercise can be particularly effective for stress management?",
-      "answers": [
-        "Watching movies",
-        "Aerobic activities like jogging or swimming",
-        "Sitting on a couch",
-        "Playing video games"
-      ],
-      "correctAnswer": "Aerobic activities like jogging or swimming"
-    },
-    {
-      "question": "Which of the following is considered a common academic stressor that can negatively affect mental health?",
-      "answers": [
-        "Taking breaks between study sessions",
-        "Maintaining a consistent sleep schedule",
-        "Fear of failure and excessive workload",
-        "Socializing with classmates"
-      ],
-      "correctAnswer": "Fear of failure and excessive workload"
-    },
-    {
-      "question": "Which relaxation technique involves visualizing calming scenes to reduce stress and promote relaxation?",
-      "answers": [
-        "Deep breathing",
-        "Guided imagery",
-        "Mindful eating",
-        "Cardio training"
-      ],
-      "correctAnswer": "Guided imagery"
-    },
-    {
-      "question": "Which of the following correctly lists the three stages of the General Adaptation Syndrome (GAS)?",
-      "answers": [
-        "Alarm, Exhaustion, Recovery",
-        "Shock, Coping, Burnout",
-        "Alarm, Resistance, Exhaustion",
-        "Panic, Adjustment, Resolution"
-      ],
-      "correctAnswer": "Alarm, Resistance, Exhaustion"
-    }
-  ],
-  "week12": [
-    {
       "question": "Which of the following best describes academic stress?",
       "answers": [
         "Stress caused only by exams",
@@ -1323,6 +1211,108 @@ const allQuestions = {
         "To complain to others without taking action"
       ],
       "correctAnswer": "To understand what contributes to stress and respond more effectively"
+    }
+  ],
+  "week12": [
+    {
+      "question": "Body image refers to:",
+      "answers": [
+        "Physical fitness level",
+        "Perception and feelings about one's body",
+        "Body weight only",
+        "Medical health status"
+      ],
+      "correctAnswer": "Perception and feelings about one's body"
+    },
+    {
+      "question": "Upward social comparison leads to:",
+      "answers": [
+        "Increased confidence always",
+        "Comparing with less successful people",
+        "Comparing with better-looking or more successful people",
+        "Ignoring others"
+      ],
+      "correctAnswer": "Comparing with better-looking or more successful people"
+    },
+    {
+      "question": "Objectification theory suggests that:",
+      "answers": [
+        "People ignore appearance",
+        "Individuals see themselves from an outsider's perspective",
+        "Social media has no effect",
+        "Only men are affected"
+      ],
+      "correctAnswer": "Individuals see themselves from an outsider's perspective"
+    },
+    {
+      "question": "FOMO stands for:",
+      "answers": [
+        "Fear of Missing Out",
+        "Fear of Mental Overload",
+        "Feeling of Mood Oscillation",
+        "Focus on Media Output"
+      ],
+      "correctAnswer": "Fear of Missing Out"
+    },
+    {
+      "question": "Digital fatigue is:",
+      "answers": [
+        "Physical illness only",
+        "Mental exhaustion from excessive screen time",
+        "Lack of sleep only",
+        "Internet failure"
+      ],
+      "correctAnswer": "Mental exhaustion from excessive screen time"
+    },
+    {
+      "question": "Which is a key feature of cyberbullying?",
+      "answers": [
+        "Face-to-face interaction",
+        "Limited impact",
+        "Online harassment",
+        "Only adults are affected"
+      ],
+      "correctAnswer": "Online harassment"
+    },
+    {
+      "question": "Social media activates which brain chemical?",
+      "answers": [
+        "Serotonin",
+        "Dopamine",
+        "Melatonin",
+        "Insulin"
+      ],
+      "correctAnswer": "Dopamine"
+    },
+    {
+      "question": "Curated content means:",
+      "answers": [
+        "Raw, unedited life",
+        "Random posts",
+        "Selectively edited and idealized posts",
+        "Scientific data"
+      ],
+      "correctAnswer": "Selectively edited and idealized posts"
+    },
+    {
+      "question": "Which of the following can negatively affect a person's self-esteem when using social media?",
+      "answers": [
+        "Comparing oneself with others online",
+        "Taking regular breaks from social media",
+        "Following positive and supportive content",
+        "Limiting screen time"
+      ],
+      "correctAnswer": "Comparing oneself with others online"
+    },
+    {
+      "question": "Which of the following is a healthy approach to social media use?",
+      "answers": [
+        "Checking social media whenever feeling stressed",
+        "Comparing your appearance with influencers",
+        "Setting boundaries around screen time",
+        "Seeking validation through likes and comments"
+      ],
+      "correctAnswer": "Setting boundaries around screen time"
     }
   ]
 };
