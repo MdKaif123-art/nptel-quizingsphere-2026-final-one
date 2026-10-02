@@ -547,6 +547,143 @@
           80% { transform: scale(1.08); opacity: 1; }
           100% { transform: scale(1); opacity: 1; }
         }
+
+        /* The Quizingsphere Journey Styles */
+        .journey-card {
+          margin: 3.5em auto 2em auto;
+          max-width: 820px;
+          background: rgba(30, 10, 60, 0.45);
+          border: 1px solid rgba(162, 89, 255, 0.35);
+          border-radius: 28px;
+          padding: 2.5em 2em;
+          box-shadow: 0 8px 40px rgba(58, 12, 163, 0.5), 0 1.5px 0 rgba(255, 255, 255, 0.1) inset;
+          backdrop-filter: blur(16px);
+          position: relative;
+          z-index: 2;
+          text-align: left;
+        }
+        .journey-badge {
+          display: inline-block;
+          background: linear-gradient(90deg, #f72585, #7209b7);
+          color: #fff;
+          font-size: 0.85rem;
+          font-weight: 700;
+          padding: 0.4em 1.2em;
+          border-radius: 50px;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          margin-bottom: 0.8em;
+          box-shadow: 0 2px 12px rgba(247, 37, 133, 0.4);
+        }
+        .journey-title {
+          font-size: 2.1rem;
+          font-weight: 700;
+          color: #f3c4fb;
+          margin-bottom: 0.2em;
+          text-shadow: 0 0 16px rgba(114, 9, 183, 0.6);
+        }
+        .journey-subtitle {
+          color: #c77dff;
+          font-size: 1rem;
+          margin: 0 0 2em 0;
+          font-style: italic;
+        }
+        .journey-timeline {
+          display: flex;
+          flex-direction: column;
+          gap: 1.5em;
+          position: relative;
+          padding-left: 1em;
+          border-left: 2px dashed rgba(162, 89, 255, 0.4);
+          margin-left: 1em;
+          margin-bottom: 2em;
+        }
+        .journey-step {
+          position: relative;
+          padding-left: 1.5em;
+        }
+        .journey-step-icon {
+          position: absolute;
+          left: -1.95em;
+          top: 0;
+          width: 32px;
+          height: 32px;
+          background: #7209b7;
+          border: 2px solid #e0aaff;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1rem;
+          box-shadow: 0 0 12px rgba(162, 89, 255, 0.6);
+        }
+        .journey-step h3 {
+          font-size: 1.2rem;
+          color: #e0aaff;
+          margin-bottom: 0.3em;
+        }
+        .journey-step p {
+          font-size: 0.98rem;
+          color: #e8d7ff;
+          line-height: 1.6;
+          margin: 0;
+          text-align: left;
+          max-width: 100%;
+        }
+        .journey-feedback-box {
+          background: rgba(114, 9, 183, 0.25);
+          border: 1px solid rgba(224, 170, 255, 0.3);
+          border-radius: 18px;
+          padding: 1.5em;
+          text-align: center;
+          margin: 2em 0 1.5em 0;
+        }
+        .journey-feedback-box p {
+          color: #fff;
+          font-size: 1.05rem;
+          font-weight: 500;
+          margin: 0 0 1em 0;
+        }
+        .feedback-cta-btn {
+          display: inline-block;
+          background: linear-gradient(100deg, #f72585 0%, #7209b7 100%);
+          color: #fff;
+          font-size: 1.15rem;
+          font-weight: 700;
+          padding: 0.7em 2.2em;
+          border-radius: 50px;
+          text-decoration: none;
+          box-shadow: 0 4px 20px rgba(247, 37, 133, 0.45);
+          transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+        }
+        .feedback-cta-btn:hover {
+          transform: scale(1.05);
+          box-shadow: 0 6px 30px rgba(247, 37, 133, 0.65);
+          filter: brightness(1.1);
+          color: #fff;
+        }
+        .journey-quote {
+          text-align: center;
+          font-size: 1.15rem;
+          font-style: italic;
+          color: #00f5d4;
+          margin-top: 1.5em;
+          padding-top: 1.2em;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .journey-quote span {
+          display: block;
+          font-size: 0.95rem;
+          color: #e0aaff;
+          font-style: normal;
+          font-weight: 600;
+          margin-top: 0.3em;
+        }
+        @media (max-width: 600px) {
+          .journey-card { padding: 1.8em 1.2em; margin-top: 2.5em; }
+          .journey-title { font-size: 1.6rem; }
+          .journey-timeline { margin-left: 0.5em; }
+        }
     </style>
     <script type="application/ld+json">
     {
@@ -606,6 +743,51 @@
                 Curious to know more about my journey, projects, and achievements? <br/>
                 <strong>Click below to see what Google says about me!</strong><br/>
                 <a href="https://www.google.com/search?q=mohammed+kaif+k+vit+vitmisqube&sca_esv=417d38d31a7a82ae&sxsrf=AE3TifOTF0w_vXlvpcz4lnptHv3OryU2ww%3A1750745754362&ei=mkJaaNDxFYGZnesPsJ7HGA&oq=mohammed+kaif+k+vit+vitmisqube&gs_lp=EhNtb2JpbGUtZ3dzLXdpei1zZXJwIh5tb2hhbW1lZCBrYWlmIGsgdml0IHZpdG1pc3F1YmUyChAjGLADGCcYywQyChAjGLADGCcYywQyCBAAGLADGO8FMggQABiwAxjvBTILEAAYgAQYsAMYogQyCBAAGLADGO8FMgsQABiABBiwAxiiBEijhwJQAFgAcAJ4AJABAJgBvgGgAb4BqgEDMC4xuAEDyAEAmAICoAIUmAMAiAYBkAYHkgcBMqAH2AmyBwC4BwDCBwUyLTEuMcgHEw&sclient=mobile-gws-wiz-serp" target="_blank">See my Google results</a>
+            </div>
+        </div>
+
+        <!-- The Quizingsphere Journey Card -->
+        <div class="journey-card">
+            <div class="journey-badge">Our Journey &amp; Final Chapter 🌟</div>
+            <h2 class="journey-title">The Quizingsphere Journey</h2>
+            <p class="journey-subtitle">A personal message from Mohammed Kaif | Creator &amp; Admin</p>
+
+            <div class="journey-timeline">
+                <div class="journey-step">
+                    <div class="journey-step-icon">🌱</div>
+                    <h3>Semester 3: The Humble Beginning</h3>
+                    <p>What started out as a small personal project in my 3rd semester—built simply to help myself study and make practicing NPTEL questions easier for my peers—began touching lives in ways I never imagined.</p>
+                </div>
+
+                <div class="journey-step">
+                    <div class="journey-step-icon">🚀</div>
+                    <h3>4 Semesters &amp; 25,000+ Students Strong</h3>
+                    <p>Over the past 4 semesters, Quizingsphere grew into an incredible community of over 25,000+ learners across India. Balancing hectic university schedules, exams, and personal workloads, I made it my personal priority to keep every single question accurate, reliable, and close to 100% consistent every single week.</p>
+                </div>
+
+                <div class="journey-step">
+                    <div class="journey-step-icon">❤️</div>
+                    <h3>Built by Community, Shaped by Feedback</h3>
+                    <p>I’ve received all kinds of feedback along the way—some loved the UI, some offered constructive critiques, but every word helped shape this platform. This wouldn’t have been possible without everyone who shared questions, contributed information, and supported each other with genuine kindness.</p>
+                </div>
+
+                <div class="journey-step">
+                    <div class="journey-step-icon">🌅</div>
+                    <h3>The Final Semester Serving You</h3>
+                    <p>This will be the last semester Quizingsphere will be actively serving and guiding NPTEL exams. After this, the platform will be taking a well-deserved rest for some time. To everyone whose messages or DMs I couldn’t get back to—I had a lot going on behind the scenes, and I hope you understand. I’m truly proud of the community we built together.</p>
+                </div>
+            </div>
+
+            <div class="journey-feedback-box">
+                <p>Before you go, please take just 1 minute to share your thoughts, memories, or feedback:</p>
+                <a href="https://quizing-sphere.netlify.app/comments" target="_blank" class="feedback-cta-btn" onclick="trackEvent('Journey', 'Click', 'Share Feedback')">
+                    Share Your Feedback 👉
+                </a>
+            </div>
+
+            <div class="journey-quote">
+                "Help others with a smile 😊 on your journey."
+                <span>— Mohammed Kaif</span>
             </div>
         </div>
     </div>
