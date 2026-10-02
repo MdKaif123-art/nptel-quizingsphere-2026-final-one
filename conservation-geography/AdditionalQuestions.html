@@ -3,155 +3,1673 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Additional Questions | Conservation Geography</title>
+  <title>Additional Questions | Mental Health and Well Being</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #3a0ca3, #0f0f0f);
       color: #fff;
-      margin: 0;
-      padding: 0;
       min-height: 100vh;
+      padding-bottom: 3em;
     }
-    .container {
-      max-width: 800px;
-      margin: 2em auto;
-      background: rgba(80, 40, 180, 0.18);
-      border-radius: 24px;
-      box-shadow: 0 4px 32px #3a0ca355;
-      padding: 2.5em 2em;
+    #tsparticles {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      z-index: 0;
+    }
+    .page-wrapper {
       position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2em 1em;
     }
     .back-btn {
-      position: fixed;
-      top: 24px;
-      left: 24px;
-      z-index: 100;
+      display: inline-block;
       background: linear-gradient(45deg, #7209b7, #560bad);
       color: #fff;
       border: none;
       border-radius: 18px;
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 700;
-      padding: 0.6em 1.7em;
+      padding: 0.55em 1.6em;
       cursor: pointer;
+      text-decoration: none;
+      margin-bottom: 1.4em;
       box-shadow: 0 2px 8px #7209b733;
       transition: background 0.2s, transform 0.2s;
-      text-decoration: none;
-      display: inline-block;
     }
-    .back-btn:hover {
-      background: #9d4edd;
-      transform: scale(1.05);
-      color: #fff;
-      text-decoration: none;
-    }
-    h1, h2, h3 {
-      color: #e0aaff;
+    .back-btn:hover { background: #9d4edd; transform: scale(1.05); color: #fff; }
+    h1.page-title {
       text-align: center;
-      margin-bottom: 1.2em;
+      font-size: 1.9rem;
+      color: #e0aaff;
+      margin-bottom: 0.3em;
     }
+    .subtitle {
+      text-align: center;
+      color: #b8b8ff;
+      font-size: 1rem;
+      margin-bottom: 2em;
+    }
+    /* Week filter tabs */
+    .week-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5em;
+      justify-content: center;
+      margin-bottom: 2em;
+    }
+    .week-tab {
+      padding: 0.45em 1.3em;
+      border-radius: 50px;
+      border: 2px solid #7209b7;
+      background: transparent;
+      color: #e0aaff;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: 'Poppins', sans-serif;
+    }
+    .week-tab:hover, .week-tab.active {
+      background: linear-gradient(45deg, #7209b7, #560bad);
+      color: #fff;
+      border-color: transparent;
+    }
+    /* Week section */
+    .week-section { display: none; }
+    .week-section.visible { display: block; }
+    .week-header {
+      background: linear-gradient(90deg, #7209b7 0%, #3a0ca3 100%);
+      border-radius: 16px 16px 0 0;
+      padding: 1em 1.5em;
+      margin-bottom: 0;
+    }
+    .week-header h2 {
+      color: #fff;
+      font-size: 1.35rem;
+      margin: 0;
+    }
+    .week-header .due {
+      color: #e0aaff;
+      font-size: 0.9rem;
+      margin-top: 0.2em;
+    }
+    .week-body {
+      background: rgba(80, 40, 180, 0.18);
+      border-radius: 0 0 16px 16px;
+      padding: 1.2em 1em 1.5em 1em;
+      margin-bottom: 2.5em;
+      box-shadow: 0 4px 32px #3a0ca355;
+    }
+    /* Question card */
     .question-card {
-      background: rgba(255,255,255,0.10);
-      border-radius: 18px;
-      margin: 1.2em 0;
-      padding: 1.2em 1em 1em 1em;
-      box-shadow: 0 2px 16px #a259ff33;
-      text-align: left;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+      background: rgba(255,255,255,0.08);
+      border-radius: 14px;
+      margin: 1.1em 0;
+      padding: 1.1em 1.2em;
+      box-shadow: 0 2px 16px #a259ff22;
       transition: box-shadow 0.2s;
     }
-    .question-card:hover {
-      box-shadow: 0 4px 32px #a259ff55;
-    }
-    .q {
-      font-size: 1.12rem;
+    .question-card:hover { box-shadow: 0 4px 28px #a259ff44; }
+    .q-text {
+      font-size: 1.05rem;
       font-weight: 600;
       color: #fff;
-      margin-bottom: 0.5em;
+      margin-bottom: 0.75em;
     }
-    .a {
-      margin-left: 1.2em;
-      margin-bottom: 0.3em;
-      font-size: 1.08rem;
+    .q-num {
+      color: #c77dff;
+      margin-right: 0.3em;
+    }
+    .options-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 0.6em 0.4em;
+    }
+    .options-list li {
+      padding: 0.28em 0.5em;
+      font-size: 1rem;
+      color: #d8d8ff;
+      border-radius: 6px;
+      margin-bottom: 0.15em;
+    }
+    .options-list li.correct {
+      color: #00ffcc;
+      font-weight: 600;
+      background: rgba(0,255,204,0.07);
+    }
+    .options-list li.correct::before {
+      content: "✓ ";
+      color: #00ffcc;
+    }
+    .answer-label {
+      font-size: 0.92rem;
       color: #e0aaff;
-    }
-    .desc {
-      margin-left: 1.2em;
-      margin-bottom: 0.3em;
-      font-size: 1.02rem;
-      color: #b8b8ff;
+      margin-top: 0.5em;
       font-style: italic;
     }
-    @media (max-width: 900px) {
-      .container { padding: 1.5em 1em; }
-      .question-card { padding: 1em 0.7em; }
+    .answer-label span {
+      color: #00ffcc;
+      font-weight: 600;
+      font-style: normal;
     }
     @media (max-width: 600px) {
-      .container { padding: 0.7em 0.2em; }
-      h1, h2, h3 { font-size: 1.2em; }
-      .question-card { padding: 0.7em 0.2em; font-size: 0.98em; }
-      .q { font-size: 1em; }
-      .a { font-size: 0.97em; }
-      .desc { font-size: 0.95em; }
-      .back-btn { top: 10px; left: 10px; font-size: 1em; padding: 0.5em 1.2em; }
-    }
-    #tsparticles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 0;
+      h1.page-title { font-size: 1.3rem; }
+      .week-header h2 { font-size: 1.1rem; }
+      .q-text { font-size: 0.97rem; }
+      .options-list li { font-size: 0.93rem; }
+      .week-body { padding: 0.7em 0.3em 1em 0.3em; }
     }
   </style>
 </head>
 <body>
   <div id="tsparticles"></div>
-  <div class="container">
-    <a href="index.html" class="back-btn" style="position:static;display:inline-block;margin-bottom:1.2em;top:auto;left:auto;">&larr; Back</a>
-    <h2>Additional Questions and Answers</h2>
-    <div id="additional-questions-list"></div>
-  </div>
-  <script type="module">
-    import { db, collection, getDocs, query, orderBy } from '../admin/firebase.js';
-    const list = document.getElementById('additional-questions-list');
-    async function loadAdditionalQuestions() {
-      list.innerHTML = '<em>Loading...</em>';
-      const q = query(collection(db, 'notifications', 'conservation-geography', 'admin-additional-questions'), orderBy('date', 'desc'));
-      const snap = await getDocs(q);
-      list.innerHTML = '';
-      let i = 1;
-      snap.forEach(docSnap => {
-        const data = docSnap.data();
-        const item = document.createElement('div');
-        item.className = 'question-card';
-        item.innerHTML = `
-          <div class='q'>${i++}. ${data.question}</div>
-          ${data.answer ? `<div class='a'>Answer: ${data.answer}</div>` : ''}
-          ${data.description ? `<div class='desc'>Description: ${data.description}</div>` : ''}
-        `;
-        list.appendChild(item);
-      });
+  <div class="page-wrapper">
+    <a href="index.html" class="back-btn">&larr; Back</a>
+    <h1 class="page-title">Additional Questions &amp; Answers</h1>
+    <p class="subtitle">Mental Health and Well Being &mdash; NPTEL Assignments</p>
+
+    <!-- Week Tabs -->
+    <div class="week-tabs">
+      <button class="week-tab active" onclick="showWeek('week1', this)">Week 1</button>
+      <button class="week-tab" onclick="showWeek('week2', this)">Week 2</button>
+      <button class="week-tab" onclick="showWeek('week3', this)">Week 3</button>
+      <button class="week-tab" onclick="showWeek('week4', this)">Week 4</button>
+      <button class="week-tab" onclick="showWeek('week5', this)">Week 5</button>
+      <button class="week-tab" onclick="showWeek('week6', this)">Week 6</button>
+      <button class="week-tab" onclick="showWeek('week7', this)">Week 7</button>
+      <button class="week-tab" onclick="showWeek('week8', this)">Week 8</button>
+      <button class="week-tab" onclick="showWeek('week9', this)">Week 9</button>
+      <button class="week-tab" onclick="showWeek('week10', this)">Week 10</button>
+      <button class="week-tab" onclick="showWeek('week11', this)">Week 11</button>
+      <button class="week-tab" onclick="showWeek('week12', this)">Week 12</button>
+    </div>
+
+    <!-- ===================== WEEK 1 ===================== -->
+    <div class="week-section visible" id="week1">
+      <div class="week-header">
+        <h2>Week 1: Assignment 1</h2>
+        <div class="due">Due on 2025-08-06, 23:59 IST</div>
+      </div>
+      <div class="week-body">
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">1.</span> What is mental well-being?</div>
+          <ul class="options-list">
+            <li>Absence of mental illness</li>
+            <li class="correct">Emotional, psychological, and social well-being, affecting how we think, feel, and act</li>
+            <li>A state of complete happiness at all times</li>
+            <li>Having a high IQ and academic success</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Emotional, psychological, and social well-being, affecting how we think, feel, and act</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">2.</span> Which of the following is a common emotional change during adolescence?</div>
+          <ul class="options-list">
+            <li>Constant mental stability</li>
+            <li>Decreased sensitivity to peer influence</li>
+            <li class="correct">Increased emotional fluctuations</li>
+            <li>Decline in identity exploration</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Increased emotional fluctuations</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">3.</span> Why is identity formation significant during adolescence?</div>
+          <ul class="options-list">
+            <li>It helps adolescents avoid peer interactions</li>
+            <li>It promotes dependency on parental opinions</li>
+            <li class="correct">It shapes their sense of self and direction in life</li>
+            <li>It increases academic pressure</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>It shapes their sense of self and direction in life</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">4.</span> Which of the following is an example of emotional intelligence?</div>
+          <ul class="options-list">
+            <li>Ignoring other people's feelings</li>
+            <li class="correct">Understanding and managing one's own emotions</li>
+            <li>Memorizing emotional words</li>
+            <li>Always agreeing with friends</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Understanding and managing one's own emotions</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">5.</span> Why are support networks important in times of crisis?</div>
+          <ul class="options-list">
+            <li>They isolate individuals from emotional impact</li>
+            <li>They help with financial planning only</li>
+            <li class="correct">They provide emotional and psychological safety</li>
+            <li>They reduce the need for communication</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>They provide emotional and psychological safety</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">6.</span> What role do mentors and guidance play in adolescents' well-being?</div>
+          <ul class="options-list">
+            <li>Discourage independence</li>
+            <li>Promote critical thinking and offer life advice</li>
+            <li class="correct">Promote critical thinking and offer life advice</li>
+            <li>Enforce academic pressure</li>
+            <li>Limit emotional growth</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Promote critical thinking and offer life advice</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">7.</span> Which of the following is a practical stress management technique?</div>
+          <ul class="options-list">
+            <li>Overthinking</li>
+            <li>Avoiding problems</li>
+            <li class="correct">Mindfulness and relaxation</li>
+            <li>Ignoring support systems</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Mindfulness and relaxation</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">8.</span> According to Erikson, what is the central conflict during adolescence?</div>
+          <ul class="options-list">
+            <li>Trust vs. Mistrust</li>
+            <li>Initiative vs. Guilt</li>
+            <li class="correct">Identity vs. Role Confusion</li>
+            <li>Autonomy vs. Shame and Doubt</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Identity vs. Role Confusion</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">9.</span> According to Kristin Neff, which of the following is not one of the three core components of self-compassion?</div>
+          <ul class="options-list">
+            <li class="correct">Self-criticism</li>
+            <li>Common Humanity</li>
+            <li>Mindfulness</li>
+            <li>Self-kindness</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Self-criticism</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">10.</span> What are the two main types of social comparison identified in Festinger's Social Comparison Theory?</div>
+          <ul class="options-list">
+            <li>Objective and Subjective Comparison</li>
+            <li>Internal and External Comparison</li>
+            <li class="correct">Upward and Downward Comparison</li>
+            <li>Realistic and Unrealistic Comparison</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Upward and Downward Comparison</span></div>
+        </div>
+
+      </div>
+    </div><!-- end week1 -->
+
+    <!-- ===================== WEEK 2 ===================== -->
+    <div class="week-section" id="week2">
+      <div class="week-header">
+        <h2>Week 2: Assignment 2</h2>
+        <div class="due">Due on 2025-08-06, 23:59 IST</div>
+      </div>
+      <div class="week-body">
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">1.</span> What is an example of a healthy coping mechanism?</div>
+          <ul class="options-list">
+            <li>Ignoring the problem</li>
+            <li class="correct">Talking to a trusted friend</li>
+            <li>Overeating due to stress</li>
+            <li>Bottling up emotions</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Talking to a trusted friend</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">2.</span> Emotional regulation involves:</div>
+          <ul class="options-list">
+            <li>Suppressing emotions completely</li>
+            <li>Avoiding emotional situations</li>
+            <li class="correct">Understanding and managing emotions</li>
+            <li>Ignoring how others feel</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Understanding and managing emotions</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">3.</span> Peer pressure is best described as:</div>
+          <ul class="options-list">
+            <li>Advice from a counselor</li>
+            <li class="correct">Influence from friends or peers</li>
+            <li>Support from teachers</li>
+            <li>Family rules</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Influence from friends or peers</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">4.</span> Assertiveness means:</div>
+          <ul class="options-list">
+            <li>Always agreeing with others</li>
+            <li>Avoiding confrontation</li>
+            <li class="correct">Expressing your thoughts respectfully</li>
+            <li>Ignoring your needs</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Expressing your thoughts respectfully</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">5.</span> Which of these most influences body image in teens?</div>
+          <ul class="options-list">
+            <li>Weather</li>
+            <li class="correct">Media and social expectations</li>
+            <li>School subjects</li>
+            <li>Transportation choices</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Media and social expectations</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">6.</span> Body positivity means:</div>
+          <ul class="options-list">
+            <li>Criticising others' appearance</li>
+            <li>Believing one body type is superior</li>
+            <li class="correct">Accepting and respecting all body types</li>
+            <li>Ignoring health</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Accepting and respecting all body types</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">7.</span> Mindfulness is the practice of:</div>
+          <ul class="options-list">
+            <li>Thinking only about the past</li>
+            <li>Worrying about the future</li>
+            <li class="correct">Focusing on the present moment</li>
+            <li>Avoiding thoughts</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Focusing on the present moment</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">8.</span> Which of the following best demonstrates active listening?</div>
+          <ul class="options-list">
+            <li>Interrupting the speaker to give your opinion</li>
+            <li>Avoiding eye contact and asking clarifying questions</li>
+            <li class="correct">Nodding occasionally and asking clarifying questions</li>
+            <li>Looking away while the speaker is talking</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Nodding occasionally and asking clarifying questions</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">9.</span> Which one is an unhealthy way to deal with stress?</div>
+          <ul class="options-list">
+            <li>Talking to a friend</li>
+            <li>Going for a walk</li>
+            <li>Crying a little and then relaxing</li>
+            <li class="correct">Hitting things when you're angry</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Hitting things when you're angry</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">10.</span> Self-harm (like cutting) is considered an unhealthy coping mechanism because:</div>
+          <ul class="options-list">
+            <li>It solves the root of the problem</li>
+            <li>It helps improve long-term emotional health</li>
+            <li>It provides safe emotional expression</li>
+            <li class="correct">It may provide short-term relief but increases harm and emotional pain in the long run</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>It may provide short-term relief but increases harm and emotional pain in the long run</span></div>
+        </div>
+
+      </div>
+    </div><!-- end week2 -->
+
+    <!-- ===================== WEEK 3 ===================== -->
+    <div class="week-section" id="week3">
+      <div class="week-header">
+        <h2>Week 3: Assignment 3</h2>
+        <div class="due">Due on 2025-08-13, 23:59 IST</div>
+      </div>
+      <div class="week-body">
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">1.</span> Which of the following is the first step in resolving conflicts peacefully?</div>
+          <ul class="options-list">
+            <li class="correct">Understanding different perspectives</li>
+            <li>Ignoring the problem</li>
+            <li>Engaging in heated debate</li>
+            <li>Seeking revenge</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Understanding different perspectives</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">2.</span> Which of the following is NOT a feature of SMART goals?</div>
+          <ul class="options-list">
+            <li>Measurable</li>
+            <li>Time-bound</li>
+            <li class="correct">Unrealistic</li>
+            <li>Achievable</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Unrealistic</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">3.</span> In emotional regulation, which technique involves changing the way one thinks about a situation to alter its emotional impact?</div>
+          <ul class="options-list">
+            <li>Displacement</li>
+            <li>Repression</li>
+            <li>Denial</li>
+            <li class="correct">Cognitive reappraisal</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Cognitive reappraisal</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">4.</span> Which conflict resolution strategy involves a neutral third party helping both sides reach an agreement?</div>
+          <ul class="options-list">
+            <li>Avoidance</li>
+            <li>Aggression</li>
+            <li>Competition</li>
+            <li class="correct">Mediation</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Mediation</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">5.</span> What is the primary benefit of maintaining good sleep hygiene?</div>
+          <ul class="options-list">
+            <li class="correct">Better memory and emotional regulation</li>
+            <li>Weight loss</li>
+            <li>Increased screen time</li>
+            <li>Reduced hunger</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Better memory and emotional regulation</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">6.</span> Which of the following is an emotional disagreement?</div>
+          <ul class="options-list">
+            <li>Displaying factual data</li>
+            <li>Arguing over a schedule</li>
+            <li class="correct">Conflict due to hurt feelings or miscommunication</li>
+            <li>Legal contract disagreements</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Conflict due to hurt feelings or miscommunication</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">7.</span> In the context of negotiation, a compromise is when:</div>
+          <ul class="options-list">
+            <li>One party who completely</li>
+            <li class="correct">Both parties give up something to reach a mutually acceptable solution</li>
+            <li>No one changes their stance</li>
+            <li>A third party decides the outcome</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Both parties give up something to reach a mutually acceptable solution</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">8.</span> Which of the following is NOT a method of emotional regulation?</div>
+          <ul class="options-list">
+            <li class="correct">Staying isolated</li>
+            <li>Using suppression</li>
+            <li>Acknowledging the emotion</li>
+            <li>Voluntary expression of the emotion</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Staying isolated</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">9.</span> The short-term effect of sleep deprivation includes which of the following?</div>
+          <ul class="options-list">
+            <li>Happiness</li>
+            <li>Increased concentration</li>
+            <li>Calmness</li>
+            <li class="correct">Irritability</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Irritability</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">10.</span> Which of the following is TRUE for physical activity?</div>
+          <ul class="options-list">
+            <li>Doing exercise is a very hard task</li>
+            <li>Exercise has no effect hormone level</li>
+            <li class="correct">Boosts endorphin release</li>
+            <li>Exercise decreases the balance in the body</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Boosts endorphin release</span></div>
+        </div>
+
+      </div>
+    </div><!-- end week3 -->
+
+    <!-- ===================== WEEK 4 ===================== -->
+    <div class="week-section" id="week4">
+      <div class="week-header">
+        <h2>Week 4: Assignment 4</h2>
+        <div class="due">Due on 2025-08-20, 23:59 IST</div>
+      </div>
+      <div class="week-body">
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">1.</span> Which of the following is a recommended strategy for managing academic stress?</div>
+          <ul class="options-list">
+            <li>Ignoring deadlines</li>
+            <li>Multitasking excessively</li>
+            <li>Procrastinating assignments</li>
+            <li class="correct">Developing effective study habits</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Developing effective study habits</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">2.</span> Time management can contribute to academic success by:</div>
+          <ul class="options-list">
+            <li>Allowing more time for distractions</li>
+            <li>Minimising effort in studies</li>
+            <li class="correct">Enhancing productivity and reducing stress</li>
+            <li>Encouraging last-minute preparation</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Enhancing productivity and reducing stress</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">3.</span> Self-compassion in academic pursuits primarily involves:</div>
+          <ul class="options-list">
+            <li>Comparing yourself with high achievers</li>
+            <li>Ignoring your mistakes</li>
+            <li class="correct">Being kind to yourself during setbacks</li>
+            <li>Avoiding difficult tasks</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Being kind to yourself during setbacks</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">4.</span> Which campus resource is most appropriate for dealing with emotional stress?</div>
+          <ul class="options-list">
+            <li>Sports club</li>
+            <li class="correct">Counselling centre</li>
+            <li>Library</li>
+            <li>Placement cell</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Counselling centre</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">5.</span> Career anxiety often stems from:</div>
+          <ul class="options-list">
+            <li>Lack of hobbies</li>
+            <li>Few relationships</li>
+            <li class="correct">Uncertainty about future goals</li>
+            <li>Physical health issues</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Uncertainty about future goals</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">6.</span> When should one consider seeking professional help through counselling?</div>
+          <ul class="options-list">
+            <li>Only during physical illness</li>
+            <li class="correct">When experiencing emotional distress or life challenges</li>
+            <li>Only if someone else also recommends</li>
+            <li>After trying everything else</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>When experiencing emotional distress or life challenges</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">7.</span> Cognitive Behavioural Therapy (CBT) is an example of:</div>
+          <ul class="options-list">
+            <li>Recreational activity</li>
+            <li>Group exercise</li>
+            <li class="correct">A therapeutic approach</li>
+            <li>Career training module</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>A therapeutic approach</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">8.</span> Which component is not part of emotional intelligence?</div>
+          <ul class="options-list">
+            <li>Self awareness</li>
+            <li>Self-regulation</li>
+            <li class="correct">Intelligence Quotient (IQ)</li>
+            <li>Empathy</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Intelligence Quotient (IQ)</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">9.</span> Community engagement supports mental well-being by:</div>
+          <ul class="options-list">
+            <li>Promoting isolation</li>
+            <li>Discouraging collaboration</li>
+            <li class="correct">Enhancing social support and purpose</li>
+            <li>Ignoring public health</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Enhancing social support and purpose</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">10.</span> A common misconception about therapy is:</div>
+          <ul class="options-list">
+            <li>It helps people manage stress</li>
+            <li class="correct">Only people with severe mental illness need therapy</li>
+            <li>It can improve emotional awareness</li>
+            <li>It is confidential and safe</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Only people with severe mental illness need therapy</span></div>
+        </div>
+
+      </div>
+    </div><!-- end week4 -->
+
+    <!-- ===================== WEEK 5 ===================== -->
+    <div class="week-section" id="week5">
+      <div class="week-header">
+        <h2>Week 5: Assignment 5</h2>
+        <div class="due">Due on 2025-08-27, 23:59 IST</div>
+      </div>
+      <div class="week-body">
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">1.</span> Which of the following is an example of emotional validation?</div>
+          <ul class="options-list">
+            <li>"Everyone else finished it; you're just overthinking."</li>
+            <li>"It's not a big deal; you'll be fine."</li>
+            <li class="correct">"I can understand why that project stressed you out. It had a lot of components."</li>
+            <li>"You shouldn't feel that way over such a small issue."</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>"I can understand why that project stressed you out. It had a lot of components."</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">2.</span> What is the key difference between healthy and unhealthy emotional ventilation?</div>
+          <ul class="options-list">
+            <li>Healthy ventilation avoids emotions, while unhealthy ventilation involves talking too much.</li>
+            <li class="correct">Healthy ventilation includes creative expression or seeking support, while unhealthy ventilation involves suppression or aggression.</li>
+            <li>Healthy ventilation happens in isolation, while unhealthy ventilation requires others.</li>
+            <li>Healthy ventilation is based on logic, while unhealthy ventilation is based on feelings.</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Healthy ventilation includes creative expression or seeking support, while unhealthy ventilation involves suppression or aggression.</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">3.</span> Why is naming emotions important in emotional regulation?</div>
+          <ul class="options-list">
+            <li>It allows others to understand your intellect.</li>
+            <li>It improves memory and analytical thinking.</li>
+            <li class="correct">It brings clarity, supports regulation, and aids decision making.</li>
+            <li>It eliminates negative feelings.</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>It brings clarity, supports regulation, and aids decision making.</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">4.</span> Which statement best demonstrates active listening during emotional validation?</div>
+          <ul class="options-list">
+            <li>"You're not the only one with problems."</li>
+            <li class="correct">"So, I hear you saying that you're overwhelmed with assignments."</li>
+            <li>"Try not to think about it too much."</li>
+            <li>"Just calm down, everything will be fine."</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>"So, I hear you saying that you're overwhelmed with assignments."</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">5.</span> Which of the following is an example of a mental boundary?</div>
+          <ul class="options-list">
+            <li>Asking a friend not to borrow your clothes without permission.</li>
+            <li>Saying you need personal space during a conflict.</li>
+            <li class="correct">Requesting that your opinions be respected during a group discussion.</li>
+            <li>Saying 'no' to physical affection when you're uncomfortable.</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Requesting that your opinions be respected during a group discussion.</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">6.</span> What is a key element of retrieving conflict positively?</div>
+          <ul class="options-list">
+            <li>It helps avoid the conflict entirely</li>
+            <li>It allows one person to dominate the conversation</li>
+            <li class="correct">It encourages empathy, clarity, and long-term solutions</li>
+            <li>It creates emotional distance and detachment</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>It encourages empathy, clarity, and long-term solutions</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">7.</span> What is the primary benefit of emotional resilience?</div>
+          <ul class="options-list">
+            <li>Avoiding all negative emotions</li>
+            <li>Suppressing emotional reactions</li>
+            <li class="correct">Bouncing back from adversity and managing stress effectively</li>
+            <li>Becoming emotionally detached from challenges</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Bouncing back from adversity and managing stress effectively</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">8.</span> Which of the following is a component of self-compassion?</div>
+          <ul class="options-list">
+            <li>Ignoring your mistakes to stay positive</li>
+            <li>Comparing yourself to others to improve</li>
+            <li class="correct">Being kind to yourself during times of failure</li>
+            <li>Only seeking feedback</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Being kind to yourself during times of failure</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">9.</span> How does optimism contribute to resilience?</div>
+          <ul class="options-list">
+            <li>It prevents all future setbacks</li>
+            <li>It helps in denying negative emotions</li>
+            <li class="correct">It encourages problem-solving and reduces stress</li>
+            <li>It ensures only positive outcomes</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>It encourages problem-solving and reduces stress</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">10.</span> Which of the following is an adaptive coping mechanism?</div>
+          <ul class="options-list">
+            <li>Avoiding the problem entirely</li>
+            <li>Blaming others for the situation</li>
+            <li class="correct">Practising mindfulness and seeking solutions</li>
+            <li>Overindulging in distractions</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Practising mindfulness and seeking solutions</span></div>
+        </div>
+
+      </div>
+    </div><!-- end week5 -->
+
+    <!-- ===================== WEEK 6 ===================== -->
+    <div class="week-section" id="week6">
+      <div class="week-header">
+        <h2>Week 6: Assignment 6</h2>
+        <div class="due">Due on 2025-09-03, 23:59 IST</div>
+      </div>
+      <div class="week-body">
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">1.</span> How do creative arts like painting and music support mental health?</div>
+          <ul class="options-list">
+            <li>By promoting academic competition</li>
+            <li class="correct">By offering emotional expression and healing</li>
+            <li>By improving financial decision-making</li>
+            <li>By discouraging emotional vulnerability</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>By offering emotional expression and healing</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">2.</span> What is a key benefit of art therapy in trauma recovery?</div>
+          <ul class="options-list">
+            <li>Encourages verbal confrontation</li>
+            <li>Avoids addressing the trauma</li>
+            <li class="correct">Provides a non-verbal outlet to process emotions</li>
+            <li>Focuses on perfectionism in technique</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Provides a non-verbal outlet to process emotions</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">3.</span> What is one major goal of expressive arts in mental health contexts?</div>
+          <ul class="options-list">
+            <li>To produce professional-level art</li>
+            <li>To avoid emotional discussions</li>
+            <li class="correct">To express inner thoughts and feelings safely</li>
+            <li>To judge creative abilities</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>To express inner thoughts and feelings safely</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">4.</span> How can students identify triggers of exam anxiety?</div>
+          <ul class="options-list">
+            <li>By ignoring stress</li>
+            <li class="correct">By analyzing their emotional and behavioural responses</li>
+            <li>By avoiding study groups</li>
+            <li>By increasing their screen time</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>By analyzing their emotional and behavioural responses</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">5.</span> How does journaling help with emotional clarity?</div>
+          <ul class="options-list">
+            <li>By listing daily tasks</li>
+            <li class="correct">By expressing thoughts and emotions privately</li>
+            <li>By documenting others' opinions</li>
+            <li>By copying academic content</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>By expressing thoughts and emotions privately</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">6.</span> What is the mental health benefit of movement-based therapies like yoga and dance?</div>
+          <ul class="options-list">
+            <li class="correct">Promotes emotional awareness and stress relief</li>
+            <li>Increases intellectual debates</li>
+            <li>Trains for athletic competition</li>
+            <li>Enhances multitasking</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Promotes emotional awareness and stress relief</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">7.</span> What is the purpose of role-playing in therapeutic settings?</div>
+          <ul class="options-list">
+            <li>To confuse personal identity</li>
+            <li class="correct">To build empathy and explore different perspectives</li>
+            <li>To practice dramatic skills</li>
+            <li>To compete for attention</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>To build empathy and explore different perspectives</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">8.</span> Which lifestyle habit contributes to better mental well-being during exams?</div>
+          <ul class="options-list">
+            <li>Skipping meals to study longer</li>
+            <li>Staying up all night</li>
+            <li class="correct">Maintaining a balanced diet, sleep, and physical activity</li>
+            <li>Avoiding relaxation breaks</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Maintaining a balanced diet, sleep, and physical activity</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">9.</span> Which technique is useful for calming the nervous system during stress?</div>
+          <ul class="options-list">
+            <li>Multitasking</li>
+            <li>Passive TV watching</li>
+            <li class="correct">Mindfulness and deep breathing</li>
+            <li>Social media scrolling</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Mindfulness and deep breathing</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">10.</span> Which of the following is an example of hands-on creative self-expression?</div>
+          <ul class="options-list">
+            <li>Reading a psychology textbook</li>
+            <li>Listening to a lecture</li>
+            <li class="correct">Painting your emotions on a canvas</li>
+            <li>Memorizing musical notes</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Painting your emotions on a canvas</span></div>
+        </div>
+
+      </div>
+    </div><!-- end week6 -->
+
+    <!-- ===================== WEEK 7 ===================== -->
+    <div class="week-section" id="week7">
+      <div class="week-header">
+        <h2>Week 7: Assignment 7</h2>
+        <div class="due">Due on 2025-09-10, 23:59 IST</div>
+      </div>
+      <div class="week-body">
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">1.</span> Which of the following is NOT one of the main adult attachment styles?</div>
+          <ul class="options-list">
+            <li>Secure</li>
+            <li>Anxious</li>
+            <li>Dismissive-Avoidant</li>
+            <li class="correct">Dependent</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Dependent</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">2.</span> People with a secure attachment style tend to:</div>
+          <ul class="options-list">
+            <li>Fear intimacy and avoid closeness</li>
+            <li>Become overly dependent in relationships</li>
+            <li class="correct">Communicate openly and trust their partners</li>
+            <li>Avoid conflict at all costs</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Communicate openly and trust their partners</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">3.</span> After experiencing betrayal, what is an important part of the healing process?</div>
+          <ul class="options-list">
+            <li>Seeking revenge</li>
+            <li>Repeating past patterns</li>
+            <li class="correct">Gradually rebuilding trust at one's own pace</li>
+            <li>Ignoring the event altogether</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Gradually rebuilding trust at one's own pace</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">4.</span> Which behaviour often signals an unhealthy friendship?</div>
+          <ul class="options-list">
+            <li>Occasional disagreements</li>
+            <li class="correct">Emotional manipulation</li>
+            <li>Honest feedback</li>
+            <li>Time spent apart</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Emotional manipulation</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">5.</span> An anxious attachment style often leads to:</div>
+          <ul class="options-list">
+            <li>Avoiding emotional closeness</li>
+            <li>Strong trust and communication</li>
+            <li class="correct">Jealousy and fear of abandonment</li>
+            <li>Indifference in relationships</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Jealousy and fear of abandonment</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">6.</span> Which of the following is a helpful step in healing from relationship trauma?</div>
+          <ul class="options-list">
+            <li class="correct">Rebuilding self-worth and establishing boundaries</li>
+            <li>Blaming oneself for the trauma</li>
+            <li>Suppressing all emotions</li>
+            <li>Immediately entering a new relationship</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Rebuilding self-worth and establishing boundaries</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">7.</span> A trusted adult or mentor can help you:</div>
+          <ul class="options-list">
+            <li>Make poor decisions</li>
+            <li>Avoid responsibility</li>
+            <li class="correct">Offer guidance and support</li>
+            <li>Keep secrets from everyone</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Offer guidance and support</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">8.</span> Emotional regulation involves:</div>
+          <ul class="options-list">
+            <li>Suppressing emotions completely</li>
+            <li>Avoiding emotional situations</li>
+            <li>Ignoring how others feel</li>
+            <li class="correct">Understanding and managing emotions</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Understanding and managing emotions</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">9.</span> Which step helps protect against passing insecure attachment to the next generation?</div>
+          <ul class="options-list">
+            <li class="correct">Reflective parenting and conscious effort</li>
+            <li>Ignoring patterns from one's own childhood</li>
+            <li>Avoiding therapy and self-reflection</li>
+            <li>Withholding emotional support from the child</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Reflective parenting and conscious effort</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">10.</span> Which of the following is least likely to be shown by an avoidant parent?</div>
+          <ul class="options-list">
+            <li>Being emotionally distant</li>
+            <li>Emphasizing self-sufficiency</li>
+            <li>Responding minimally to emotional needs</li>
+            <li class="correct">Repairing relational ruptures consistently</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Repairing relational ruptures consistently</span></div>
+        </div>
+
+      </div>
+    </div><!-- end week7 -->
+
+    <!-- ===================== WEEK 8 ===================== -->
+    <div class="week-section" id="week8">
+      <div class="week-header">
+        <h2>Week 8: Assignment 8</h2>
+        <div class="due">Due on 2025-09-17, 23:59 IST</div>
+      </div>
+      <div class="week-body">
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">1.</span> What is the key difference between intrinsic and extrinsic motivation?</div>
+          <ul class="options-list">
+            <li>Intrinsic motivation is driven by external rewards</li>
+            <li>Extrinsic motivation is self-generated</li>
+            <li class="correct">Intrinsic motivation arises from internal satisfaction, while extrinsic comes from external rewards</li>
+            <li>Both types involve competition</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Intrinsic motivation arises from internal satisfaction, while extrinsic comes from external rewards</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">2.</span> How does positive reinforcement influence motivation?</div>
+          <ul class="options-list">
+            <li>It provides punishment for poor performance</li>
+            <li class="correct">It increases the likelihood of repeating desired behaviours by rewarding them</li>
+            <li>It discourages repetition of behaviours</li>
+            <li>It delays goal achievement</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>It increases the likelihood of repeating desired behaviours by rewarding them</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">3.</span> Why is aligning goals with personal values important for motivation?</div>
+          <ul class="options-list">
+            <li>It helps reduce emotional attachment</li>
+            <li>It decreases goal clarity</li>
+            <li class="correct">It strengthens commitment and engagement</li>
+            <li>It prevents decision-making</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>It strengthens commitment and engagement</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">4.</span> What is the first step in providing Psychological First Aid (PFA)?</div>
+          <ul class="options-list">
+            <li>Offering advice</li>
+            <li class="correct">Creating a safe and calm environment</li>
+            <li>Diagnosing the individual</li>
+            <li>Encouraging immediate therapy</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Creating a safe and calm environment</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">5.</span> When someone shows signs of distress, what is the appropriate next step in PFA?</div>
+          <ul class="options-list">
+            <li>Ignore and let them handle it alone</li>
+            <li>Suggest they "get over it"</li>
+            <li class="correct">Listen actively and, if needed, refer them to professional help</li>
+            <li>Discuss your own experiences instead</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Listen actively and, if needed, refer them to professional help</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">6.</span> What is a key strategy for approaching someone who may be thinking about suicide?</div>
+          <ul class="options-list">
+            <li>Avoid asking direct questions</li>
+            <li>Use vague suggestions</li>
+            <li class="correct">Speak openly, with compassion and without judgment</li>
+            <li>Ignore signs unless they ask for help</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Speak openly, with compassion and without judgment</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">7.</span> How can universities support suicide prevention among students?</div>
+          <ul class="options-list">
+            <li>By limiting access to mental health professionals</li>
+            <li class="correct">By implementing awareness and peer support programs</li>
+            <li>By discouraging open dialogue</li>
+            <li>By focusing solely on academic performance</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>By implementing awareness and peer support programs</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">8.</span> Which strategy helps cultivate resilience during a crisis?</div>
+          <ul class="options-list">
+            <li>Isolating oneself to prevent burdening others</li>
+            <li>Ignoring emotions and focusing only on tasks</li>
+            <li>Denying the impact of stress</li>
+            <li class="correct">Practicing optimism and emotional awareness</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Practicing optimism and emotional awareness</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">9.</span> What is a common symptom of burnout in academic or professional settings?</div>
+          <ul class="options-list">
+            <li>Increased social engagement</li>
+            <li>Enhanced motivation</li>
+            <li class="correct">Emotional exhaustion and detachment</li>
+            <li>Heightened creativity</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Emotional exhaustion and detachment</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">10.</span> What is an effective way to prevent burnout?</div>
+          <ul class="options-list">
+            <li class="correct">Setting boundaries and prioritizing self-care</li>
+            <li>Taking on more responsibilities</li>
+            <li>Ignoring personal needs</li>
+            <li>Avoiding breaks to maintain productivity</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Setting boundaries and prioritizing self-care</span></div>
+        </div>
+
+      </div>
+    </div><!-- end week8 -->
+
+    <!-- ===================== WEEK 9 ===================== -->
+    <div class="week-section" id="week9">
+      <div class="week-header">
+        <h2>Week 9: Assignment 9</h2>
+        <div class="due">Due on 2025-09-24, 23:59 IST</div>
+      </div>
+      <div class="week-body">
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">1.</span> What is a good strategy for maintaining effective communication with a supervisor?</div>
+          <ul class="options-list">
+            <li class="correct">Setting agendas for discussions</li>
+            <li>Only meeting when problems arise</li>
+            <li>Avoiding emails to reduce distractions</li>
+            <li>Relying only on text messages</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Setting agendas for discussions</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">2.</span> Building trust with a supervisor involves:</div>
+          <ul class="options-list">
+            <li>Challenging their authority regularly</li>
+            <li>Being completely independent from the start</li>
+            <li class="correct">Transparency, honesty and meeting deadlines</li>
+            <li>Agreeing with everything they say</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Transparency, honesty and meeting deadlines</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">3.</span> Why is active listening important in supervisor-student relationships?</div>
+          <ul class="options-list">
+            <li>It shortens the length of meetings</li>
+            <li>It avoids the need to take notes</li>
+            <li>It replaces the need for written communication</li>
+            <li class="correct">It helps both parties understand expectations and concerns</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>It helps both parties understand expectations and concerns</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">4.</span> Which of the following contributes to an effective supervisor-student relationship?</div>
+          <ul class="options-list">
+            <li>Skipping regular check-ins</li>
+            <li class="correct">Respecting professional boundaries</li>
+            <li>Avoiding feedback</li>
+            <li>Assuming the student understands everything</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Respecting professional boundaries</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">5.</span> Which behaviour is most likely to harm a mentorship relationship?</div>
+          <ul class="options-list">
+            <li>Asking for feedback</li>
+            <li>Maintaining open communication</li>
+            <li class="correct">Ignoring suggestions and failing to follow through</li>
+            <li>Being honest about challenges</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Ignoring suggestions and failing to follow through</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">6.</span> How can students actively contribute to a positive supervisory relationship?</div>
+          <ul class="options-list">
+            <li>Withholding doubts to appear confident</li>
+            <li>Keeping their supervisor out of decision-making</li>
+            <li>Avoiding detailed updates on progress</li>
+            <li class="correct">Being proactive, open to feedback and staying organized</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Being proactive, open to feedback and staying organized</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">7.</span> What is an appropriate way to address misunderstandings with a supervisor?</div>
+          <ul class="options-list">
+            <li>Avoid the topic completely</li>
+            <li>Complain to peers without addressing the supervisor</li>
+            <li class="correct">Approach the issue respectfully and clarify expectations</li>
+            <li>Stop communicating altogether</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Approach the issue respectfully and clarify expectations</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">8.</span> Which of the following is a shared responsibility in a supervisor-student relationship?</div>
+          <ul class="options-list">
+            <li class="correct">Mutual effort in setting goals and maintaining communication</li>
+            <li>Solely the supervisor's job to track progress</li>
+            <li>Only the student's effort to communicate</li>
+            <li>Delegating all planning to the supervisor</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Mutual effort in setting goals and maintaining communication</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">9.</span> What is one respectful way to connect with a professor outside of class?</div>
+          <ul class="options-list">
+            <li>Slide into their DMs</li>
+            <li>Catch them on their way out without asking</li>
+            <li class="correct">Send a polite email or visit during office hours</li>
+            <li>Ask for their phone number</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Send a polite email or visit during office hours</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">10.</span> What role does active listening play in building academic relationships?</div>
+          <ul class="options-list">
+            <li>None, just nod and agree</li>
+            <li class="correct">It shows you respect others' perspectives and ideas</li>
+            <li>It helps you remember facts only</li>
+            <li>It's a trick to pretend you're interested</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>It shows you respect others' perspectives and ideas</span></div>
+        </div>
+
+      </div>
+    </div><!-- end week9 -->
+
+    <!-- ===================== WEEK 10 ===================== -->
+    <div class="week-section" id="week10">
+      <div class="week-header">
+        <h2>Week 10: Assignment 10</h2>
+        <div class="due">Due on 2025-10-01, 23:59 IST</div>
+      </div>
+      <div class="week-body">
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">1.</span> Which of the following is a Strategy for Learning from Challenges?</div>
+          <ul class="options-list">
+            <li>Emotional reasoning</li>
+            <li>Behavioral training</li>
+            <li class="correct">Self-reflection</li>
+            <li>Happiness</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Self-reflection</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">2.</span> Which of the following best demonstrates effective problem-solving ability?</div>
+          <ul class="options-list">
+            <li>Ignoring the issue and hoping it resolves on its own</li>
+            <li>Reacting impulsively without considering consequences</li>
+            <li class="correct">Analyzing the situation and identifying possible solutions</li>
+            <li>Relying solely on others to make decisions</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Analyzing the situation and identifying possible solutions</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">3.</span> According to the World Health Organization (WHO), what best defines self-care?</div>
+          <ul class="options-list">
+            <li>A method of treating illnesses only through prescribed medications.</li>
+            <li class="correct">The ability of individuals to maintain health, prevent disease, and cope with illness with or without the support of a healthcare provider.</li>
+            <li>A practice where only healthcare professionals are responsible for managing a person's health.</li>
+            <li>A daily routine involving only physical exercise and diet control.</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>The ability of individuals to maintain health, prevent disease, and cope with illness with or without the support of a healthcare provider.</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">4.</span> Which factor is often linked to identity formation in adolescents?</div>
+          <ul class="options-list">
+            <li class="correct">Societal expectation</li>
+            <li>Financial stability</li>
+            <li>Academic performance</li>
+            <li>Geographic location</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Societal expectation</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">5.</span> How does academic pressure typically influence mental health?</div>
+          <ul class="options-list">
+            <li>It promotes relaxation and leisure.</li>
+            <li>It has no impact on mental health.</li>
+            <li class="correct">It can lead to increased stress and anxiety.</li>
+            <li>It encourages social bonding among peers.</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>It can lead to increased stress and anxiety.</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">6.</span> What is one effective strategy to manage performance anxiety?</div>
+          <ul class="options-list">
+            <li>Ignoring the anxiety</li>
+            <li>Seeking social media validation</li>
+            <li class="correct">Practicing mindfulness techniques</li>
+            <li>Avoiding academic responsibilities</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Practicing mindfulness techniques</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">7.</span> Which of the following is essential for developing emotional intelligence?</div>
+          <ul class="options-list">
+            <li>High academic achievement</li>
+            <li class="correct">Understanding and managing one's emotions</li>
+            <li>Extensive social media use</li>
+            <li>Lack of personal experiences</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Understanding and managing one's emotions</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">8.</span> What is a key component of self-care practices?</div>
+          <ul class="options-list">
+            <li>Overcommitting to social obligations</li>
+            <li class="correct">Regular physical exercise</li>
+            <li>Ignoring personal needs</li>
+            <li>Isolating oneself from family and friends</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Regular physical exercise</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">9.</span> Which of the following contributes to building resilience in competitive academic environments?</div>
+          <ul class="options-list">
+            <li>Avoiding challenges</li>
+            <li class="correct">Developing a growth mindset</li>
+            <li>Comparing oneself to peers</li>
+            <li>Seeking constant validation</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Developing a growth mindset</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">10.</span> When facing a crisis, which is the most effective first step in self-care?</div>
+          <ul class="options-list">
+            <li>Ignore your feelings and continue with routine</li>
+            <li class="correct">Recognize your emotional and physical state and take a moment to pause</li>
+            <li>Immediately jump into problem solving</li>
+            <li>Distract yourself by any means possible</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Recognize your emotional and physical state and take a moment to pause</span></div>
+        </div>
+
+      </div>
+    </div><!-- end week10 -->
+
+    <!-- ===================== WEEK 11 ===================== -->
+    <div class="week-section" id="week11">
+      <div class="week-header">
+        <h2>Week 11: Assignment 11</h2>
+        <div class="due">Due on 2026-10-07</div>
+      </div>
+      <div class="week-body">
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">1.</span> Which of the following best describes academic stress?</div>
+          <ul class="options-list">
+            <li>Stress caused only by exams</li>
+            <li class="correct">Pressure related to educational demands and expectations</li>
+            <li>Stress due to physical illness only</li>
+            <li>Stress unrelated to studies</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Pressure related to educational demands and expectations</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">2.</span> What is a common physical symptom of stress?</div>
+          <ul class="options-list">
+            <li>Improved memory</li>
+            <li class="correct">Muscle tension</li>
+            <li>Increased relaxation</li>
+            <li>Better sleep</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Muscle tension</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">3.</span> Which breathing technique is commonly used in mindfulness practice?</div>
+          <ul class="options-list">
+            <li>Rapid breathing</li>
+            <li class="correct">Deep diaphragmatic breathing</li>
+            <li>Irregular breathing</li>
+            <li>Breath holding</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Deep diaphragmatic breathing</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">4.</span> How does regular physical activity help manage stress?</div>
+          <ul class="options-list">
+            <li>Increases stress hormones</li>
+            <li>Reduces mood levels</li>
+            <li class="correct">Improves mood through endorphin release</li>
+            <li>Causes fatigue only</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Improves mood through endorphin release</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">5.</span> Which of the following can improve stress resilience?</div>
+          <ul class="options-list">
+            <li>Negative thinking</li>
+            <li class="correct">Social support</li>
+            <li>Isolation</li>
+            <li>Ignoring problems</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Social support</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">6.</span> What happens when stress is prolonged?</div>
+          <ul class="options-list">
+            <li>Improved concentration</li>
+            <li>Better relaxation</li>
+            <li class="correct">Mental and physical exhaustion</li>
+            <li>Increased happiness</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Mental and physical exhaustion</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">7.</span> Which activity promotes relaxation during exams?</div>
+          <ul class="options-list">
+            <li>Panic studying</li>
+            <li class="correct">Short breathing exercises</li>
+            <li>Avoiding breaks</li>
+            <li>Cramming overnight</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Short breathing exercises</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">8.</span> Time management helps reduce stress by:</div>
+          <ul class="options-list">
+            <li>Increasing confusion</li>
+            <li class="correct">Organizing tasks effectively</li>
+            <li>Avoiding deadlines</li>
+            <li>Ignoring priorities</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Organizing tasks effectively</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">9.</span> Which of the following is most helpful for maintaining focus when feeling stressed?</div>
+          <ul class="options-list">
+            <li>Trying to complete multiple tasks simultaneously</li>
+            <li class="correct">Taking short, planned breaks</li>
+            <li>Avoiding all difficult tasks</li>
+            <li>Working continuously without rest</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Taking short, planned breaks</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">10.</span> Why is it important to identify personal stress triggers?</div>
+          <ul class="options-list">
+            <li>To avoid all responsibilities permanently</li>
+            <li class="correct">To understand what contributes to stress and respond more effectively</li>
+            <li>To ignore stress until it goes away</li>
+            <li>To complain without taking action</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>To understand what contributes to stress and respond more effectively</span></div>
+        </div>
+
+      </div>
+    </div><!-- end week11 -->
+
+    <!-- ===================== WEEK 12 ===================== -->
+    <div class="week-section" id="week12">
+      <div class="week-header">
+        <h2>Week 12: Assignment 12</h2>
+        <div class="due">Due on 2025-10-15, 23:59 IST.</div>
+      </div>
+      <div class="week-body">
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">1.</span> Which of the following is a challenge of social media in academic contexts?</div>
+          <ul class="options-list">
+            <li>Promoting collaborative learning</li>
+            <li>Encouraging time management</li>
+            <li class="correct">Causing distraction and procrastination</li>
+            <li>Enhancing digital skills</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Causing distraction and procrastination</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">2.</span> How can likes, comments, and followers affect self-worth?</div>
+          <ul class="options-list">
+            <li>They improve sleep patterns</li>
+            <li class="correct">They shape perceptions of value and identity</li>
+            <li>They always boost self esteem</li>
+            <li>They reduce online engagement</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>They shape perceptions of value and identity</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">3.</span> Which is a healthy strategy to maintain self-esteem in the digital world?</div>
+          <ul class="options-list">
+            <li>Constantly checking notifications</li>
+            <li>Comparing yourself to influencers</li>
+            <li class="correct">Limiting screen time and focusing on offline validation</li>
+            <li>Increasing number of followers</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Limiting screen time and focusing on offline validation</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">4.</span> Social media can affect self-esteem by:</div>
+          <ul class="options-list">
+            <li class="correct">Influencing self image through external validation</li>
+            <li>Promoting emotional stability</li>
+            <li>Encouraging critical thinking</li>
+            <li>Reducing social pressure</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Influencing self image through external validation</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">5.</span> What impact does social media have on body image?</div>
+          <ul class="options-list">
+            <li>It removes unrealistic standards</li>
+            <li>It promotes diversity in body representation</li>
+            <li class="correct">It can promote appearance ideals and comparisons</li>
+            <li>It helps people focus only on skills</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>It can promote appearance ideals and comparisons</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">6.</span> Who significantly influences body image on social media?</div>
+          <ul class="options-list">
+            <li>Scientists</li>
+            <li>Teachers and mentors</li>
+            <li>Family members only</li>
+            <li class="correct">Celebrities, influencers, and advertisements</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Celebrities, influencers, and advertisements</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">7.</span> Promoting positive body image includes:</div>
+          <ul class="options-list">
+            <li>Avoiding mirrors</li>
+            <li>Constant self-monitoring</li>
+            <li class="correct">Encouraging self-acceptance and body diversity</li>
+            <li>Following appearance-based trends</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Encouraging self-acceptance and body diversity</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">8.</span> Which of the following is not listed as a psychological outcome associated with excessive social media use?</div>
+          <ul class="options-list">
+            <li>Anxiety disorders</li>
+            <li>Depression</li>
+            <li>Chronic loneliness</li>
+            <li class="correct">Increased physical strength</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Increased physical strength</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">9.</span> How does "Sleep Disruption" act as a mechanism that amplifies anxiety?</div>
+          <ul class="options-list">
+            <li>By causing daytime overactivity</li>
+            <li class="correct">Late-night scrolling/severe technology use disturbs sleep, which increases anxiety symptoms the next day</li>
+            <li>Sleep disruption has no effect on anxiety</li>
+            <li>It helps reduce anxiety by providing less downtime</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Late-night scrolling/severe technology use disturbs sleep, which increases anxiety symptoms the next day</span></div>
+        </div>
+
+        <div class="question-card">
+          <div class="q-text"><span class="q-num">10.</span> Which of the following is not one of the mechanisms linking social media use to depression, as given in your description?</div>
+          <ul class="options-list">
+            <li>Poor Sleep Quality</li>
+            <li>Negative Content Exposure</li>
+            <li class="correct">Increased Physical Activity</li>
+            <li>Diminished Real Connections</li>
+          </ul>
+          <div class="answer-label">Accepted Answer: <span>Increased Physical Activity</span></div>
+        </div>
+
+      </div>
+    </div><!-- end week12 -->
+
+  </div><!-- end page-wrapper -->
+
+  <script>
+    function showWeek(weekId, btn) {
+      // Hide all sections
+      document.querySelectorAll('.week-section').forEach(s => s.classList.remove('visible'));
+      document.querySelectorAll('.week-tab').forEach(b => b.classList.remove('active'));
+      // Show selected
+      document.getElementById(weekId).classList.add('visible');
+      btn.classList.add('active');
     }
-    loadAdditionalQuestions();
   </script>
+
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
   <script>
     tsParticles.load("tsparticles", {
       fullScreen: { enable: false },
       background: { color: "transparent" },
       particles: {
-        number: { value: 60, density: { enable: true, area: 800 } },
+        number: { value: 50, density: { enable: true, area: 800 } },
         color: { value: "#ffffff" },
         shape: { type: "circle" },
-        opacity: { value: 0.5, random: true },
+        opacity: { value: 0.4, random: true },
         size: { value: 3, random: true },
         move: { enable: true, speed: 1, direction: "none", outModes: "bounce" },
-        links: { enable: true, distance: 100, color: "#ffffff", opacity: 0.2, width: 1 }
+        links: { enable: true, distance: 100, color: "#ffffff", opacity: 0.15, width: 1 }
       },
       interactivity: {
         events: {
@@ -166,4 +1684,4 @@
     });
   </script>
 </body>
-</html> 
+</html>

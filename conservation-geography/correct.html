@@ -158,6 +158,7 @@
       <label class="dropdown-label" for="week-select">Select Week:</label>
       <select id="week-select" style="background:#a259ff; border:2px solid #fff; color:#fff; font-weight:700;">
         <option value="" disabled selected>Select Week</option>
+        <option value="week0">Week 0</option>
         <option value="week1">Week 1</option>
         <option value="week2">Week 2</option>
         <option value="week3">Week 3</option>
@@ -181,52 +182,80 @@
   </div>
   <script src="questions.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
-  <script>
-    tsParticles.load("tsparticles", {
-      fullScreen: { enable: false },
-      background: { color: "transparent" },
-      particles: {
-        number: { value: 60, density: { enable: true, area: 800 } },
-        color: { value: "#ffffff" },
-        shape: { type: "circle" },
-        opacity: { value: 0.5, random: true },
-        size: { value: 3, random: true },
-        move: { enable: true, speed: 1, direction: "none", outModes: "bounce" },
-        links: { enable: true, distance: 100, color: "#ffffff", opacity: 0.2, width: 1 }
+ <script>
+  // Load particles background
+  tsParticles.load("tsparticles", {
+    fullScreen: { enable: false },
+    background: { color: "transparent" },
+    particles: {
+      number: { value: 60, density: { enable: true, area: 800 } },
+      color: { value: "#ffffff" },
+      shape: { type: "circle" },
+      opacity: { value: 0.5, random: true },
+      size: { value: 3, random: true },
+      move: { enable: true, speed: 1, direction: "none", outModes: "bounce" },
+      links: { enable: true, distance: 100, color: "#ffffff", opacity: 0.2, width: 1 }
+    },
+    interactivity: {
+      events: {
+        onHover: { enable: true, mode: "repulse" },
+        onClick: { enable: true, mode: "push" }
       },
-      interactivity: {
-        events: {
-          onHover: { enable: true, mode: "repulse" },
-          onClick: { enable: true, mode: "push" }
-        },
-        modes: {
-          repulse: { distance: 100 },
-          push: { quantity: 4 }
-        }
+      modes: {
+        repulse: { distance: 100 },
+        push: { quantity: 4 }
       }
-    });
-    document.getElementById('week-select').onchange = function() {
-      const week = this.value;
-      const questions = allQuestions[week] || [];
-      const list = document.getElementById('questions-list');
-      const title = document.getElementById('questions-title');
-      list.innerHTML = '';
-      if (questions.length) {
-        title.style.display = '';
-        title.textContent = `Questions for Week ${week.replace('week','')}`;
-        questions.forEach((q, idx) => {
-          const block = document.createElement('div');
-          block.className = 'question-block';
-          block.innerHTML = `<div class='q'>${idx+1}. ${q.question}</div>` +
-            q.answers.map(a => `<div class='a'>${a}</div>`).join('') +
-            `<span class='correct'>Correct Answer: ${q.correctAnswer}</span>`;
-          list.appendChild(block);
-        });
-      } else {
-        title.style.display = '';
-        title.textContent = 'No questions found for this week.';
-      }
-    };
-  </script>
+    }
+  });
+
+  // Add styled notice above the week selector
+  const weekSelect = document.getElementById('week-select');
+  const noticeBox = document.createElement('div');
+  noticeBox.innerHTML = `
+    <div style="
+      background: rgba(255, 77, 77, 0.05);
+      border: 1px solid #ff4d4d;
+      border-radius: 10px;
+      padding: 10px 20px;
+      margin: 20px auto 10px;
+      max-width: 700px;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      color: #ff4d4d;
+      font-weight: 700;
+      box-shadow: 0 0 10px rgba(255,0,0,0.1);
+    ">
+      ⚠️ They have changed the questions this time. If any correction, post it in 
+      <a href="../contact.html" style="color: #ff4d4d; text-decoration: underline;">Contact Us</a>  
+    </div>
+  `;
+  weekSelect.parentNode.insertBefore(noticeBox, weekSelect);
+
+  // Week selection logic
+  document.getElementById('week-select').onchange = function () {
+    const week = this.value;
+    const questions = allQuestions[week] || [];
+    const list = document.getElementById('questions-list');
+    const title = document.getElementById('questions-title');
+    list.innerHTML = '';
+    if (questions.length) {
+      title.style.display = '';
+      title.textContent = `Questions for Week ${week.replace('week', '')}`;
+      questions.forEach((q, idx) => {
+        const block = document.createElement('div');
+        block.className = 'question-block';
+        block.innerHTML = `<div class='q'>${idx + 1}. ${q.question}</div>` +
+          q.answers.map(a => `<div class='a'>${a}</div>`).join('') +
+          `<span class='correct'>Correct Answer: ${q.correctAnswer}</span>`;
+        list.appendChild(block);
+      });
+    } else {
+      title.style.display = '';
+      title.textContent = 'No questions found for this week.';
+    }
+  };
+</script>
+
 </body>
 </html>
