@@ -55,7 +55,6 @@ const allAdditionalQuestions = {
       "answers": [
         "Discourage independence",
         "Promote critical thinking and offer life advice",
-        "Promote critical thinking and offer life advice",
         "Enforce academic pressure",
         "Limit emotional growth"
       ],
