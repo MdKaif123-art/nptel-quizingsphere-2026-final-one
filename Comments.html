@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comments | Quizingsphere</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      background: #3a0ca3;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      min-height: 100vh;
+    }
+    #tsparticles { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+    .container {
+      max-width: 760px;
+      margin: 2.5em auto;
+      background: rgba(30,20,60,0.97);
+      border-radius: 18px;
+      box-shadow: 0 4px 32px #a259ff55;
+      padding: 2em 1.4em 2.2em 1.4em;
+      position: relative;
+      z-index: 1;
+    }
+    h2 { color: #a259ff; text-align: center; margin: 0 0 1em 0; }
+    .comment-form { display: flex; flex-direction: column; gap: 0.8em; background:#4b2996; border-radius: 12px; padding: 1em; }
+    .comment-form input, .comment-form textarea { padding: 0.8em 1em; border-radius: 8px; border: none; font-size: 1em; background:#f3eaff; color:#3a0ca3; }
+    .comment-form button { background: linear-gradient(90deg, #a259ff, #7209b7); color: #fff; font-weight: 700; border: none; border-radius: 8px; padding: 0.9em 0; font-size: 1.05em; cursor: pointer; }
+    .comment-form button:hover { background: linear-gradient(90deg, #7209b7, #a259ff); }
+    .success { color:#aaffc3; text-align:center; min-height: 1.2em; }
+    .comments-list { margin-top: 1.4em; display: flex; flex-direction: column; gap: 1em; max-height: 60vh; overflow-y: auto; }
+    .comment-card { background:#4b2996; border-radius: 12px; padding: 1em; box-shadow: 0 1px 6px #a259ff22; }
+    .comment-meta { color:#bdb2ff; font-size: 0.95em; margin-top: 0.4em; }
+    .back-links { text-align:center; margin-bottom: 1em; }
+    .back-links a { color:#fff; text-decoration:none; display:inline-block; margin: 0 6px; background:rgba(162,89,255,0.18); padding:6px 12px; border-radius:10px; }
+
+    /* Support Section Styles */
+    .support-card {
+      background: linear-gradient(135deg, rgba(162, 89, 255, 0.2), rgba(114, 9, 183, 0.2));
+      border: 1px solid rgba(162, 89, 255, 0.4);
+      border-radius: 15px;
+      padding: 1.5em;
+      margin-bottom: 2em;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .support-card h3 { margin: 0 0 0.5em 0; color: #e0aaff; }
+    .support-card p { font-size: 0.95em; color: #ccc; margin-bottom: 1.2em; line-height: 1.5; }
+    .support-btn {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 0.8em 1.5em;
+      border-radius: 50px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 1em;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+    }
+    .support-btn:hover {
+      background: #45a049;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      backdrop-filter: blur(5px);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: #1e143c;
+      padding: 2em;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 450px;
+      text-align: center;
+      border: 2px solid #a259ff;
+      box-shadow: 0 0 50px rgba(162, 89, 255, 0.3);
+      position: relative;
+    }
+    .close-modal {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      color: #fff;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .modal-qr { width: 200px; height: 200px; border-radius: 12px; margin: 1em 0; border: 4px solid #fff; }
+    .upi-details { background: rgba(255,255,255,0.05); padding: 1em; border-radius: 10px; margin-top: 1em; }
+    .upi-id { color: #a259ff; font-weight: bold; font-family: monospace; display: block; margin-top: 5px; }
+    .copy-toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      display: none;
+      z-index: 1100;
+    }
+
+    /* Animations */
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .modal-content {
+      animation: modalFadeIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+  </style>
+</head>
+<body>
+  <div id="tsparticles"></div>
+  <div class="container">
+    <div class="back-links">
+      <a href="index.html">Home</a>
+    </div>
+
+    <!-- Support Our Mission Section -->
+    <div class="support-card">
+      <h3>Love my work? ❤️</h3>
+      <p>
+        I love building these resources for you! If you find them helpful and 
+        feel like showing some appreciation, you can support my work here. 
+        It's totally optional, but it really helps me keep things running smoothly!
+      </p>
+      <button class="support-btn" id="open-support-modal">
+        <i class="fa fa-heart"></i> Support if you'd like to!
+      </button>
+    </div>
+
+    <h2>Share Your Thoughts</h2>
+
+    <form class="comment-form" id="comment-form">
+      <input type="text" id="c-name" placeholder="Your Name (optional)" />
+      <textarea id="c-text" rows="3" placeholder="Your Comment (required)"></textarea>
+      <button type="submit">Post Comment</button>
+      <div class="success" id="c-success"></div>
+    </form>
+    <div class="comments-list" id="comments-list"></div>
+  </div>
+
+  <!-- Support Modal (Moved to top for visibility) -->
+  <div id="support-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" id="close-modal-top">&times;</span>
+      <h2 style="margin-bottom: 0.5em; color: #fff;">Show some love! ✨</h2>
+      <p style="color: #ccc; font-size: 0.95em; line-height: 1.5;">
+        I'm committed to keeping these resources free for everyone. 
+        If you've enjoyed using this platform and want to help me out, 
+        you can scan the QR code below. No pressure at all!
+      </p>
+      
+      <div style="background: rgba(162, 89, 255, 0.1); border: 1px solid rgba(162, 89, 255, 0.3); padding: 10px; border-radius: 10px; margin: 1em 0;">
+        <p style="color: #bdb2ff; font-size: 0.9em; margin: 0; font-weight: 600;">
+          💝 Optional: Help me keep this platform free for everyone!
+        </p>
+      </div>
+      
+      <img src="upi-qr-code.jpg" alt="UPI QR Code" class="modal-qr">
+      
+      <div class="upi-details">
+        <span style="font-size: 0.8em; color: #ccc;">UPI ID (Tap to copy)</span>
+        <span class="upi-id" id="modal-upi-id-top" style="cursor: pointer;">kk9127357@okhdfcbank</span>
+      </div>
+      
+      <button class="support-btn" style="margin-top: 1.5em; width: 100%;" id="done-commenting-btn">
+        Done, let me comment!
+      </button>
+    </div>
+  </div>
+
+  <script type="module">
+    import { db, collection, addDoc, getDocs, query, orderBy } from './no-one-can-access/firebase.js';
+    const form = document.getElementById('comment-form');
+    const nameEl = document.getElementById('c-name');
+    const textEl = document.getElementById('c-text');
+    const successEl = document.getElementById('c-success');
+    const listEl = document.getElementById('comments-list');
+
+    async function loadComments() {
+      listEl.innerHTML = '<em>Loading comments...</em>';
+      const qy = query(collection(db, 'comments', 'common', 'published'), orderBy('date', 'desc'));
+      const snap = await getDocs(qy);
+      listEl.innerHTML = '';
+      if (snap.empty) { listEl.innerHTML = '<em>No comments yet. Be the first to comment!</em>'; return; }
+      snap.forEach(docSnap => {
+        const data = docSnap.data();
+        const card = document.createElement('div');
+        card.className = 'comment-card';
+        const author = (data.name && data.name.trim()) ? data.name.trim() : 'Anonymous';
+        const supporterBadge = data.isSupporter ? '<span style="background:#ffd700; color:#3a0ca3; padding:2px 6px; border-radius:4px; font-size:0.7em; font-weight:bold; margin-left:8px; vertical-align:middle;">SUPPORTER</span>' : '';
+        card.innerHTML = `
+          <div>${data.text}</div>
+          <div class='comment-meta'>by ${author}${supporterBadge} • ${new Date(data.date).toLocaleString()}</div>
+        `;
+        listEl.appendChild(card);
+      });
+    }
+
+    form.onsubmit = async (e) => {
+      e.preventDefault();
+      successEl.textContent = 'Saving...';
+      const text = (textEl.value || '').trim();
+      if (!text) { successEl.textContent = 'Comment is required.'; return; }
+      
+      try {
+        const isSupporter = (typeof window.checkSupporter === 'function') ? window.checkSupporter() : false;
+        
+        await addDoc(collection(db, 'comments', 'common', 'pending'), {
+          name: (nameEl.value || '').trim(),
+          text,
+          date: new Date().toISOString(),
+          isSupporter: isSupporter
+        });
+        
+        console.log("Successfully stored in Firebase 'pending' collection");
+        form.reset();
+        if (typeof window.resetSupporter === 'function') window.resetSupporter(); 
+        
+        // Mark as commented so popup doesn't show again
+        localStorage.setItem('hasCommented', 'true');
+        
+        successEl.style.color = '#aaffc3';
+        successEl.textContent = 'Thank you so much for your feedback! ❤️ Redirecting to home page...';
+        alert("Thank you so much for your feedback! ❤️");
+        window.location.href = 'index.html';
+        return;
+      } catch (err) {
+        console.error("Firebase Storage Error:", err);
+        successEl.style.color = '#ff8a8a';
+        successEl.textContent = 'Error saving comment. Please try again.';
+        alert("Error saving comment: " + err.message);
+      }
+      loadComments();
+    };
+
+    loadComments();
+  </script>
+
+  <div id="copy-toast" class="copy-toast">UPI ID Copied!</div>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+  <script>
+    tsParticles.load("tsparticles", { fullScreen: { enable: false }, background: { color: "transparent" } });
+
+    // Global variable for supporter tracking
+    let isSupporter = false;
+
+    // Modal Elements
+    const supportModal = document.getElementById('support-modal');
+    const upiIdSpan = document.getElementById('modal-upi-id-top');
+    const toastEl = document.getElementById('copy-toast');
+    const cText = document.getElementById('c-text');
+
+    // Show modal instantly (Only if they haven't commented before)
+    if (!localStorage.getItem('hasCommented')) {
+      supportModal.style.display = 'flex';
+    }
+
+    // Modal Actions
+    document.getElementById('open-support-modal').onclick = () => supportModal.style.display = 'flex';
+    document.getElementById('close-modal-top').onclick = () => supportModal.style.display = 'none';
+    
+    document.getElementById('done-commenting-btn').onclick = () => {
+      isSupporter = true;
+      supportModal.style.display = 'none';
+      if(cText) cText.focus();
+    };
+
+    window.onclick = (e) => { if (e.target == supportModal) supportModal.style.display = 'none'; };
+
+    upiIdSpan.onclick = () => {
+      navigator.clipboard.writeText(upiIdSpan.textContent).then(() => {
+        toastEl.style.display = 'block';
+        setTimeout(() => toastEl.style.display = 'none', 2000);
+      });
+    };
+
+    // Export function to be used by the module script
+    window.checkSupporter = () => isSupporter;
+    window.resetSupporter = () => { isSupporter = false; };
+  </script>
+</body>
+</html>
