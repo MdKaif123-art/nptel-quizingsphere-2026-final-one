@@ -294,6 +294,7 @@
   <div id="tsparticles"></div>
 
   <script src="questions.js"></script>
+  <script src="additionalQuestions.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
   <script>
     // Initialize particles background
@@ -329,11 +330,15 @@
     let total = getParam('total');
     if (!total) total = getParam('totalQuestions');
     const week = getParam('week');
+    const quizType = getParam('type') || 'standard';
     const randomizeQuestions = getParam('randomizeQuestions') === 'yes';
     const randomizeAnswers = getParam('randomizeAnswers') === 'yes';
+    const sourceQuestions = (quizType === 'additional' && typeof allAdditionalQuestions !== 'undefined') ? allAdditionalQuestions : (typeof allQuestions !== 'undefined' ? allQuestions : {});
+
     // Show score and total
     if (score !== null && total !== null) {
-      document.getElementById('score-value').textContent = `Score: ${score} / ${total}`;
+      const typeLabel = quizType === 'additional' ? ' (Additional Questions)' : '';
+      document.getElementById('score-value').textContent = `Score: ${score} / ${total}${typeLabel}`;
       document.getElementById('total-questions-info').textContent = `Total Questions: ${total}`;
       document.getElementById('shuffle-info').textContent = `Question Order: ${randomizeQuestions ? 'Shuffled' : 'Original'} | Answer Order: ${randomizeAnswers ? 'Shuffled' : 'Original'}`;
       // Motivational message
@@ -363,7 +368,7 @@
         const currentNum = parseInt(match[1]);
         let nextWeek = null;
         for (let i = currentNum + 1; i <= 12; i++) {
-          if (typeof allQuestions !== 'undefined' && allQuestions['week' + i] && allQuestions['week' + i].length > 0) {
+          if (sourceQuestions['week' + i] && sourceQuestions['week' + i].length > 0) {
             nextWeek = 'week' + i;
             break;
           }
@@ -371,7 +376,7 @@
         if (nextWeek) {
           document.getElementById('next-week-btn').style.display = '';
           document.getElementById('next-week-btn').onclick = function() {
-            const url = `quiz.html?week=${nextWeek}&randomizeQuestions=${randomizeQuestions ? 'yes' : 'no'}&randomizeAnswers=${randomizeAnswers ? 'yes' : 'no'}`;
+            const url = `quiz.html?type=${quizType}&week=${nextWeek}&randomizeQuestions=${randomizeQuestions ? 'yes' : 'no'}&randomizeAnswers=${randomizeAnswers ? 'yes' : 'no'}`;
             window.location.href = url;
           };
         }

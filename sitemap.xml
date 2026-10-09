@@ -34,6 +34,9 @@
   <url>
     <loc>https://quizing-sphere.netlify.app/mental-health-and-well-being/questions.js</loc>
   </url>
+  <url>
+    <loc>https://quizing-sphere.netlify.app/mental-health-and-well-being/additionalQuestions.js</loc>
+  </url>
   <!-- Wildlife Ecology -->
   <url>
     <loc>https://quizing-sphere.netlify.app/wildlife-ecology/index.html</loc>

@@ -145,6 +145,12 @@
   <div class="logo">QuizingSphere</div>
   <p style="color:#e0aaff;font-size:1.1rem;margin-bottom:18px;text-align:center;">Choose a week or practice all Mental Health and Well Being questions. Sharpen your skills and prepare for NPTEL assignments!</p>
 
+  <label for="type-select">Question Set</label>
+  <select id="type-select" onchange="onTypeChange()">
+    <option value="standard" selected>Standard Assignment Questions (Weeks 0 - 12)</option>
+    <option value="additional">Additional Questions (Weeks 1 - 12)</option>
+  </select>
+
   <label for="week-select">Select Week</label>
   <select id="week-select">
     <option value="" disabled selected>Select your week</option>
@@ -174,15 +180,59 @@
     // GSAP entrance animation
     gsap.from(".logo", { duration: 1, y: -50, opacity: 0, ease: "bounce.out" });
 
+    function onTypeChange() {
+      const type = document.getElementById("type-select").value;
+      const weekSelect = document.getElementById("week-select");
+      weekSelect.innerHTML = '';
+
+      const defOpt = document.createElement('option');
+      defOpt.value = '';
+      defOpt.disabled = true;
+      defOpt.selected = true;
+      defOpt.textContent = 'Select your week';
+      weekSelect.appendChild(defOpt);
+
+      const allOpt = document.createElement('option');
+      allOpt.value = 'All Weeks';
+      allOpt.textContent = type === 'additional' ? 'All Weeks (Additional)' : 'All Weeks';
+      weekSelect.appendChild(allOpt);
+
+      const startWeek = type === 'additional' ? 1 : 0;
+      for (let i = startWeek; i <= 12; i++) {
+        const opt = document.createElement('option');
+        opt.value = 'week' + i;
+        opt.textContent = 'Week ' + i;
+        weekSelect.appendChild(opt);
+      }
+    }
+
+    // Check URL params on load
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const typeParam = urlParams.get('type');
+      if (typeParam === 'additional') {
+        const typeSelect = document.getElementById('type-select');
+        if (typeSelect) {
+          typeSelect.value = 'additional';
+          onTypeChange();
+          const weekParam = urlParams.get('week');
+          if (weekParam) {
+            document.getElementById('week-select').value = weekParam;
+          }
+        }
+      }
+    });
+
     // Start quiz redirect
     function startQuiz() {
       let week = document.getElementById("week-select").value;
+      const type = document.getElementById("type-select").value;
       const randomizeQuestions = document.getElementById("randomize-questions").checked ? "yes" : "no";
       const randomizeAnswers = document.getElementById("randomize-answers").checked ? "yes" : "no";
       if (week) {
-        if (typeof trackEvent === 'function') trackEvent('Quiz', 'Start', 'Mental Health and Well Being');
+        if (typeof trackEvent === 'function') trackEvent('Quiz', 'Start', 'Mental Health and Well Being - ' + type);
         if (week === 'All Weeks') week = 'all';
-        const quizURL = `quiz.html?week=${week}&randomizeQuestions=${randomizeQuestions}&randomizeAnswers=${randomizeAnswers}`;
+        const quizURL = `quiz.html?type=${type}&week=${week}&randomizeQuestions=${randomizeQuestions}&randomizeAnswers=${randomizeAnswers}`;
         window.location.href = quizURL;
       } else {
         alert("Please select a week to start the quiz!");

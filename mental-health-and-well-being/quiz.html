@@ -148,6 +148,7 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="questions.js"></script>
+  <script src="additionalQuestions.js"></script>
   <script>
     particlesJS("particles-js", {
       particles: {
@@ -175,20 +176,24 @@
       const results = regex.exec(window.location.search);
       return results === null ? null : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
-    // Get week and shuffling options from URL
+    // Get week, type, and shuffling options from URL
     let week = getUrlParameter('week');
+    const quizType = getUrlParameter('type') || 'standard';
     const randomizeQuestions = getUrlParameter('randomizeQuestions') === 'yes';
     const randomizeAnswers = getUrlParameter('randomizeAnswers') === 'yes';
+    const sourceQuestions = (quizType === 'additional' && typeof allAdditionalQuestions !== 'undefined') ? allAdditionalQuestions : allQuestions;
+    const typePrefix = quizType === 'additional' ? 'Additional: ' : '';
     let questions;
     if (week === 'all') {
       // Combine all questions from all weeks
-      questions = Object.keys(allQuestions)
-        .filter(w => Array.isArray(allQuestions[w]) && allQuestions[w].length > 0)
-        .reduce((arr, w) => arr.concat(allQuestions[w]), []);
-      document.getElementById('week-title').textContent = 'All Weeks';
+      questions = Object.keys(sourceQuestions)
+        .filter(w => Array.isArray(sourceQuestions[w]) && sourceQuestions[w].length > 0)
+        .reduce((arr, w) => arr.concat(sourceQuestions[w]), []);
+      document.getElementById('week-title').textContent = typePrefix + 'All Weeks';
     } else {
-      document.getElementById('week-title').textContent = week ? week.charAt(0).toUpperCase() + week.slice(1).replace(/\d+/, m => ' ' + m) : '';
-      questions = allQuestions[week] ? [...allQuestions[week]] : [];
+      const weekLabel = week ? week.charAt(0).toUpperCase() + week.slice(1).replace(/\d+/, m => ' ' + m) : '';
+      document.getElementById('week-title').textContent = typePrefix + weekLabel;
+      questions = sourceQuestions[week] ? [...sourceQuestions[week]] : [];
     }
     // Shuffle helper
     function shuffleArray(arr) {
@@ -280,6 +285,7 @@
         score: score,
         total: questions.length,
         week: week,
+        type: quizType,
         randomizeQuestions: randomizeQuestions ? 'yes' : 'no',
         randomizeAnswers: randomizeAnswers ? 'yes' : 'no'
       });
