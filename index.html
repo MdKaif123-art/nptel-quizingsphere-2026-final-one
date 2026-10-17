@@ -982,6 +982,48 @@
             margin-bottom: 0.8em;
             box-shadow: 0 3px 12px rgba(247, 37, 133, 0.4);
         }
+        .welcome-support-hero {
+            background: linear-gradient(135deg, rgba(247, 37, 133, 0.3) 0%, rgba(114, 9, 183, 0.42) 100%);
+            border: 2px solid #ff4d8d;
+            border-radius: 18px;
+            padding: 1.15em 1.25em;
+            margin: 0.8em 0 1.1em 0;
+            text-align: center;
+            box-shadow: 0 0 25px rgba(247, 37, 133, 0.5), 0 0 15px rgba(255, 77, 141, 0.3) inset;
+            animation: supportPulseAnim 2.8s infinite ease-in-out;
+        }
+        @keyframes supportPulseAnim {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(247, 37, 133, 0.45);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 0 38px rgba(247, 37, 133, 0.85), 0 0 20px rgba(255, 77, 141, 0.6);
+                border-color: #ff75a0;
+                transform: scale(1.02);
+            }
+        }
+        .support-hero-heading {
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            text-shadow: 0 0 18px rgba(247, 37, 133, 0.95), 0 2px 8px rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 0.35em;
+        }
+        .support-hero-text {
+            color: #ffe5ec;
+            font-size: 1.1rem;
+            font-weight: 600;
+            line-height: 1.5;
+            margin: 0;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+        }
         .notice-heart-text {
             color: #ffffff;
             font-size: 1.05rem;
@@ -1260,6 +1302,12 @@
                 padding: 0.8em 1em;
                 font-size: 0.92rem;
             }
+            .support-hero-heading {
+                font-size: 1.45rem;
+            }
+            .support-hero-text {
+                font-size: 0.98rem;
+            }
             .welcome-btn-primary, .welcome-btn-secondary {
                 width: 100%;
             }
@@ -1488,11 +1536,19 @@
           <!-- HIGHLIGHTED COMMUNITY, TELEGRAM & LINKEDIN NOTICE -->
           <div class="welcome-notice-card">
             <div class="notice-tag-badge">
-              <span class="welcome-badge-dot"></span> 📢 Important Notice from Kaif ❤️
+              <span class="welcome-badge-dot"></span> 📢 Important Notice from Mohammed Kaif K
             </div>
-            <div class="notice-heart-text">
-              "As I have done with all my NPTEL courses, I am purely doing this for you all — please support me! ❤️"
+
+            <!-- BIG PROMINENT SUPPORT ME BANNER -->
+            <div class="welcome-support-hero">
+              <div class="support-hero-heading">
+                💖 PLEASE SUPPORT ME! ❤️
+              </div>
+              <p class="support-hero-text">
+                "As I have done with all my NPTEL courses for the past 5 semesters, I am purely doing this for you all — please support me!"
+              </p>
             </div>
+
             <div class="notice-warning-box">
               <span class="warning-icon">⚠️</span>
               <div>
@@ -1571,9 +1627,17 @@
         <div class="community-banner">
             <div class="community-banner-badge">📢 Community &amp; Course Requests</div>
             <h2 class="community-banner-title">A Personal Message from Mohammed Kaif K</h2>
-            <p class="community-banner-text">
-                "As I have done with all my NPTEL courses, I am purely doing this for you all — please support me! ❤️"
-            </p>
+
+            <!-- BIG PROMINENT SUPPORT ME BANNER -->
+            <div class="welcome-support-hero" style="max-width: 680px; margin: 0.8em auto 1.2em auto;">
+              <div class="support-hero-heading">
+                💖 PLEASE SUPPORT ME! ❤️
+              </div>
+              <p class="support-hero-text">
+                "As I have done with all my NPTEL courses for the past 5 semesters, I am purely doing this for you all — please support me!"
+              </p>
+            </div>
+
             <div class="community-warning-pill">
                 <span class="warning-icon">⚠️</span>
                 <div>
