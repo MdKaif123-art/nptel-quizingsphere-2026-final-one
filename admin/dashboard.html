@@ -230,8 +230,8 @@
       <button class="logout-btn" id="logout-btn">Logout</button>
     </div>
     <select class="course-select" id="course-select">
+      <option value="performance-and-reward-management">Performance and Reward Management</option>
       <option value="conservation-geography">Mental Health and Well Being</option>
-
     </select>
     <form class="notification-form" id="notification-form">
       <textarea id="notif-message" placeholder="Notification Message" rows="10" style="min-height:120px;resize:vertical;width:100%;" required></textarea>
@@ -272,7 +272,7 @@
   </div>
   <script type="module">
     import { db, auth, collection, addDoc, getDocs, updateDoc, deleteDoc, doc, query, orderBy, onAuthStateChanged, signOut } from './firebase.js';
-    let currentCourse = 'conservation-geography';
+    let currentCourse = 'performance-and-reward-management';
     const notifList = document.getElementById('notification-list');
     const notifForm = document.getElementById('notification-form');
     const notifMessage = document.getElementById('notif-message');
