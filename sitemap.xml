@@ -62,7 +62,32 @@
   <url>
     <loc>https://quizing-sphere.netlify.app/wildlife-ecology/AdditionalQuestions.html</loc>
   </url>
+  <!-- Performance and Reward Management -->
   <url>
-    <loc>https://quizing-sphere.netlify.app/wildlife-ecology/questions.js</loc>
+    <loc>https://quizing-sphere.netlify.app/performance-and-reward-management/index.html</loc>
+  </url>
+  <url>
+    <loc>https://quizing-sphere.netlify.app/performance-and-reward-management/quiz.html</loc>
+  </url>
+  <url>
+    <loc>https://quizing-sphere.netlify.app/performance-and-reward-management/practice.html</loc>
+  </url>
+  <url>
+    <loc>https://quizing-sphere.netlify.app/performance-and-reward-management/score.html</loc>
+  </url>
+  <url>
+    <loc>https://quizing-sphere.netlify.app/performance-and-reward-management/correct.html</loc>
+  </url>
+  <url>
+    <loc>https://quizing-sphere.netlify.app/performance-and-reward-management/notifications.html</loc>
+  </url>
+  <url>
+    <loc>https://quizing-sphere.netlify.app/performance-and-reward-management/AdditionalQuestions.html</loc>
+  </url>
+  <url>
+    <loc>https://quizing-sphere.netlify.app/performance-and-reward-management/questions.js</loc>
+  </url>
+  <url>
+    <loc>https://quizing-sphere.netlify.app/performance-and-reward-management/additionalQuestions.js</loc>
   </url>
 </urlset> 

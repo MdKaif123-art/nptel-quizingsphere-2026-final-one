@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Additional Questions | Performance and Reward Management</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #3a0ca3, #0f0f0f);
+      color: #fff;
+      min-height: 100vh;
+      padding-bottom: 3em;
+    }
+    #tsparticles {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      z-index: 0;
+    }
+    .page-wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2em 1em;
+    }
+    .back-btn {
+      display: inline-block;
+      background: linear-gradient(45deg, #7209b7, #560bad);
+      color: #fff;
+      border: none;
+      border-radius: 18px;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 0.55em 1.6em;
+      cursor: pointer;
+      text-decoration: none;
+      margin-bottom: 1.4em;
+      box-shadow: 0 2px 8px #7209b733;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .back-btn:hover { background: #9d4edd; transform: scale(1.05); color: #fff; }
+    h1.page-title {
+      text-align: center;
+      font-size: 1.9rem;
+      color: #e0aaff;
+      margin-bottom: 0.3em;
+    }
+    .subtitle {
+      text-align: center;
+      color: #b8b8ff;
+      font-size: 1rem;
+      margin-bottom: 2em;
+    }
+    /* Week filter tabs */
+    .week-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5em;
+      justify-content: center;
+      margin-bottom: 2em;
+    }
+    .week-tab {
+      padding: 0.45em 1.3em;
+      border-radius: 50px;
+      border: 2px solid #7209b7;
+      background: transparent;
+      color: #e0aaff;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: 'Poppins', sans-serif;
+    }
+    .week-tab:hover, .week-tab.active {
+      background: linear-gradient(45deg, #7209b7, #560bad);
+      color: #fff;
+      border-color: transparent;
+    }
+    /* Week section */
+    .week-section { display: none; }
+    .week-section.visible { display: block; }
+    .week-header {
+      background: linear-gradient(90deg, #7209b7 0%, #3a0ca3 100%);
+      border-radius: 16px 16px 0 0;
+      padding: 1em 1.5em;
+      margin-bottom: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .practice-quiz-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0.5em 1.2em;
+      background: linear-gradient(45deg, #f15bb5, #7209b7);
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 700;
+      border-radius: 20px;
+      box-shadow: 0 2px 12px rgba(241, 91, 181, 0.4);
+      transition: all 0.2s ease;
+    }
+    .practice-quiz-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 18px rgba(241, 91, 181, 0.6);
+      color: #fff;
+    }
+    .week-header h2 {
+      color: #fff;
+      font-size: 1.35rem;
+      margin: 0;
+    }
+    .week-body {
+      background: rgba(80, 40, 180, 0.18);
+      border-radius: 0 0 16px 16px;
+      padding: 1.2em 1em 1.5em 1em;
+      margin-bottom: 2.5em;
+      box-shadow: 0 4px 32px #3a0ca355;
+    }
+    /* Question card */
+    .question-card {
+      background: rgba(255,255,255,0.08);
+      border-radius: 14px;
+      margin: 1.1em 0;
+      padding: 1.1em 1.2em;
+      box-shadow: 0 2px 16px #a259ff22;
+      transition: box-shadow 0.2s;
+    }
+    .question-card:hover { box-shadow: 0 4px 28px #a259ff44; }
+    .q-text {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.75em;
+      white-space: pre-line;
+    }
+    .q-num {
+      color: #c77dff;
+      margin-right: 0.3em;
+    }
+    .options-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 0.6em 0.4em;
+    }
+    .options-list li {
+      padding: 0.28em 0.5em;
+      font-size: 1rem;
+      color: #d8d8ff;
+      border-radius: 6px;
+      margin-bottom: 0.15em;
+    }
+    .options-list li.correct {
+      color: #00ffcc;
+      font-weight: 600;
+      background: rgba(0,255,204,0.07);
+    }
+    .options-list li.correct::before {
+      content: "✓ ";
+      color: #00ffcc;
+    }
+    .answer-label {
+      font-size: 0.92rem;
+      color: #e0aaff;
+      margin-top: 0.5em;
+      font-style: italic;
+    }
+    .answer-label span {
+      color: #00ffcc;
+      font-weight: 600;
+      font-style: normal;
+    }
+    @media (max-width: 600px) {
+      h1.page-title { font-size: 1.3rem; }
+      .week-header h2 { font-size: 1.1rem; }
+      .q-text { font-size: 0.97rem; }
+      .options-list li { font-size: 0.93rem; }
+      .week-body { padding: 0.7em 0.3em 1em 0.3em; }
+    }
+  </style>
+</head>
+<body>
+  <div id="tsparticles"></div>
+  <div class="page-wrapper">
+    <a href="index.html" class="back-btn">&larr; Back</a>
+    <h1 class="page-title">Additional Questions &amp; Answers</h1>
+    <p class="subtitle">Performance and Reward Management &mdash; NPTEL Assignments</p>
+
+    <div style="text-align: center; margin: 1.2em 0 1.8em 0;">
+      <a href="practice.html?type=additional" class="practice-quiz-btn" style="font-size: 1.05rem; padding: 0.75em 1.8em; border-radius: 30px;">
+        🎯 Practice Additional Questions as Interactive Quiz
+      </a>
+    </div>
+
+    <!-- Week Tabs -->
+    <div class="week-tabs">
+      <button class="week-tab active" onclick="showWeek('week1', this)">Week 1</button>
+      <button class="week-tab" onclick="showWeek('week2', this)">Week 2</button>
+      <button class="week-tab" onclick="showWeek('week3', this)">Week 3</button>
+      <button class="week-tab" onclick="showWeek('week4', this)">Week 4</button>
+      <button class="week-tab" onclick="showWeek('week5', this)">Week 5</button>
+      <button class="week-tab" onclick="showWeek('week6', this)">Week 6</button>
+      <button class="week-tab" onclick="showWeek('week7', this)">Week 7</button>
+      <button class="week-tab" onclick="showWeek('week8', this)">Week 8</button>
+      <button class="week-tab" onclick="showWeek('week9', this)">Week 9</button>
+      <button class="week-tab" onclick="showWeek('week10', this)">Week 10</button>
+      <button class="week-tab" onclick="showWeek('week11', this)">Week 11</button>
+      <button class="week-tab" onclick="showWeek('week12', this)">Week 12</button>
+    </div>
+
+    <!-- Container for dynamic week sections -->
+    <div id="week-sections-container"></div>
+
+  </div><!-- end page-wrapper -->
+
+  <script src="additionalQuestions.js"></script>
+  <script>
+    const container = document.getElementById('week-sections-container');
+    for (let w = 1; w <= 12; w++) {
+      const weekKey = 'week' + w;
+      const questions = (typeof allAdditionalQuestions !== 'undefined' && allAdditionalQuestions[weekKey]) ? allAdditionalQuestions[weekKey] : [];
+      const section = document.createElement('div');
+      section.className = 'week-section' + (w === 1 ? ' visible' : '');
+      section.id = weekKey;
+
+      let questionsHtml = '';
+      if (questions.length > 0) {
+        questionsHtml = questions.map((q, idx) => {
+          const optionsHtml = q.answers.map(ans => {
+            const isCorrect = ans === q.correctAnswer;
+            return `<li class="${isCorrect ? 'correct' : ''}">${ans}</li>`;
+          }).join('');
+          return `
+            <div class="question-card">
+              <div class="q-text"><span class="q-num">${idx + 1}.</span> ${q.question}</div>
+              <ul class="options-list">
+                ${optionsHtml}
+              </ul>
+              <div class="answer-label">Accepted Answer: <span>${q.correctAnswer}</span></div>
+            </div>
+          `;
+        }).join('');
+      } else {
+        questionsHtml = '<p style="color:#e0aaff; text-align:center; padding:2em;">No additional questions found for this week yet.</p>';
+      }
+
+      section.innerHTML = `
+        <div class="week-header">
+          <h2>Week ${w}: Assignment ${w}</h2>
+          <a class="practice-quiz-btn" href="quiz.html?type=additional&week=${weekKey}">⚡ Practice as Quiz</a>
+        </div>
+        <div class="week-body">
+          ${questionsHtml}
+        </div>
+      `;
+      container.appendChild(section);
+    }
+
+    function showWeek(weekId, btn) {
+      // Hide all sections
+      document.querySelectorAll('.week-section').forEach(s => s.classList.remove('visible'));
+      document.querySelectorAll('.week-tab').forEach(b => b.classList.remove('active'));
+      // Show selected
+      const target = document.getElementById(weekId);
+      if (target) target.classList.add('visible');
+      if (btn) btn.classList.add('active');
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+  <script>
+    tsParticles.load("tsparticles", {
+      fullScreen: { enable: false },
+      background: { color: "transparent" },
+      particles: {
+        number: { value: 50, density: { enable: true, area: 800 } },
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.4, random: true },
+        size: { value: 3, random: true },
+        move: { enable: true, speed: 1, direction: "none", outModes: "bounce" },
+        links: { enable: true, distance: 100, color: "#ffffff", opacity: 0.15, width: 1 }
+      },
+      interactivity: {
+        events: {
+          onHover: { enable: true, mode: "repulse" },
+          onClick: { enable: true, mode: "push" }
+        },
+        modes: {
+          repulse: { distance: 100 },
+          push: { quantity: 4 }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
