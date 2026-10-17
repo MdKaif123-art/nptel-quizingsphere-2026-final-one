@@ -397,6 +397,28 @@
             box-shadow: 0 2px 8px #a259ff55;
             transform: scale(0.98);
         }
+        .profile-link-btn.btn-linkedin-custom {
+            background: linear-gradient(135deg, #0077b5, #004e78);
+            border: 2px solid #38bdf8;
+            box-shadow: 0 0 22px rgba(0, 119, 181, 0.75), 0 0 10px rgba(56, 189, 248, 0.4);
+        }
+        .profile-link-btn.btn-linkedin-custom:hover, .profile-link-btn.btn-linkedin-custom:focus {
+            background: linear-gradient(135deg, #0088cc, #005f8f);
+            border-color: #bae6fd;
+            box-shadow: 0 0 35px rgba(56, 189, 248, 0.95);
+            transform: scale(1.05) translateY(-3px);
+        }
+        .profile-link-btn.btn-telegram-custom {
+            background: linear-gradient(135deg, #0088cc, #005f8f);
+            border: 2px solid #00f5d4;
+            box-shadow: 0 0 22px rgba(0, 136, 204, 0.75), 0 0 10px rgba(0, 245, 212, 0.4);
+        }
+        .profile-link-btn.btn-telegram-custom:hover, .profile-link-btn.btn-telegram-custom:focus {
+            background: linear-gradient(135deg, #0099e6, #0077b5);
+            border-color: #a7f3d0;
+            box-shadow: 0 0 35px rgba(0, 245, 212, 0.95);
+            transform: scale(1.05) translateY(-3px);
+        }
         .profile-link-btn i {
             font-size: 1.2em;
         }
@@ -567,6 +589,8 @@
       <a href="index.html" onclick="closeSidebar()">Home</a>
       <a href="about.html" onclick="closeSidebar()">About</a>
       <a href="contact.html" onclick="closeSidebar()">Contact</a>
+      <a href="https://t.me/+A3ekpfs-4L5jOTQ9" target="_blank" onclick="closeSidebar()" style="background: rgba(0, 136, 204, 0.25); border: 1.5px solid #00f5d4; color: #38bdf8;">📢 Join Telegram</a>
+      <a href="https://www.linkedin.com/in/k-mohammed-kaif-62510728b" target="_blank" onclick="closeSidebar()" style="background: rgba(0, 119, 181, 0.25); border: 1.5px solid #38bdf8; color: #7dd3fc;">💼 LinkedIn</a>
     </div>
     <div id="tsparticles"></div>
     <div class="blob blob1"></div>
@@ -585,7 +609,8 @@
             <div class="profile-name">Mohammed Kaif K</div>
             <div class="profile-title">Creator & Developer</div>
             <div class="profile-links">
-                <a class="profile-link-btn" href="https://www.linkedin.com/in/k-mohammed-kaif-62510728b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" onclick="trackEvent('Profile', 'Click', 'LinkedIn')"><i class="fa fa-linkedin"></i> LinkedIn</a>
+                <a class="profile-link-btn btn-linkedin-custom" href="https://www.linkedin.com/in/k-mohammed-kaif-62510728b" target="_blank" onclick="trackEvent('Profile', 'Click', 'LinkedIn')"><i class="fa fa-linkedin"></i> Connect on LinkedIn</a>
+                <a class="profile-link-btn btn-telegram-custom" href="https://t.me/+A3ekpfs-4L5jOTQ9" target="_blank" onclick="trackEvent('Profile', 'Click', 'Telegram')"><i class="fa fa-paper-plane"></i> Telegram Channel 📢</a>
                 <a class="profile-link-btn" href="https://github.com/MdKaif123-art/" target="_blank" onclick="trackEvent('Profile', 'Click', 'GitHub')"><i class="fa fa-github"></i> GitHub</a>
                 <a class="profile-link-btn" href="https://mohammedkaifk-portfolio.netlify.app" target="_blank" onclick="trackEvent('Profile', 'Click', 'Portfolio')"><i class="fa fa-globe"></i> Portfolio</a>
             </div>
@@ -594,6 +619,31 @@
             </div>
         </div>
         <div class="about-content">
+            <!-- Highlighted Notice from Mohammed Kaif K -->
+            <div style="background: linear-gradient(135deg, rgba(32, 12, 70, 0.95), rgba(14, 4, 34, 0.95)); border: 2px solid rgba(0, 245, 212, 0.5); border-radius: 18px; padding: 1.4em; text-align: center; margin-bottom: 1.5em; box-shadow: 0 8px 30px rgba(0,0,0,0.5), 0 0 20px rgba(0,136,204,0.3);">
+                <div style="display:inline-block; background: linear-gradient(90deg, #f72585, #7209b7); color: #fff; font-size: 0.8rem; font-weight: 700; padding: 0.35em 1.1em; border-radius: 30px; text-transform: uppercase; margin-bottom: 0.8em; letter-spacing: 0.8px;">
+                    📢 Important Notice from Mohammed Kaif K
+                </div>
+                <p style="color: #fff; font-size: 1.05rem; font-weight: 600; line-height: 1.5; margin-bottom: 0.8em;">
+                    "As I have done with all my NPTEL courses, I am purely doing this for you all — please support me! ❤️"
+                </p>
+                <div style="background: rgba(239, 68, 68, 0.18); border: 1.5px solid rgba(239, 68, 68, 0.6); border-radius: 12px; padding: 0.8em 1em; text-align: left; display: flex; gap: 10px; align-items: flex-start; margin-bottom: 1em;">
+                    <span style="font-size: 1.4rem; line-height: 1;">⚠️</span>
+                    <div>
+                        <strong style="color: #fff; display: block; margin-bottom: 0.2em;">Please do NOT DM or disturb me personally.</strong>
+                        <span style="color: #fecaca; font-size: 0.92rem; line-height: 1.45;">I will add as many maximum subjects as I can! If you want any other course added, please join our Telegram group below and ask there — if possible, I will add it!</span>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://t.me/+A3ekpfs-4L5jOTQ9" target="_blank" rel="noopener noreferrer" style="flex: 1; min-width: 180px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: linear-gradient(135deg, #0088cc 0%, #005f8f 100%); color: #fff; font-weight: 700; text-decoration: none; padding: 0.75em 1em; border-radius: 12px; border: 1.5px solid #00f5d4; box-shadow: 0 0 15px rgba(0,136,204,0.5);">
+                        <i class="fa fa-paper-plane"></i> Join Telegram
+                    </a>
+                    <a href="https://www.linkedin.com/in/k-mohammed-kaif-62510728b" target="_blank" rel="noopener noreferrer" style="flex: 1; min-width: 180px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: linear-gradient(135deg, #0077b5 0%, #004e78 100%); color: #fff; font-weight: 700; text-decoration: none; padding: 0.75em 1em; border-radius: 12px; border: 1.5px solid #38bdf8; box-shadow: 0 0 15px rgba(0,119,181,0.5);">
+                        <i class="fa fa-linkedin"></i> Connect on LinkedIn
+                    </a>
+                </div>
+            </div>
+
             <div class="about-highlight">
                 I have created a lot of projects, one of which is <a href="https://vitmisqube.netlify.app" target="_blank" onclick="trackEvent('Profile', 'Click', 'vitmisqube')">vitmisqube</a>. Last time, I also helped many students score above 90 in the NPTEL Forecast Management course.
             </div>
