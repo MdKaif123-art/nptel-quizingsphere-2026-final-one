@@ -1,1226 +1,1186 @@
 const allAdditionalQuestions = {
   "week1": [
     {
-      "question": "What distinguishes performance management from performance appraisal?",
+      "question": "__________ defined performance management as the process of 'directing and supporting employees to work as effectively and efficiently as possible in line with the needs of the organization'.",
       "answers": [
-        "Performance appraisal is a broader, continuous process while performance management is a one-time event",
-        "Performance management is a continuous process while appraisal is a periodic formal review",
-        "They are exactly the same concept",
-        "Performance management focuses only on pay decisions"
+        "Lockett, 1992",
+        "Walters, 1995",
+        "Robert and Robert, 1992",
+        "Armstrong and Baron, 1995"
       ],
-      "correctAnswer": "Performance management is a continuous process while appraisal is a periodic formal review"
+      "correctAnswer": "Armstrong and Baron, 1995"
     },
     {
-      "question": "Which of the following best explains the 'reward mix'?",
+      "question": "__________ is a monolithic system, however __________ is a flexible system.",
       "answers": [
-        "The combination of base pay, variable pay, and non-financial rewards offered to employees",
-        "The ratio of senior to junior employee pay",
-        "The government-mandated compensation structure",
-        "The number of benefits available to employees"
+        "Performance appraisal, performance management",
+        "Performance management, performance appraisal",
+        "Performance management, performance review",
+        "None of the above"
       ],
-      "correctAnswer": "The combination of base pay, variable pay, and non-financial rewards offered to employees"
+      "correctAnswer": "Performance appraisal, performance management"
     },
     {
-      "question": "Extrinsic rewards in the workplace include:",
+      "question": "Which of the mentioned below is the misquoted objective of performance management?\n1. Identifying needs for training\n2. Ensuring role clarity\n3. Aligning individual and team goals only\n4. Defining standards for managing performance",
       "answers": [
-        "Personal satisfaction from doing meaningful work",
-        "Sense of achievement and autonomy",
-        "Salary, bonuses, and benefits",
-        "Job enrichment and empowerment"
+        "Point 1",
+        "Point 2",
+        "Point 3",
+        "None of the above"
       ],
-      "correctAnswer": "Salary, bonuses, and benefits"
+      "correctAnswer": "Point 3"
     },
     {
-      "question": "A performance contract between a manager and employee typically includes:",
+      "question": "Goal alignment can be achieved by following a __________ approach.",
       "answers": [
-        "Only disciplinary procedures",
-        "Agreed goals, expected standards, and review timelines",
-        "Only pay terms",
-        "Legal employment conditions"
+        "Bottom up",
+        "Top left",
+        "Middle up-down",
+        "None of the above"
       ],
-      "correctAnswer": "Agreed goals, expected standards, and review timelines"
+      "correctAnswer": "None of the above"
     },
     {
-      "question": "Which of the following is an example of an input metric in performance management?",
+      "question": "Cash compensation like salary, short term and long-term incentives are a form of __________ incentives.",
       "answers": [
-        "Revenue generated",
-        "Number of training hours completed",
-        "Customer satisfaction score",
-        "Profit margin"
+        "Intangible",
+        "Tangible",
+        "Both of the above",
+        "None of the above"
       ],
-      "correctAnswer": "Number of training hours completed"
+      "correctAnswer": "Tangible"
     },
     {
-      "question": "The strategic role of reward management involves:",
+      "question": "COLA stands for __________.",
       "answers": [
-        "Only processing payroll accurately",
-        "Aligning reward practices with business strategy to achieve organizational goals",
-        "Minimizing all employee benefits",
-        "Setting government-mandated pay scales"
+        "Cost of logistics adjustment",
+        "Cost of late adjustments",
+        "Cost of living adjustment",
+        "None of the above"
       ],
-      "correctAnswer": "Aligning reward practices with business strategy to achieve organizational goals"
+      "correctAnswer": "Cost of living adjustment"
     },
     {
-      "question": "Which of the following describes the concept of 'pay satisfaction'?",
+      "question": "State whether the following is True or False.\n\nContingent pay is also referred to as merit pay.",
       "answers": [
-        "The level of pay an employee receives compared to peers",
-        "An employee's cognitive and affective evaluation of their pay",
-        "The market rate for a specific job",
-        "Government satisfaction with national pay levels"
+        "True",
+        "False"
       ],
-      "correctAnswer": "An employee's cognitive and affective evaluation of their pay"
+      "correctAnswer": "True"
     },
     {
-      "question": "Distributive justice in reward management refers to:",
+      "question": "__________ include benefits like offering housing and transportation benefits.",
       "answers": [
-        "Fairness of the processes used to determine pay",
-        "Perceived fairness of the actual pay outcomes received",
-        "Transparency in communicating pay decisions",
-        "Equal pay for all employees"
+        "Merit pay",
+        "Allowances",
+        "Long term benefits",
+        "Medium term benefits"
       ],
-      "correctAnswer": "Perceived fairness of the actual pay outcomes received"
+      "correctAnswer": "Allowances"
     },
     {
-      "question": "Procedural justice in reward management refers to:",
+      "question": "State whether the following is True or False.\n\nJob analysis cannot be done through off-shelf questionnaires.",
       "answers": [
-        "Perceived fairness of the actual amount of pay received",
-        "The government process for setting minimum wages",
-        "Perceived fairness of the processes and procedures used to determine pay",
-        "HR processes for hiring employees"
+        "True",
+        "False"
       ],
-      "correctAnswer": "Perceived fairness of the processes and procedures used to determine pay"
+      "correctAnswer": "False"
     },
     {
-      "question": "Which of the following best illustrates the concept of 'total reward'?",
+      "question": "As per William Deming (1986), the performance management process consists of __________ basic activities.",
       "answers": [
-        "An annual salary increase",
-        "The complete package of financial and non-financial rewards including pay, benefits, learning, and work environment",
-        "Profit-sharing for senior managers only",
-        "The legal minimum compensation package"
+        "Two",
+        "Four",
+        "Five",
+        "Six"
       ],
-      "correctAnswer": "The complete package of financial and non-financial rewards including pay, benefits, learning, and work environment"
+      "correctAnswer": "Four"
     }
   ],
   "week2": [
     {
-      "question": "The point factor method of job evaluation assesses jobs based on:",
+      "question": "__________ defined strategy as \"the determination of the basic long-term goals and objectives of an enterprise, and the adoption of courses of action and the allocation of resources for carrying out these goals.\"",
       "answers": [
-        "Simple ranking from highest to lowest",
-        "Predetermined compensable factors such as skill, responsibility, and working conditions",
-        "Market pay surveys",
-        "Employee self-assessment"
+        "Alfred D. Chancellor, Sr.",
+        "Alfred D. Chingler, Sr.",
+        "Alfred D. Chandler, Jr.",
+        "None of the above"
       ],
-      "correctAnswer": "Predetermined compensable factors such as skill, responsibility, and working conditions"
+      "correctAnswer": "Alfred D. Chandler, Jr."
     },
     {
-      "question": "Pay progression within a pay band is typically based on:",
+      "question": "__________, Professor at Harvard stands credited for publishing the first edition of the Concept of Corporate Strategy in 1971.",
       "answers": [
-        "Random allocation by HR",
-        "Performance, competence, or years of service",
-        "Employee preference only",
-        "Government regulation"
+        "Morris Peter",
+        "McCarthy",
+        "Andrew K",
+        "Kenneth Andrews"
       ],
-      "correctAnswer": "Performance, competence, or years of service"
+      "correctAnswer": "Kenneth Andrews"
     },
     {
-      "question": "Which of the following best describes 'spot salaries'?",
+      "question": "__________ indicates an area where an organization can succeed or subsist profitability.",
       "answers": [
-        "A fixed single pay rate for a job with no pay range",
-        "The maximum pay point in a pay band",
-        "A market supplement paid in addition to base pay",
-        "Pay for irregular working hours"
+        "One-sided threat",
+        "Strength",
+        "Pseudo gap",
+        "Opportunity"
       ],
-      "correctAnswer": "A fixed single pay rate for a job with no pay range"
+      "correctAnswer": "Opportunity"
     },
     {
-      "question": "Red-circled employees are those whose pay is:",
+      "question": "__________ is a challenge emerging from an unfavorable trend in the market.",
       "answers": [
-        "Below the minimum of their pay range",
-        "Above the maximum of their pay range",
-        "At the midpoint of their pay range",
-        "At the market rate for their job"
+        "One-sided threat",
+        "Opportunity",
+        "Threat",
+        "None of the above"
       ],
-      "correctAnswer": "Above the maximum of their pay range"
+      "correctAnswer": "Threat"
     },
     {
-      "question": "Green-circled employees are those whose pay is:",
+      "question": "Which of these environments must be considered while doing an environment analysis?",
       "answers": [
-        "At the maximum of the pay band",
-        "Above the market rate",
-        "Below the minimum of the pay range",
-        "At the midpoint of the range"
+        "Economic",
+        "Political",
+        "Legal",
+        "All of the above"
       ],
-      "correctAnswer": "Below the minimum of the pay range"
+      "correctAnswer": "All of the above"
     },
     {
-      "question": "A market supplement is paid to:",
+      "question": "Skilled workforce, and control over a specific set of resources indicate an organization's __________.",
       "answers": [
-        "Reward all employees equally",
-        "Address specific market shortages by paying above standard rates for particular roles",
-        "Replace the annual performance bonus",
-        "Set the minimum wage"
+        "Competitive advantage",
+        "Core competency",
+        "Both of the above",
+        "Strengths"
       ],
-      "correctAnswer": "Address specific market shortages by paying above standard rates for particular roles"
+      "correctAnswer": "Strengths"
     },
     {
-      "question": "Which of the following is a potential disadvantage of broadbanding?",
+      "question": "Organizational __________ is all about how certain activities are directed or pursued in an organization.",
       "answers": [
-        "It provides more flexibility in pay management",
-        "It can reduce the perceived career progression opportunities for employees",
-        "It aligns better with organizational structures",
-        "It simplifies pay administration"
+        "culture",
+        "structure",
+        "climate",
+        "None of the above"
       ],
-      "correctAnswer": "It can reduce the perceived career progression opportunities for employees"
+      "correctAnswer": "structure"
     },
     {
-      "question": "Job families in pay structures are:",
+      "question": "__________ comprise written and unwritten norms shared by members of an organization.",
       "answers": [
-        "Groups of employees with similar personal characteristics",
-        "Groups of jobs with similar characteristics, activities, and competencies requiring similar skills",
-        "Departments within an organization",
-        "Government-defined job classification systems"
+        "culture",
+        "structure",
+        "climate",
+        "None of the above"
       ],
-      "correctAnswer": "Groups of jobs with similar characteristics, activities, and competencies requiring similar skills"
+      "correctAnswer": "culture"
     },
     {
-      "question": "A pay policy line in pay structure design represents:",
+      "question": "State whether the following is True or False.\n\nThe combination of an opportunity coupled with strength provides leverage.",
       "answers": [
-        "The legal minimum wage for each job grade",
-        "The intended market position for each job grade in the organization",
-        "The maximum salary allowed per grade",
-        "The midpoint of all pay bands combined"
+        "True",
+        "False"
       ],
-      "correctAnswer": "The intended market position for each job grade in the organization"
+      "correctAnswer": "True"
     },
     {
-      "question": "Which of the following is an advantage of using job evaluation?",
+      "question": "Identify what the combination given below will yield to.\n\nOpportunity + Weakness: __________",
       "answers": [
-        "It guarantees external pay competitiveness",
-        "It provides a systematic, rational basis for establishing pay relativities",
-        "It eliminates the need for market pay surveys",
-        "It automatically sets individual pay levels"
+        "Error",
+        "Loss in gain",
+        "Constraint",
+        "None of the above"
       ],
-      "correctAnswer": "It provides a systematic, rational basis for establishing pay relativities"
+      "correctAnswer": "Constraint"
     }
   ],
   "week3": [
     {
-      "question": "Which of the following appraisal errors occurs when a manager rates all employees similarly regardless of actual performance?",
+      "question": "__________ issues relate to determining whether documented policies and procedures were followed or not.",
       "answers": [
-        "Halo effect",
-        "Central tendency error",
-        "Recency bias",
-        "Leniency error"
+        "Administrative",
+        "Judgment",
+        "Accountability",
+        "None of the above"
       ],
-      "correctAnswer": "Central tendency error"
+      "correctAnswer": "Administrative"
     },
     {
-      "question": "Leniency error in performance appraisal refers to:",
+      "question": "Performance is about defining and outlining what each employee is __________ for.",
       "answers": [
-        "Rating all employees too harshly",
-        "Rating all employees too favorably regardless of actual performance",
-        "Focusing only on recent performance",
-        "Comparing employees unfairly"
+        "Trusted now",
+        "Accountable",
+        "Prepaid",
+        "None of the above"
       ],
-      "correctAnswer": "Rating all employees too favorably regardless of actual performance"
+      "correctAnswer": "Accountable"
     },
     {
-      "question": "The critical incident method of appraisal involves:",
+      "question": "__________ encompasses information about facts and task requirements.",
       "answers": [
-        "Rating employees on a numerical scale",
-        "Recording specific examples of effective and ineffective job behaviors throughout the year",
-        "Ranking all employees from best to worst",
-        "Conducting peer reviews"
+        "Declarative knowledge",
+        "Procedural knowledge",
+        "Both of the above",
+        "None of the above"
       ],
-      "correctAnswer": "Recording specific examples of effective and ineffective job behaviors throughout the year"
+      "correctAnswer": "Declarative knowledge"
     },
     {
-      "question": "Which of the following is a characteristic of effective performance feedback?",
+      "question": "__________ is all about how a task is to be done and includes cognitive, physical, interpersonal and perceptual skills.",
       "answers": [
-        "Vague and general comments",
-        "Delivered only once a year",
-        "Specific, timely, and focused on behaviors rather than personality",
-        "Focused exclusively on weaknesses"
+        "Declarative knowledge",
+        "Procedural knowledge",
+        "Both of the above",
+        "None of the above"
       ],
-      "correctAnswer": "Specific, timely, and focused on behaviors rather than personality"
+      "correctAnswer": "Procedural knowledge"
     },
     {
-      "question": "The paired comparison method of appraisal involves:",
+      "question": "Identify the most appropriate filler for the third multiplier.\n\nPerformance = Declarative knowledge X Procedural Knowledge X __________",
       "answers": [
-        "Comparing each employee with every other employee to determine relative ranking",
-        "Comparing performance ratings across departments",
-        "Comparing this year's performance to last year's",
-        "Comparing individual goals with organizational objectives"
+        "Resources",
+        "Motivation",
+        "Task at hand",
+        "None of the above"
       ],
-      "correctAnswer": "Comparing each employee with every other employee to determine relative ranking"
+      "correctAnswer": "Motivation"
     },
     {
-      "question": "Which of the following describes a graphic rating scale in performance appraisal?",
+      "question": "__________ approach places special focus on what employees do on the job and does not take into consideration the outcomes of a job.",
       "answers": [
-        "A narrative description of employee performance",
-        "A scale with defined rating levels for various performance dimensions",
-        "A visual display of employee rankings",
-        "A chart comparing team performance"
+        "Trait",
+        "Behavioral",
+        "Results",
+        "None of the above"
       ],
-      "correctAnswer": "A scale with defined rating levels for various performance dimensions"
+      "correctAnswer": "Behavioral"
     },
     {
-      "question": "The purpose of developmental performance conversations is to:",
+      "question": "The results approach for measuring performance is suitable when:",
       "answers": [
-        "Determine pay cuts for underperformers",
-        "Focus on future growth, learning needs, and career development",
-        "Document disciplinary actions",
-        "Rank employees for redundancy purposes"
+        "Behaviors and results are related",
+        "Many ways exist for doing the job right",
+        "Workers are skilled",
+        "All of the above"
       ],
-      "correctAnswer": "Focus on future growth, learning needs, and career development"
+      "correctAnswer": "All of the above"
     },
     {
-      "question": "Which of the following is an advantage of 360-degree feedback?",
+      "question": "State whether the following is True or False.\n\nAfter accountabilities have been identified, next step is to allocate resources.",
       "answers": [
-        "It is quick and low-cost to implement",
-        "It provides a more complete picture of performance from multiple perspectives",
-        "It relies solely on manager judgment",
-        "It eliminates the need for self-appraisal"
+        "True",
+        "False"
       ],
-      "correctAnswer": "It provides a more complete picture of performance from multiple perspectives"
+      "correctAnswer": "False"
     },
     {
-      "question": "Performance management coaching conversations are most effective when they are:",
+      "question": "In case an organization adopts a results-oriented approach, complete clarity must be established over:",
       "answers": [
-        "Held only once a year in formal settings",
-        "Regular, supportive, and focused on enabling employee growth and removing obstacles",
-        "Focused exclusively on past failures",
-        "Conducted only by HR"
+        "Key accountabilities of an employee considering his or her job",
+        "Objectives expected to be accomplished",
+        "Performance standards",
+        "All of the above"
       ],
-      "correctAnswer": "Regular, supportive, and focused on enabling employee growth and removing obstacles"
+      "correctAnswer": "All of the above"
     },
     {
-      "question": "Which of the following is a key difference between performance management and performance appraisal?",
+      "question": "__________ error occurs when past ratings or records unjustly influence current ratings.",
       "answers": [
-        "Performance appraisal is forward-looking while management is backward-looking",
-        "Performance management is a continuous process while appraisal is periodic",
-        "Performance appraisal involves setting goals while management does not",
-        "Performance management is only relevant to senior employees"
+        "Contrast",
+        "Primacy",
+        "Recency",
+        "None of the above"
       ],
-      "correctAnswer": "Performance management is a continuous process while appraisal is periodic"
+      "correctAnswer": "None of the above"
     }
   ],
   "week4": [
     {
-      "question": "Alderfer's ERG Theory is a modification of Maslow's hierarchy and categorizes needs into:",
+      "question": "In which technique, personnel specialists and operating managers prepare lists of statements of very effective and very ineffective behaviour for an employee?",
       "answers": [
-        "Economic, Relational, Growth",
-        "Existence, Relatedness, Growth",
-        "Emotional, Rational, Governance",
-        "Esteem, Recognition, Goals"
+        "Critical incident technique",
+        "Essay evaluation",
+        "BARS",
+        "Management by Objective"
       ],
-      "correctAnswer": "Existence, Relatedness, Growth"
+      "correctAnswer": "BARS"
     },
     {
-      "question": "Herzberg's motivator factors include:",
+      "question": "The multiple-input approach to performance feedback is sometimes called __________ degree assessment.",
       "answers": [
-        "Company policy, supervision, and salary",
-        "Achievement, recognition, and the work itself",
-        "Working conditions, job security, and interpersonal relations",
-        "Pay, benefits, and status"
+        "90",
+        "180",
+        "270",
+        "360"
       ],
-      "correctAnswer": "Achievement, recognition, and the work itself"
+      "correctAnswer": "360"
     },
     {
-      "question": "Reinforcement theory suggests that employee behavior is influenced by:",
+      "question": "The M in the acronym for SMART goals stands for ___ (Refer the case)",
       "answers": [
-        "Their personal goals and aspirations",
-        "The consequences of past behavior (rewards or punishments)",
-        "Unconscious psychological drives",
-        "Cultural background"
+        "Moderate",
+        "Measurable",
+        "Meaningful",
+        "Merit"
       ],
-      "correctAnswer": "The consequences of past behavior (rewards or punishments)"
+      "correctAnswer": "Measurable"
     },
     {
-      "question": "Which of the following is an example of positive reinforcement in reward management?",
+      "question": "The concept of MBO was developed by:",
       "answers": [
-        "Removing a penalty when an employee improves",
-        "Giving a bonus for achieving a sales target",
-        "Issuing a formal warning for poor attendance",
-        "Reducing pay for underperformance"
+        "Elton Mayo",
+        "Peter Drucker",
+        "F.W. Taylor",
+        "Philip Kotler"
       ],
-      "correctAnswer": "Giving a bonus for achieving a sales target"
+      "correctAnswer": "Peter Drucker"
     },
     {
-      "question": "Job design as a motivational tool includes:",
+      "question": "If an employee had performed well last year, and his supervisor gives him a high rating based on last years' performance data. This is an example of",
       "answers": [
-        "Only setting pay rates",
-        "Job enrichment, job enlargement, and job rotation to increase employee motivation",
-        "Monitoring employee attendance",
-        "Setting disciplinary procedures"
+        "Central Tendency",
+        "Horn effect",
+        "Spill-over effect",
+        "Primacy effect"
       ],
-      "correctAnswer": "Job enrichment, job enlargement, and job rotation to increase employee motivation"
+      "correctAnswer": "Spill-over effect"
     },
     {
-      "question": "The Hackman and Oldham Job Characteristics Model suggests that jobs should have:",
+      "question": "Which performance appraisal tool is being used when a supervisor places predetermined percentage of ratees into various performance categories?",
       "answers": [
-        "Maximum supervision and control",
-        "Skill variety, task identity, task significance, autonomy, and feedback",
-        "High pay and job security only",
-        "Minimal responsibility and simple tasks"
+        "Behaviorally anchored rating scale",
+        "Graphic ranking scale",
+        "Visual method of assessment",
+        "Forced distribution"
       ],
-      "correctAnswer": "Skill variety, task identity, task significance, autonomy, and feedback"
+      "correctAnswer": "Forced distribution"
     },
     {
-      "question": "Which of the following best describes profit-related pay?",
+      "question": "Which of the following is NOT a characteristic of the critical incident method for performance appraisal?",
       "answers": [
-        "Pay that is fixed regardless of company profits",
-        "Pay that varies based on the organization's profitability",
-        "Pay determined by government regulations",
-        "A personal loan from the company"
+        "Providing examples of excellent work performance",
+        "Comparing and ranking employees within a group",
+        "Connecting specific incidents with performance goals",
+        "Reflecting performance throughout the appraisal period"
       ],
-      "correctAnswer": "Pay that varies based on the organization's profitability"
+      "correctAnswer": "Comparing and ranking employees within a group"
     },
     {
-      "question": "Employee assistance programs (EAPs) are provided as part of the reward package to:",
+      "question": "Wilson Consulting is a management consulting firm with seventy employees. As associate vice president of marketing, Mr. Gautam Dabhekar is responsible for conducting performance appraisals of the twelve employees under his direct supervision. Gautam plans to use the critical incident method to evaluate the performance of his subordinates. Which of the following, if true, undermines the argument that the critical incident method is the most appropriate performance appraisal tool for Gautam to use?",
       "answers": [
-        "Provide financial bonuses",
-        "Support employees with personal or work-related issues such as mental health or financial counseling",
-        "Replace health insurance",
-        "Automate payroll"
+        "Employee performance standards are closely aligned with Wilson Consulting's long-term strategic plans.",
+        "Other departments at Wilson Consulting have seen employee performance improve as a result of providing ongoing evaluations.",
+        "Gautam will be conducting performance appraisals in conjunction with the HR manager to ensure EEO compliance.",
+        "Due to economic difficulties, the firm will be laying off the two lowest performing employees in Gautam's department."
       ],
-      "correctAnswer": "Support employees with personal or work-related issues such as mental health or financial counseling"
+      "correctAnswer": "Due to economic difficulties, the firm will be laying off the two lowest performing employees in Gautam's department."
     },
     {
-      "question": "Flexible benefits are advantageous because they:",
+      "question": "It is most important that supervisors who choose management by objectives as a performance appraisal tool use __________",
       "answers": [
-        "Reduce administration costs to zero",
-        "Allow employees to select benefits that align with their personal needs",
-        "Standardize rewards for all employees",
-        "Replace base pay entirely"
+        "ESOP",
+        "SMART goals",
+        "Digital dashboard device",
+        "Other stakeholders' opinion"
       ],
-      "correctAnswer": "Allow employees to select benefits that align with their personal needs"
+      "correctAnswer": "SMART goals"
     },
     {
-      "question": "Recognition programs in reward management work best when they are:",
+      "question": "Prakash is a conscientious employee, but he is viewed by few of his co-workers as disagreeable. Prakash's supervisor rates him low on the traits \"gets along well with others\" and \"quality of work.\" Which of the following problems has most likely affected Prakash's performance appraisal?",
       "answers": [
-        "Infrequent and highly formal",
-        "Timely, specific, genuine, and tied to behaviors the organization values",
-        "Given equally to all employees regardless of performance",
-        "Based solely on seniority"
+        "Strictness",
+        "Halo effect",
+        "Stereotyping",
+        "Horn effect"
       ],
-      "correctAnswer": "Timely, specific, genuine, and tied to behaviors the organization values"
+      "correctAnswer": "Horn effect"
     }
   ],
   "week5": [
     {
-      "question": "The Scanlon plan is an example of:",
+      "question": "Which one is Not a characteristic of High rapport- Low clarity coach-coachee relationship?",
       "answers": [
-        "Individual merit pay",
-        "A gainsharing plan based on labor cost savings",
-        "An executive long-term incentive",
-        "A government wage regulation"
+        "Short term perspective",
+        "Task focused",
+        "Friendship",
+        "Lack of direction"
       ],
-      "correctAnswer": "A gainsharing plan based on labor cost savings"
+      "correctAnswer": "Task focused"
     },
     {
-      "question": "Which of the following is a risk of purely individual performance-related pay?",
+      "question": "There are __________ layers of social dialogue in terms of depth & impact.",
       "answers": [
-        "It always improves team collaboration",
-        "It can reduce teamwork and encourage self-serving behaviors",
-        "It eliminates the need for performance management",
-        "It guarantees employee satisfaction"
+        "6",
+        "5",
+        "7",
+        "9"
       ],
-      "correctAnswer": "It can reduce teamwork and encourage self-serving behaviors"
+      "correctAnswer": "7"
     },
     {
-      "question": "Sales commission as an incentive works by:",
+      "question": "A manager of radiology earns an annual salary of $85000 and is eligible for up to 10% of her base pay if the organization meets its financial and patient satisfaction performance goals. Assuming all goals are met, her earning potential for the year could be:",
       "answers": [
-        "Providing a fixed monthly salary regardless of sales",
-        "Paying employees a percentage of the sales revenue they generate",
-        "Rewarding all employees equally based on company profit",
-        "Setting a maximum pay cap for salespeople"
+        "$93,500",
+        "$95,000",
+        "$90,800",
+        "$95,200"
       ],
-      "correctAnswer": "Paying employees a percentage of the sales revenue they generate"
+      "correctAnswer": "$93,500"
     },
     {
-      "question": "Piecework is most suitable for jobs that are:",
+      "question": "Mr. Rao is working as a supervisor in a small textile company. He earns Rs 30000/pm. He avails metro rail to reach office, which costs him Rs 70/per day. After a hike in metro rail ticket prices, recently it is costing Mr. Rao Rs 84/ per day. He has no other way of transport, so he continues to avail the metro only. In this situation",
       "answers": [
-        "Creative and require high-level judgment",
-        "Repetitive and where output is easily quantifiable",
-        "Managerial and strategic",
-        "Customer-facing and service-oriented"
+        "His nominal wage is decreased.",
+        "His real wage remains unchanged.",
+        "His nominal wage and real wage both decreased.",
+        "His real wage is decreased."
       ],
-      "correctAnswer": "Repetitive and where output is easily quantifiable"
+      "correctAnswer": "His real wage is decreased."
     },
     {
-      "question": "Which of the following describes a retention bonus?",
+      "question": "When a person exerting less effort to achieve a goal when he or she works in a team than when working alone, it is known as",
       "answers": [
-        "A regular monthly pay increment",
-        "A one-time or periodic payment made to encourage key employees to stay with the organization",
-        "A payment for exceeding sales targets",
-        "A government-mandated benefit"
+        "Negativity Bias",
+        "Self-serving Bias",
+        "Subjective Bias",
+        "Social Loafing"
       ],
-      "correctAnswer": "A one-time or periodic payment made to encourage key employees to stay with the organization"
+      "correctAnswer": "Social Loafing"
     },
     {
-      "question": "Spot bonuses are characterized by:",
+      "question": "The group incentive plan of differential payments determined by ratio of each team member's base pay to the total base pay of the group, ignores",
       "answers": [
-        "Being paid as part of the regular monthly payroll",
-        "Immediate, one-time payments to recognize specific achievements or contributions",
-        "Being linked to long-term company performance",
-        "Being guaranteed regardless of performance"
+        "Individual contribution",
+        "Deindividuation",
+        "Transactional justice",
+        "Tangible reward"
       ],
-      "correctAnswer": "Immediate, one-time payments to recognize specific achievements or contributions"
+      "correctAnswer": "Individual contribution"
     },
     {
-      "question": "Which of the following is an advantage of team-based incentives?",
+      "question": "There is legal framework for monitoring __________",
       "answers": [
-        "They always benefit high individual performers more",
-        "They encourage collaboration and shared accountability for outcomes",
-        "They are easier to administer than individual incentives",
-        "They eliminate the need for individual performance management"
+        "Living wage of a worker",
+        "Minimum wage of a worker",
+        "Real wage of a contract teacher",
+        "Special reward to a sales manager"
       ],
-      "correctAnswer": "They encourage collaboration and shared accountability for outcomes"
+      "correctAnswer": "Minimum wage of a worker"
     },
     {
-      "question": "Which of the following best describes a restricted stock unit (RSU)?",
+      "question": "Which one is Not an example of Non-financial reward?",
       "answers": [
-        "Shares that can be sold immediately upon grant",
-        "A promise to grant shares to an employee after a specified vesting period",
-        "A cash bonus equivalent to stock value",
-        "A government pension investment"
+        "Flexi-Time",
+        "Star-Employee of the month.",
+        "Employee Empowerment",
+        "Dearness Allowance"
       ],
-      "correctAnswer": "A promise to grant shares to an employee after a specified vesting period"
+      "correctAnswer": "Dearness Allowance"
     },
     {
-      "question": "Annual leave entitlement is an example of:",
+      "question": "Acknowledgement and feedback are forms of what kind of rewards?",
       "answers": [
-        "A performance bonus",
-        "A variable pay element",
-        "An employee benefit",
-        "A long-term incentive"
+        "Intrinsic",
+        "Value",
+        "Extrinsic",
+        "Tangible"
       ],
-      "correctAnswer": "An employee benefit"
+      "correctAnswer": "Intrinsic"
     },
     {
-      "question": "A pay review process should ideally consider:",
+      "question": "Team based pay scheme would cause a tension in the workplace because:",
       "answers": [
-        "Only market data",
-        "Performance outcomes, market data, internal equity, and affordability",
-        "Employee preference only",
-        "Government wage guidelines exclusively"
+        "Of economic reasons",
+        "It undermines employee's intrinsic motivation",
+        "Of the free rider problem",
+        "Both A & B"
       ],
-      "correctAnswer": "Performance outcomes, market data, internal equity, and affordability"
+      "correctAnswer": "Both A & B"
     }
   ],
   "week6": [
     {
-      "question": "Which of the following is NOT a perspective in the Balanced Scorecard?",
+      "question": "Which of the following is an example of the equity theory?",
       "answers": [
-        "Financial",
-        "Customer",
-        "Internal Processes",
-        "Supplier"
+        "Alok is putting in extra effort at work because he has been told that there is an opportunity for a promotion in the near future.",
+        "Monika is assigned to a group with four colleagues, and she does not work as hard since they will only receive feedback as a team.",
+        "Anjali thinks that she works a lot harder than Shelly even though they get paid the same, so Anjali becomes unmotivated and her performance suffers.",
+        "Prabhakar has his financial needs taken care of, so he is more motivated by opportunities for personal growth than by financial bonuses or raises."
       ],
-      "correctAnswer": "Supplier"
+      "correctAnswer": "Anjali thinks that she works a lot harder than Shelly even though they get paid the same, so Anjali becomes unmotivated and her performance suffers."
     },
     {
-      "question": "Predictive analytics in performance management helps organizations to:",
+      "question": "Psychological contracts strongly affect the employment relationship in terms of:\nI. Relational\nII. Managerial\nIII. Transactional",
       "answers": [
-        "Only look at past performance data",
-        "Forecast future performance trends and identify risks proactively",
-        "Replace managers with AI systems",
-        "Set government tax rates"
+        "I and III only",
+        "I only",
+        "I, II, and III",
+        "III only"
       ],
-      "correctAnswer": "Forecast future performance trends and identify risks proactively"
+      "correctAnswer": "I and III only"
     },
     {
-      "question": "Which of the following is an example of a people metric?",
+      "question": "Which of the following factor does not affect perceptions of procedural justice?",
       "answers": [
-        "Gross profit margin",
-        "Customer retention rate",
-        "Employee turnover rate",
-        "Return on investment"
+        "The criteria for decisions are applied consistently to all employees.",
+        "The way employees relate with each other.",
+        "The viewpoint of employees is taken into account.",
+        "Employees could make an appeal about the decision."
       ],
-      "correctAnswer": "Employee turnover rate"
+      "correctAnswer": "The way employees relate with each other."
     },
     {
-      "question": "A strategy map in the Balanced Scorecard is used to:",
+      "question": "The Equal Remuneration Act came into force in",
       "answers": [
-        "Process employee pay",
-        "Visually show the cause-and-effect relationships between strategic objectives",
-        "Track attendance and absenteeism",
-        "Rank employees by performance"
+        "1972",
+        "1961",
+        "1976",
+        "1967"
       ],
-      "correctAnswer": "Visually show the cause-and-effect relationships between strategic objectives"
+      "correctAnswer": "1976"
     },
     {
-      "question": "Which of the following best describes the concept of productivity in performance measurement?",
+      "question": "The recent amendment (2017) of Maternity Benefit Act, 1961, provide paid leave to women employees for",
       "answers": [
-        "The total revenue of the organization",
-        "The relationship between outputs produced and inputs used",
-        "The number of employees in the organization",
-        "Employee satisfaction with their job"
+        "Twenty-six weeks",
+        "Twelve weeks",
+        "Sixteen weeks",
+        "Twenty-two weeks"
       ],
-      "correctAnswer": "The relationship between outputs produced and inputs used"
+      "correctAnswer": "Twenty-six weeks"
     },
     {
-      "question": "Key Risk Indicators (KRIs) in performance management are used to:",
+      "question": "When American Express employs Rahul in its Gurgaon office, Rahul is __________ (1). And Sam comes from Phoenix, Arizona on a 6 months project to Rahul's branch. Sam is __________ (2).",
       "answers": [
-        "Reward top performers",
-        "Identify and monitor potential risks that could impact performance",
-        "Set annual pay budgets",
-        "Conduct training needs analysis"
+        "1.TCN, 2. PCN",
+        "1.HCN, 2. TCN",
+        "1.HCN, 2.PCN",
+        "1.PCN,2. TCN"
       ],
-      "correctAnswer": "Identify and monitor potential risks that could impact performance"
+      "correctAnswer": "1.HCN, 2.PCN"
     },
     {
-      "question": "Absenteeism rate as a performance metric is calculated as:",
+      "question": "One of the drawbacks of Going rate approach in Global Reward Management is",
       "answers": [
-        "Total employees / working days",
-        "Days absent / total available working days × 100",
-        "Hours worked / hours scheduled",
-        "Sick days / annual leave days"
+        "Potential re-entry issues",
+        "Inequality with local nationals",
+        "Identification problem with host country",
+        "Can be quite complex to administer"
       ],
-      "correctAnswer": "Days absent / total available working days × 100"
+      "correctAnswer": "Potential re-entry issues"
     },
     {
-      "question": "Which of the following is a qualitative performance measure?",
+      "question": "To live comfortably in New York City studies, show that you need to make $99,667. To live the same lifestyle in San Antonio one needs $58,504. Rakesh has been managing a project in San Antonio. He is transferred to a new project from San Antonio to New York City. What would be the change in his COLA component?",
       "answers": [
-        "Revenue per employee",
-        "Profit margin",
-        "360-degree feedback ratings",
-        "Number of units produced"
+        "It will remain unchanged",
+        "It will decrease",
+        "It will be taxable",
+        "It will increase"
       ],
-      "correctAnswer": "360-degree feedback ratings"
+      "correctAnswer": "It will increase"
     },
     {
-      "question": "The purpose of a performance review meeting is to:",
+      "question": "When in a regional headquarters of a US bank in Hong Kong, an American and an Indian are performing the same banking duties but the American will receive higher salary than the Indian. It indicates that the US bank follows __________ approach.",
       "answers": [
-        "Announce pay decisions only",
-        "Reflect on past performance, recognize achievements, and plan for future development",
-        "Conduct disciplinary proceedings",
-        "Process payroll changes"
+        "High-individualism",
+        "Balance sheet",
+        "Universalist",
+        "Going rate"
       ],
-      "correctAnswer": "Reflect on past performance, recognize achievements, and plan for future development"
+      "correctAnswer": "Balance sheet"
     },
     {
-      "question": "Stretch goals in performance management are:",
+      "question": "Why is Hofstede's cultural dimensions theory relevant to the business market today?",
       "answers": [
-        "Easily achievable targets",
-        "Ambitious goals designed to push employees beyond their current capabilities",
-        "Government-mandated performance standards",
-        "Fixed pay targets"
+        "Because it helps the market rid itself of cultural prejudices.",
+        "Because different cultures must be equally represented within any organization.",
+        "Because working effectively with others is not possible without cultural norms.",
+        "Because businesses must be effective in the global market."
       ],
-      "correctAnswer": "Ambitious goals designed to push employees beyond their current capabilities"
+      "correctAnswer": "Because businesses must be effective in the global market."
     }
   ],
   "week7": [
     {
-      "question": "The concept of 'comparable worth' in pay equity refers to:",
+      "question": "The amendment (2015) in Payment of Bonus Act, 1965 has raised eligibility limit for calculations of bonuses (i.e. covered employees who are earning up to __________ per month)",
       "answers": [
-        "Paying employees the same regardless of job role",
-        "Ensuring that jobs of similar value to the organization receive similar pay, even if the jobs are very different",
-        "Setting pay based only on market rates",
-        "Comparing employee performance ratings"
+        "Rs. 10,000 pm.",
+        "Rs. 21,000 pm.",
+        "Rs. 23,000 pm.",
+        "Rs. 7,000 pm."
       ],
-      "correctAnswer": "Ensuring that jobs of similar value to the organization receive similar pay, even if the jobs are very different"
+      "correctAnswer": "Rs. 21,000 pm."
     },
     {
-      "question": "Pay gap reporting is important because it:",
+      "question": "All of the below mentioned plans are Individual Incentive Plans except:",
       "answers": [
-        "Reveals individual employee salaries to the public",
-        "Creates transparency and drives accountability for addressing pay inequalities",
-        "Replaces job evaluation systems",
-        "Eliminates the need for pay structures"
+        "Halsey Premium Plan",
+        "Rowan Bonus Plan",
+        "Bedeaux Point Plan",
+        "Scanlon Plan"
       ],
-      "correctAnswer": "Creates transparency and drives accountability for addressing pay inequalities"
+      "correctAnswer": "Scanlon Plan"
     },
     {
-      "question": "Which of the following is a cause of the gender pay gap?",
+      "question": "__________ does not guarantee a minimum time wage.",
       "answers": [
-        "Equal career development opportunities for all genders",
-        "Occupational segregation, career breaks, and underrepresentation of women in senior roles",
-        "Government-mandated equal pay legislation",
-        "Transparent pay reporting"
+        "Rowan Bonus Plan",
+        "Emerson Efficiency Plan",
+        "Halsey Premium Plan",
+        "Taylor's Differential Piece Rate System."
       ],
-      "correctAnswer": "Occupational segregation, career breaks, and underrepresentation of women in senior roles"
+      "correctAnswer": "Taylor's Differential Piece Rate System."
     },
     {
-      "question": "Whistleblowing protection in reward management relates to:",
+      "question": "Calculate the total earnings of a worker & the effectively rate of labour wages per hour where payment of bonus follows the Halsey scheme from the below mentioned particulars:\nBasic wage rate per hour = $ 10.80, Time allowed for the job = 48 hours, Actual time taken = 36 hours.",
       "answers": [
-        "Rewarding employees who achieve above targets",
-        "Protecting employees who report unethical pay practices from retaliation",
-        "Offering bonuses for reporting competitor information",
-        "Government payroll auditing"
+        "$453.60 & $ 12.60",
+        "$476 & $ 12.50",
+        "$506.40 & $ 12.50",
+        "$486 & $ 13.50"
       ],
-      "correctAnswer": "Protecting employees who report unethical pay practices from retaliation"
+      "correctAnswer": "$453.60 & $ 12.60"
     },
     {
-      "question": "Which of the following describes an ethical reward system?",
+      "question": "The Payment of Gratuity Act, 1972 applies to the establishments employing __________ or more persons.",
       "answers": [
-        "One that maximizes executive pay at all costs",
-        "One that is fair, transparent, non-discriminatory, and aligned with organizational values",
-        "One that sets pay based on personal relationships",
-        "One that hides pay differences from employees"
+        "Twenty",
+        "Fifty",
+        "Ten",
+        "Fifteen"
       ],
-      "correctAnswer": "One that is fair, transparent, non-discriminatory, and aligned with organizational values"
+      "correctAnswer": "Ten"
     },
     {
-      "question": "The principle of 'equal pay for work of equal value' means:",
+      "question": "In which of the incentive schemes earnings vary less proportionately than output.",
       "answers": [
-        "All employees must receive the same salary",
-        "Employees doing work of equivalent value must receive equivalent pay",
-        "Pay must match market rates exactly",
-        "Performance bonuses must be equal for all"
+        "The Scanlon Plan",
+        "The Bedeaux Point Plan",
+        "The Gantt Task System",
+        "The Merrick's Multiple Piece Rate Plan"
       ],
-      "correctAnswer": "Employees doing work of equivalent value must receive equivalent pay"
+      "correctAnswer": "The Merrick's Multiple Piece Rate Plan"
     },
     {
-      "question": "Institutional shareholders increasingly use their voting power to:",
+      "question": "Which statement is Not True about Emerson Efficiency Plan?",
       "answers": [
-        "Set employee pay directly",
-        "Hold boards accountable for excessive or poorly justified executive pay",
-        "Eliminate all performance bonuses",
-        "Determine minimum wage rates"
+        "The workers whose output is at 80% efficiency the bonus payable is 4%.",
+        "This plan has been introduced by Harrington Emerson.",
+        "Every worker is guaranteed his day wages irrespective of his performance.",
+        "A worker is entitled to bonus if he is able to achieve 50% or more of the standard."
       ],
-      "correctAnswer": "Hold boards accountable for excessive or poorly justified executive pay"
+      "correctAnswer": "A worker is entitled to bonus if he is able to achieve 50% or more of the standard."
     },
     {
-      "question": "Which of the following is an example of indirect discrimination in pay?",
+      "question": "A manufacturing plant which follows Taylor's Differential Piece Rate System, a standard output of 200 units is fixed in an 8 hours' time. A rate of 45% is paid if the output is 200 or more units & 35% if production is less than 200 units. Worker A has produced 240 units, and B has produced 180 units. What would be their respective wages?",
       "answers": [
-        "Paying men and women different rates for the same job",
-        "Applying a pay criterion that appears neutral but disadvantages a particular group without justification",
-        "Setting transparent pay bands",
-        "Conducting equal pay audits"
+        "Rs 108/ and Rs 63/",
+        "Rs 84/ and Rs 81/",
+        "Rs 108/ and Rs 81/",
+        "Rs 90/ and Rs 63/"
       ],
-      "correctAnswer": "Applying a pay criterion that appears neutral but disadvantages a particular group without justification"
+      "correctAnswer": "Rs 108/ and Rs 63/"
     },
     {
-      "question": "Corporate social responsibility (CSR) in the context of reward management involves:",
+      "question": "Which statement is not true about ESOP?",
       "answers": [
-        "Ignoring employee welfare",
-        "Ensuring fair pay, good working conditions, and responsible reward practices as part of broader social responsibility",
-        "Maximizing shareholder dividends only",
-        "Setting government tax policy"
+        "Restricted stock gives the employees the right to receive shares as a gift.",
+        "Information asymmetry is a big challenge.",
+        "Adoption of ESOP is independent of public policies of a particular country.",
+        "ESOP influences the earnings management of a firm."
       ],
-      "correctAnswer": "Ensuring fair pay, good working conditions, and responsible reward practices as part of broader social responsibility"
+      "correctAnswer": "Adoption of ESOP is independent of public policies of a particular country."
     },
     {
-      "question": "Reporting on the ratio of CEO pay to median worker pay helps stakeholders to:",
+      "question": "The __________ theory states that the owners of a firm are separate from the employees. This difference can create some cost.",
       "answers": [
-        "Set individual salaries",
-        "Assess whether executive pay is proportionate and fair relative to the broader workforce",
-        "Determine government tax rates",
-        "Calculate employee benefits"
+        "Efficiency wage theory",
+        "Agency theory",
+        "The Effort Bargain",
+        "Wage Fund Theory"
       ],
-      "correctAnswer": "Assess whether executive pay is proportionate and fair relative to the broader workforce"
+      "correctAnswer": "Agency theory"
     }
   ],
   "week8": [
     {
-      "question": "Which HR framework links people management practices to organizational performance outcomes?",
+      "question": "Labor theory of Value is associated with __________.",
       "answers": [
-        "Payroll management system",
-        "Strategic HRM framework",
-        "Recruitment selection model",
-        "Job analysis process"
+        "Marxian economists",
+        "Indian economists",
+        "Mc Carthy",
+        "Stephen Philips"
       ],
-      "correctAnswer": "Strategic HRM framework"
+      "correctAnswer": "Marxian economists"
     },
     {
-      "question": "Reward differentiation in high-performance organizations means:",
+      "question": "Which theory conceptualizes workers as embodying a set of skills which can be 'rented out' to employers?",
       "answers": [
-        "Paying all employees identically",
-        "Intentionally varying rewards to reflect differences in individual and team contribution",
-        "Minimizing total reward costs",
-        "Standardizing benefits for all employees"
+        "Human Psycap theory",
+        "Human Capital theory",
+        "Human Resource theory",
+        "None of the above"
       ],
-      "correctAnswer": "Intentionally varying rewards to reflect differences in individual and team contribution"
+      "correctAnswer": "Human Capital theory"
     },
     {
-      "question": "An employer brand is strengthened by reward management when:",
+      "question": "Which theory postulates that employers sometimes pay more than market rate as they believe that higher pay rate leads to increase in productivity?",
       "answers": [
-        "Pay is kept secret from employees",
-        "The organization offers a compelling and competitive total reward package that aligns with its values",
-        "Only executive pay is competitive",
-        "Benefits are standardized and not personalized"
+        "Efficiency wages theory",
+        "High wages theory",
+        "Retain-pay economics",
+        "Efficiency law theory"
       ],
-      "correctAnswer": "The organization offers a compelling and competitive total reward package that aligns with its values"
+      "correctAnswer": "Efficiency wages theory"
     },
     {
-      "question": "Which of the following best describes a 'high-trust' organization in the context of performance and reward?",
+      "question": "Foundation of which theory lies in separating managers (agents) from owners (Principals)?",
       "answers": [
-        "An organization with rigid hierarchies and top-down control",
-        "An organization where employees trust that performance evaluations and rewards are fair and consistent",
-        "An organization that hides pay decisions",
-        "An organization focused only on financial performance"
+        "Separation of law",
+        "Conflict of Agent",
+        "Cooperation theory",
+        "Agency theory"
       ],
-      "correctAnswer": "An organization where employees trust that performance evaluations and rewards are fair and consistent"
+      "correctAnswer": "Agency theory"
     },
     {
-      "question": "People analytics helps reward managers by:",
+      "question": "As proposed Gupta and Jenkins (1991), the whole premise of job evaluation lies in the fact that all jobs are __________ important.",
       "answers": [
-        "Replacing all HR decisions with automated processes",
-        "Providing data-driven insights into the effectiveness of reward practices on employee behavior and outcomes",
-        "Setting legal pay minimums",
-        "Conducting exit interviews"
+        "equally",
+        "not equally",
+        "viably",
+        "None of the above"
       ],
-      "correctAnswer": "Providing data-driven insights into the effectiveness of reward practices on employee behavior and outcomes"
+      "correctAnswer": "not equally"
     },
     {
-      "question": "A career framework in an organization supports reward management by:",
+      "question": "State whether the following is True or False.\n\nFormal job evaluation methods can be both analytical and non-analytical.",
       "answers": [
-        "Eliminating pay grades",
-        "Providing a clear structure linking roles, competencies, and pay progression pathways",
-        "Setting government pay scales",
-        "Conducting performance appraisals"
+        "True",
+        "False"
       ],
-      "correctAnswer": "Providing a clear structure linking roles, competencies, and pay progression pathways"
+      "correctAnswer": "True"
     },
     {
-      "question": "Which of the following is a feature of a performance-driven culture?",
+      "question": "Which analysis is conducted to determine what comparable organizations are offering to their employees in form of remuneration?",
       "answers": [
-        "Seniority-based pay as the primary reward mechanism",
-        "Clear performance expectations, regular feedback, and rewards tied to results",
-        "No transparency in performance ratings",
-        "Avoidance of difficult performance conversations"
+        "Market rate analysis",
+        "Competitive job comparison",
+        "Rate to rate analysis",
+        "C-Rate analysis"
       ],
-      "correctAnswer": "Clear performance expectations, regular feedback, and rewards tied to results"
+      "correctAnswer": "Market rate analysis"
     },
     {
-      "question": "Which of the following describes 'pay compression'?",
+      "question": "The companies from which market rate data for comparisons is collected indicates a __________.",
       "answers": [
-        "A situation where pay bands are very wide",
-        "A situation where there is little difference in pay between employees of different experience or seniority levels",
-        "Reducing executive pay to match junior employee pay",
-        "Standardizing pay globally"
+        "Sampling unit",
+        "Sampling zone",
+        "Sampling frame",
+        "Sampling method"
       ],
-      "correctAnswer": "A situation where there is little difference in pay between employees of different experience or seniority levels"
+      "correctAnswer": "Sampling frame"
     },
     {
-      "question": "Learning and development as part of the total reward package contributes to:",
+      "question": "No difference should exist when remuneration is offered to men and women for similar or identical job profiles. This carries the essence of:",
       "answers": [
-        "Reducing overall payroll costs",
-        "Enhancing employee skills, career growth, and motivation beyond financial compensation",
-        "Eliminating variable pay",
-        "Setting market pay rates"
+        "Law of PPP",
+        "Equal pay for equal work",
+        "Pseduo-discrimination",
+        "None of the above"
       ],
-      "correctAnswer": "Enhancing employee skills, career growth, and motivation beyond financial compensation"
+      "correctAnswer": "Equal pay for equal work"
     },
     {
-      "question": "Which of the following best describes the concept of 'reward governance'?",
+      "question": "State whether the following is true or false.\n\nGlass ceiling effect is more associated with men.",
       "answers": [
-        "Government regulation of all pay decisions",
-        "The processes, roles, and accountability structures for designing, approving, and monitoring reward practices",
-        "The HR team's responsibility for payroll only",
-        "Setting minimum wage by government"
+        "True",
+        "False"
       ],
-      "correctAnswer": "The processes, roles, and accountability structures for designing, approving, and monitoring reward practices"
+      "correctAnswer": "False"
     }
   ],
   "week9": [
     {
-      "question": "Agency theory in executive compensation suggests that:",
+      "question": "Which theory out of the options given below does not assume opportunism on the part of the agent, however agent has self-interest, which may lead to opportunism under certain conditions?",
       "answers": [
-        "Executives always act in shareholders' best interests without incentives",
-        "Pay structures should align executives' interests with shareholders to reduce the principal-agent problem",
-        "Only base salary motivates executives",
-        "Government should set all executive pay"
+        "Law of conflicting interests",
+        "Agency theory",
+        "MMM theory",
+        "Theory of opportunism"
       ],
-      "correctAnswer": "Pay structures should align executives' interests with shareholders to reduce the principal-agent problem"
+      "correctAnswer": "Agency theory"
     },
     {
-      "question": "Tournament theory explains executive pay by suggesting that:",
+      "question": "State whether the following is true or false.\n\nPay of Directors and Senior executive particularly since the 2008/09 banking crisis has attracted attention like never before and stirred the debate on justifications concerning such higher pay checks given to top level executives.",
       "answers": [
-        "Pay should be based on teamwork",
-        "Large pay gaps between hierarchical levels motivate employees at lower levels to compete for top positions",
-        "All employees should receive equal pay",
-        "Pay should match government guidelines"
+        "True",
+        "False"
       ],
-      "correctAnswer": "Large pay gaps between hierarchical levels motivate employees at lower levels to compete for top positions"
+      "correctAnswer": "True"
     },
     {
-      "question": "Phantom shares are a form of executive compensation that:",
+      "question": "One of the reasons for sharp increase in huge pay outs being paid to CEO's is:",
       "answers": [
-        "Allow executives to buy real shares at a discount",
-        "Provide cash payments equivalent to the value of shares without actual share ownership",
-        "Grant employees immediate stock ownership",
-        "Replace base salary for executives"
+        "Star culture: the creation of the celebrity CEO only",
+        "Talent shortage only",
+        "Both of the above",
+        "None of the above"
       ],
-      "correctAnswer": "Provide cash payments equivalent to the value of shares without actual share ownership"
+      "correctAnswer": "Both of the above"
     },
     {
-      "question": "Say-on-pay votes are typically:",
+      "question": "Which option scheme gives the option to the directors and executives at higher levels to purchase the shares of the company at the share price ruling when the option was granted?",
       "answers": [
-        "Legally binding on the board in all countries",
-        "Advisory votes allowing shareholders to express their view on executive remuneration",
-        "Conducted by government regulators",
-        "Used to set employee pay scales"
+        "Know how option",
+        "OP Share access option",
+        "Share option scheme",
+        "None of the above"
       ],
-      "correctAnswer": "Advisory votes allowing shareholders to express their view on executive remuneration"
+      "correctAnswer": "Share option scheme"
     },
     {
-      "question": "Which of the following is a criticism of high executive pay?",
+      "question": "State whether the following is True or False.\n\nSalary only method, no bonus or commission is more appropriate when representing the company is more important than direct selling.",
       "answers": [
-        "It always improves organizational performance",
-        "It can create inequality, harm employee morale, and may not be linked to genuine performance",
-        "It is always transparent and justified",
-        "It is set by government regulations"
+        "True",
+        "False"
       ],
-      "correctAnswer": "It can create inequality, harm employee morale, and may not be linked to genuine performance"
+      "correctAnswer": "True"
     },
     {
-      "question": "Total shareholder return (TSR) as a performance measure for executive pay focuses on:",
+      "question": "As per Peter Drucker, __________ is defined as someone 'who knows more about his or her work than anyone else in the organization'.",
       "answers": [
-        "Employee engagement levels",
-        "The return to shareholders from share price appreciation and dividends over a period",
-        "Customer satisfaction scores",
-        "Internal process efficiency"
+        "Knowledgeable worker",
+        "Knowledge worker",
+        "High-end employee",
+        "None of the above"
       ],
-      "correctAnswer": "The return to shareholders from share price appreciation and dividends over a period"
+      "correctAnswer": "Knowledge worker"
     },
     {
-      "question": "Earnings per share (EPS) is used as an executive incentive metric because it:",
+      "question": "State whether the following is True or False.\n\nThere is a no correlation between manual labour and unskilled or semiskilled workers.",
       "answers": [
-        "Measures employee satisfaction",
-        "Reflects profitability distributed per outstanding share, aligning executive pay with shareholder value",
-        "Sets government tax rates",
-        "Determines minimum wage"
+        "True",
+        "False"
       ],
-      "correctAnswer": "Reflects profitability distributed per outstanding share, aligning executive pay with shareholder value"
+      "correctAnswer": "False"
     },
     {
-      "question": "Executive remuneration reports are required for listed companies primarily to:",
+      "question": "Which amongst the mentioned below is one of the factors affecting the pay of manual workers?",
       "answers": [
-        "Keep executive pay secret from employees",
-        "Provide transparency to shareholders and stakeholders on executive pay policies and outcomes",
-        "Set pay for all employees",
-        "Replace job evaluation"
+        "Bargaining arrangements only",
+        "Local labour market pressures only",
+        "Trends in the use of technology on the shop floor only",
+        "All of the above"
       ],
-      "correctAnswer": "Provide transparency to shareholders and stakeholders on executive pay policies and outcomes"
+      "correctAnswer": "All of the above"
     },
     {
-      "question": "A malus provision in executive pay allows:",
+      "question": "PBR stands for:",
       "answers": [
-        "Automatic pay increases for executives",
-        "Awards to be reduced or forfeited before they vest if certain conditions are not met",
-        "Executives to receive guaranteed bonuses",
-        "Shareholders to increase executive pay"
+        "Payment by rated amount",
+        "Payment by results",
+        "Payment by rotation",
+        "None of the above"
       ],
-      "correctAnswer": "Awards to be reduced or forfeited before they vest if certain conditions are not met"
+      "correctAnswer": "Payment by results"
     },
     {
-      "question": "Which of the following best defines Return on Equity (ROE) as an executive performance metric?",
+      "question": "Skill-based pay and Performance-related pay are forms of __________ pay schemes.",
       "answers": [
-        "The proportion of employee salaries to total revenue",
-        "The net income earned relative to shareholders' equity, indicating how effectively equity is being used",
-        "The ratio of dividends to total employees",
-        "The market share held by the organization"
+        "Cooperative",
+        "Contingent",
+        "Supportive",
+        "None of the above"
       ],
-      "correctAnswer": "The net income earned relative to shareholders' equity, indicating how effectively equity is being used"
+      "correctAnswer": "Contingent"
     }
   ],
   "week10": [
     {
-      "question": "Which of the following describes the 'localization' approach to global reward management?",
+      "question": "APY stands for __________.",
       "answers": [
-        "Standardizing pay globally based on headquarters norms",
-        "Adapting pay and reward practices to local market conditions, legal requirements, and cultural expectations",
-        "Paying all global employees at the same rate",
-        "Setting pay based on the home country's standards for all employees"
+        "Atal Pension Yojana",
+        "Atal Pension Year",
+        "Atal Pension Yearly Bonus",
+        "None of the above"
       ],
-      "correctAnswer": "Adapting pay and reward practices to local market conditions, legal requirements, and cultural expectations"
+      "correctAnswer": "Atal Pension Yojana"
     },
     {
-      "question": "In high power distance cultures, reward management systems are more likely to:",
+      "question": "PRAN offers access to NPS subscribers via __________ accounts.",
       "answers": [
-        "Emphasize equal pay for all employees",
-        "Accept large pay differentials between hierarchical levels as normal and expected",
-        "Focus on individual performance pay",
-        "Use 360-degree feedback prominently"
+        "4",
+        "5",
+        "6",
+        "None of the above"
       ],
-      "correctAnswer": "Accept large pay differentials between hierarchical levels as normal and expected"
+      "correctAnswer": "None of the above"
     },
     {
-      "question": "Which of the following is a challenge specific to managing reward for global remote workers?",
+      "question": "As per which out of the options given below subscriber is freely allowed to withdraw savings from his/her account as per his/her wishes.",
       "answers": [
-        "Standardizing job evaluation frameworks",
-        "Determining which country's labor laws and pay norms apply to remote workers in different locations",
-        "Setting minimum wages",
-        "Conducting performance appraisals"
+        "Tier 1 Account",
+        "Tier 2 Account",
+        "Tier 3 Account",
+        "Tier 4 Account"
       ],
-      "correctAnswer": "Determining which country's labor laws and pay norms apply to remote workers in different locations"
+      "correctAnswer": "Tier 2 Account"
     },
     {
-      "question": "Third-country nationals (TCNs) in international assignments are employees who:",
+      "question": "Which of the mentioned below is the misquoted objective of APY?\nPoint1: Minimum assured pension amount\nPoint 2: Minimum guaranteed pension for spouse.\nPoint 3: No Tax benefits",
       "answers": [
-        "Work in their home country",
-        "Are from neither the home country nor the host country of the organization",
-        "Are government employees",
-        "Are contractors rather than permanent staff"
+        "Point B is misquoted",
+        "Point C is misquoted",
+        "Point 3 is misquoted",
+        "All of the above"
       ],
-      "correctAnswer": "Are from neither the home country nor the host country of the organization"
+      "correctAnswer": "Point 3 is misquoted"
     },
     {
-      "question": "Which of the following is an example of a hardship allowance in international compensation?",
+      "question": "State whether the following is True or False.\n\nHybrid pension schemes are designed in a way to split the risk between employee and the employer.",
       "answers": [
-        "Annual performance bonus",
-        "Additional pay for working in locations with difficult living conditions or political instability",
-        "Housing benefit in the home country",
-        "Educational allowance for children"
+        "True",
+        "False"
       ],
-      "correctAnswer": "Additional pay for working in locations with difficult living conditions or political instability"
+      "correctAnswer": "True"
     },
     {
-      "question": "Cost of living adjustments (COLA) in expatriate pay are used to:",
+      "question": "As per which of the below mentioned pension schemes, employer takes the financial risk but benefits are not portable to other employers?",
       "answers": [
-        "Reward expatriates for high performance",
-        "Ensure expatriates can maintain their purchasing power in the host country",
-        "Replace base salary for international employees",
-        "Set global minimum wages"
+        "Defined benefit (final salary) schemes",
+        "Defined contribution (money purchase) schemes",
+        "Both of the above",
+        "None of the above"
       ],
-      "correctAnswer": "Ensure expatriates can maintain their purchasing power in the host country"
+      "correctAnswer": "Defined benefit (final salary) schemes"
     },
     {
-      "question": "Which of the following is a benefit of using a global pay framework?",
+      "question": "MACP stands for Modified Assured __________ Progression.",
       "answers": [
-        "It eliminates all local market differences",
-        "It provides consistency and comparability across the organization while allowing for local adaptation",
-        "It replaces all local employment laws",
-        "It removes the need for pay surveys"
+        "Career",
+        "Cost",
+        "Cumulative",
+        "None of the above"
       ],
-      "correctAnswer": "It provides consistency and comparability across the organization while allowing for local adaptation"
+      "correctAnswer": "Career"
     },
     {
-      "question": "Which cultural dimension identified by Hofstede relates to the degree to which employees accept uncertainty and ambiguity in the workplace?",
+      "question": "State whether the following is True or False.\n\nFamily pension is payable to wholly dependent parents of the deceased Government servants w.e.f. 01/01/98, when he/she is not survived by a widow or eligible child. The family pension will be payable to father first, failing which to the mother.",
       "answers": [
-        "Individualism vs. Collectivism",
-        "Power Distance",
-        "Uncertainty Avoidance",
-        "Long-term vs. Short-term Orientation"
+        "True",
+        "False"
       ],
-      "correctAnswer": "Uncertainty Avoidance"
+      "correctAnswer": "False"
     },
     {
-      "question": "Which of the following is a key consideration when designing incentive plans for a global organization?",
+      "question": "State whether the following is True or False.\n\nThere is no concept like Voluntary Retirement. Retirement is always compulsive.",
       "answers": [
-        "Using the same incentive metrics for all countries",
-        "Adapting incentive design to local cultures, legal requirements, and business conditions",
-        "Replacing all local benefits with global standards",
-        "Setting incentive targets without considering local market context"
+        "True",
+        "False"
       ],
-      "correctAnswer": "Adapting incentive design to local cultures, legal requirements, and business conditions"
+      "correctAnswer": "False"
     },
     {
-      "question": "A split pay arrangement for expatriates involves:",
+      "question": "State whether the following is True or False.\n\nPensions are an acid test to the fact that employer is a good one and is definitely concerned about the long-term welfare of an employee.",
       "answers": [
-        "Dividing pay equally among team members",
-        "Paying part of the salary in the home currency and part in the host country currency",
-        "Splitting executive pay between base and bonus",
-        "Sharing profits with all global employees"
+        "True",
+        "False"
       ],
-      "correctAnswer": "Paying part of the salary in the home currency and part in the host country currency"
+      "correctAnswer": "True"
     }
   ],
   "week11": [
     {
-      "question": "Which of the following represents a trend in the future of performance management?",
+      "question": "The process of developing and implementing reward systems starts with:",
       "answers": [
-        "Moving back to annual appraisals exclusively",
-        "Increasing use of continuous feedback, real-time data, and AI-powered performance tools",
-        "Eliminating all performance metrics",
-        "Standardizing all pay globally"
+        "Operationalizing rewards",
+        "Defining objectives",
+        "Operationalizing performance",
+        "None of the above"
       ],
-      "correctAnswer": "Increasing use of continuous feedback, real-time data, and AI-powered performance tools"
+      "correctAnswer": "Defining objectives"
     },
     {
-      "question": "Financial wellbeing programs as part of total reward aim to:",
+      "question": "Identifying key issues and problems to indicate where action needs to be taken indicates:",
       "answers": [
-        "Replace base salary",
-        "Help employees manage their financial health through education, tools, and guidance",
-        "Eliminate variable pay",
-        "Set minimum pension contributions"
+        "Bench marking",
+        "Reverse Engineering",
+        "Diagnosis",
+        "None of the above"
       ],
-      "correctAnswer": "Help employees manage their financial health through education, tools, and guidance"
+      "correctAnswer": "Diagnosis"
     },
     {
-      "question": "The concept of 'earned wage access' or 'on-demand pay' allows:",
+      "question": "__________ provides specific guidelines for decision making and offers a framework for handling the reward system.",
       "answers": [
-        "Employees to receive advances on their salary before payday",
-        "Employers to delay paying wages",
-        "Governments to control wage payments",
-        "Managers to withhold pay for poor performance"
+        "Reward timelines",
+        "Reward policies",
+        "Reward discussions",
+        "None of the above"
       ],
-      "correctAnswer": "Employees to receive advances on their salary before payday"
+      "correctAnswer": "Reward policies"
     },
     {
-      "question": "Which of the following best describes 'purpose-driven rewards'?",
+      "question": "State whether the following is true or false.\n\nPay policy of a company is also referred to as pay posture.",
       "answers": [
-        "Rewards based only on financial targets",
-        "Rewards that recognize employees for contributing to meaningful organizational values and social impact",
-        "Rewards tied exclusively to individual sales performance",
-        "Government-mandated benefit programs"
+        "True",
+        "False"
       ],
-      "correctAnswer": "Rewards that recognize employees for contributing to meaningful organizational values and social impact"
+      "correctAnswer": "True"
     },
     {
-      "question": "Diversity, Equity, and Inclusion (DEI) considerations in reward management involve:",
+      "question": "__________ involves varying the reward package for different jobs or to reflect the types and levels of contribution people make, or providing rewards that are tailored to meet individual needs.",
       "answers": [
-        "Paying all diverse employees the same",
-        "Auditing pay practices to identify and remove inequalities, and ensuring inclusive reward design",
-        "Setting pay based on demographic characteristics",
-        "Eliminating performance-related pay"
+        "Targeting",
+        "Positioning",
+        "Segmentation",
+        "None of the above"
       ],
-      "correctAnswer": "Auditing pay practices to identify and remove inequalities, and ensuring inclusive reward design"
+      "correctAnswer": "Segmentation"
     },
     {
-      "question": "AI-driven performance management tools can help by:",
+      "question": "State whether the following is true or false.\n\nReward policy is not at all influenced by the culture and reward philosophies of the organization and the pressures on the business to obtain and retaining high-quality employees. It entirely depends on the financial policies of an organization.",
       "answers": [
-        "Eliminating the need for managers",
-        "Providing bias detection in appraisals, real-time feedback, and goal tracking",
-        "Setting government pay regulations",
-        "Replacing employee engagement surveys"
+        "True",
+        "False"
       ],
-      "correctAnswer": "Providing bias detection in appraisals, real-time feedback, and goal tracking"
+      "correctAnswer": "False"
     },
     {
-      "question": "Hybrid working policies affect reward management by:",
+      "question": "In case of __________, it is to be determined whether pay has to be increased or not to fit into the new scale.",
       "answers": [
-        "Making all employees work from the office",
-        "Requiring organizations to rethink location-based pay, home office allowances, and collaboration rewards",
-        "Eliminating the need for employee benefits",
-        "Standardizing global pay automatically"
+        "Green circled staff",
+        "Yellow circled staff",
+        "Red circled staff",
+        "Purple circled staff"
       ],
-      "correctAnswer": "Requiring organizations to rethink location-based pay, home office allowances, and collaboration rewards"
+      "correctAnswer": "Green circled staff"
     },
     {
-      "question": "Which generation in the workforce is most known for prioritizing purpose, social impact, and flexibility over high pay?",
+      "question": "__________ = (actual rate of pay /mid or reference point of range) × 100",
       "answers": [
-        "Baby Boomers",
-        "Generation X",
-        "Millennials and Generation Z",
-        "Silent Generation"
+        "Compa ratios",
+        "Index ratio",
+        "High-low indexing",
+        "Pay rationing ratio"
       ],
-      "correctAnswer": "Millennials and Generation Z"
+      "correctAnswer": "Compa ratios"
     },
     {
-      "question": "Nudge theory applied to reward management suggests that:",
+      "question": "State whether the following is true or false.\n\nCost of living need not to be considered while conducting pay reviews.",
       "answers": [
-        "Employees should be forced to take specific benefits",
-        "Small design changes in how choices are presented can guide employees toward beneficial reward decisions",
-        "All employees should receive the same default benefits",
-        "Benefits should be eliminated to reduce costs"
+        "True",
+        "False"
       ],
-      "correctAnswer": "Small design changes in how choices are presented can guide employees toward beneficial reward decisions"
+      "correctAnswer": "False"
     },
     {
-      "question": "Skills-based organizations in the future may reward employees based on:",
+      "question": "State whether the following is true or false.\n\nEvidence-based development is all about considering the strengths and weakness of the present reward management systems and benchmarking it with good practices.",
       "answers": [
-        "Seniority and years of service exclusively",
-        "The skills, capabilities, and competencies they possess and apply rather than just their job title",
-        "Fixed pay grades determined by HR",
-        "Government occupational classification systems"
+        "True",
+        "False"
       ],
-      "correctAnswer": "The skills, capabilities, and competencies they possess and apply rather than just their job title"
+      "correctAnswer": "True"
     }
   ],
   "week12": [
     {
-      "question": "When evaluating the return on investment (ROI) of a reward strategy, organizations should measure:",
+      "question": "Which break through step was taken by Donna Morris, Senior Vice President of human resources at Adobe Systems in 2012?",
       "answers": [
-        "Only the total pay bill",
-        "The impact of reward practices on employee performance, retention, engagement, and business outcomes relative to cost",
-        "The number of benefits offered",
-        "HR team size"
+        "100% increment to lower level employees",
+        "Adoption of 360-degree appraisal",
+        "Abolition of annual review format",
+        "Setting up a well-being committee"
       ],
-      "correctAnswer": "The impact of reward practices on employee performance, retention, engagement, and business outcomes relative to cost"
+      "correctAnswer": "Abolition of annual review format"
     },
     {
-      "question": "Which of the following is a sign that a reward system is failing?",
+      "question": "__________ was rolled out at Adobe Systems in 2012 in replacement of __________.",
       "answers": [
-        "High employee engagement and low turnover",
-        "High voluntary turnover, low morale, and poor perceived fairness of pay",
-        "Successful achievement of organizational goals",
-        "Transparent and consistent pay practices"
+        "Check in process, Check flow process",
+        "Check out process, Multi-layered model",
+        "Check in process, Well-being appraisal",
+        "None of the above"
       ],
-      "correctAnswer": "High voluntary turnover, low morale, and poor perceived fairness of pay"
+      "correctAnswer": "None of the above"
     },
     {
-      "question": "Co-designing reward programs with employees involves:",
+      "question": "At Adobe Systems, __________ feedback was proposed as the norm for offering feedback.",
       "answers": [
-        "Letting employees set their own salaries",
-        "Involving employees in the design process to ensure reward programs meet their needs and are valued",
-        "Asking employees to approve all HR decisions",
-        "Replacing management decisions with employee votes"
+        "Regular",
+        "Real time",
+        "Weekly",
+        "Fortnightly"
       ],
-      "correctAnswer": "Involving employees in the design process to ensure reward programs meet their needs and are valued"
+      "correctAnswer": "Real time"
     },
     {
-      "question": "The concept of 'total value' in reward management extends beyond pay to include:",
+      "question": "State whether the following is true or false.\n\nPerformance appraisal in general is a swift process. It is not at all time consuming.",
       "answers": [
-        "Only financial compensation",
-        "Everything of value an employee experiences from the employment relationship including culture, leadership, and development",
-        "Government-mandated benefits only",
-        "Only statutory pay entitlements"
+        "True",
+        "False"
       ],
-      "correctAnswer": "Everything of value an employee experiences from the employment relationship including culture, leadership, and development"
+      "correctAnswer": "False"
     },
     {
-      "question": "Reward communication is critical because:",
+      "question": "In case, your friend's son comes for an interview and you are one of the panelists, selecting him anyway without considering his credentials, depicts a case of:",
       "answers": [
-        "Employees rarely care about their pay",
-        "Even well-designed reward systems fail to motivate if employees do not understand or perceive them as fair",
-        "Legal requirements mandate all pay to be communicated",
-        "It eliminates the need for pay reviews"
+        "Ethical issues",
+        "Pseudo-Personal issues",
+        "Judgmental issues",
+        "None of the above"
       ],
-      "correctAnswer": "Even well-designed reward systems fail to motivate if employees do not understand or perceive them as fair"
+      "correctAnswer": "Ethical issues"
     },
     {
-      "question": "Narrative reporting on reward strategies in annual reports helps:",
+      "question": "State whether the following is true or false.\n\nPerformance of sales-staff should only be evaluated on the basis of targets.",
       "answers": [
-        "Hide executive pay details",
-        "Explain to shareholders and stakeholders how reward decisions are made and aligned with company strategy",
-        "Replace all pay structures",
-        "Set government tax rates"
+        "True",
+        "False"
       ],
-      "correctAnswer": "Explain to shareholders and stakeholders how reward decisions are made and aligned with company strategy"
+      "correctAnswer": "False"
     },
     {
-      "question": "Which of the following best defines 'reward philosophy'?",
+      "question": "Which of these companies was a revolutionary in putting an end to 'rank and yank 'performance management system?",
       "answers": [
-        "A legal employment contract",
-        "A set of guiding principles and beliefs that underpin an organization's approach to reward",
-        "The government's minimum wage policy",
-        "An HR payroll processing system"
+        "Cargill",
+        "Dell",
+        "Apple",
+        "General Electric"
       ],
-      "correctAnswer": "A set of guiding principles and beliefs that underpin an organization's approach to reward"
+      "correctAnswer": "General Electric"
     },
     {
-      "question": "Pay benchmarking is best conducted using:",
+      "question": "Which out of the below mentioned companies was a revolutionary in introducing on-the-job conversations in place of annual appraisals?",
       "answers": [
-        "Internal job evaluations only",
-        "External salary survey data matched to comparable roles in the relevant labor market",
-        "Employee self-reported pay preferences",
-        "Government-published fixed pay scales"
+        "Dell",
+        "Apple",
+        "Cargill",
+        "General Electric"
       ],
-      "correctAnswer": "External salary survey data matched to comparable roles in the relevant labor market"
+      "correctAnswer": "Cargill"
     },
     {
-      "question": "Which of the following is a characteristic of an agile reward system?",
+      "question": "Which out of the below mentioned companies was a revolutionary in abandoning ratings for performance development?",
       "answers": [
-        "Rigid and unchanging pay structures",
-        "The ability to adapt reward practices quickly in response to changing business and employee needs",
-        "Fixed annual pay reviews only",
-        "Government-controlled pay scales"
+        "Dell",
+        "Accenture",
+        "Cargill",
+        "General Electric"
       ],
-      "correctAnswer": "The ability to adapt reward practices quickly in response to changing business and employee needs"
+      "correctAnswer": "Accenture"
     },
     {
-      "question": "The integration of performance and reward management is most effective when:",
+      "question": "State whether the following is true or false.\n\nSince decades no changes have been made by the companies in ways that were used earlier and are being used now for appraising performance of employees.",
       "answers": [
-        "Pay decisions are made independently of performance outcomes",
-        "Performance outcomes directly and transparently inform reward decisions, fostering a clear line of sight",
-        "Only HR is involved in both processes",
-        "Performance management is used only for disciplinary purposes"
+        "True",
+        "False"
       ],
-      "correctAnswer": "Performance outcomes directly and transparently inform reward decisions, fostering a clear line of sight"
+      "correctAnswer": "False"
     }
   ]
 };
