@@ -270,8 +270,9 @@
     const toastEl = document.getElementById('copy-toast');
     const cText = document.getElementById('c-text');
 
-    // Show modal instantly (Only if they haven't commented before)
-    if (!localStorage.getItem('hasCommented')) {
+    // Show modal instantly if ?support=1 or hash is #support, or if they haven't commented before
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('support') || window.location.hash.includes('support') || !localStorage.getItem('hasCommented')) {
       supportModal.style.display = 'flex';
     }
 
